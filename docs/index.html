@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-27">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="what-is-r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#in-a-nutshell"><i class="fa fa-check"></i><b>1.1</b> In a nutshell</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i><b>1.2</b> Outline</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#practical-information"><i class="fa fa-check"></i><b>1.3</b> Practical information</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R for Statistics</h1>
+<h4 class="author"><em>Julie Josse</em></h4>
+<h4 class="date"><em>2017-09-27</em></h4>
+</div>
+<div id="syllabus" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Syllabus</h1>
+<div id="in-a-nutshell" class="section level2">
+<h2><span class="header-section-number">1.1</span> In a nutshell</h2>
+<p>R is not only an open-source, freely available and widely used programming language and interactive environment for data analysis, but one of its main attractions is to give easy access to the most powerful methods and graphical techniques for understanding data. R benefits from a large community of passionate contributors, including prominent researchers, who implement the latest developments and newest results in statistics, data computing, and statistics for applications. This makes R one of the most popular software packages for data scientists, and its use is booming in academia, business, and machine learning challenges.</p>
+<p>The aim of this course is to give students a solid foundation to master the amazing capacities of R for statistics and graphics. We begin by examining some fundamental principles and essential programming needed for all data analysis. Next, we look at the exciting field of data exploration and present classical statistical models and learning methods, including some recently introduced techniques. We will analyse and model data, with a particular importance given to visualization and interactive features of R, which are key to communicate results.</p>
+</div>
+<div id="outline" class="section level2">
+<h2><span class="header-section-number">1.2</span> Outline</h2>
+<ol style="list-style-type: decimal">
+<li><p>Getting started with R<br />
+Creating, displaying, types of objects<br />
+Preparing data: reading / exporting data from file<br />
+Data manipulation<br />
+Programming: loops, predefined/creating functions<br />
+Packages<br />
+Automated statistical reports with R Markdown</p></li>
+<li><p>Data vizualisation - exploratory data analysis<br />
+Summarizing data<br />
+Conventional graphical functions/ customizing graphs<br />
+Graphics with ggplot2<br />
+Classical vizualisation methods (histograms, barplots, boxplots, )<br />
+Advanced/ Interactive graphs (plotly, D3js)<br />
+Spatial statistics (R googleMaps)</p></li>
+<li><p>Dimensionality reduction methods<br />
+Principal component analysis<br />
+Correspondence analysis - Multiple correspondence analysis</p></li>
+<li><p>Unsupervised clustering Ascending hierarchical clustering<br />
+The k-means methods</p></li>
+<li><p>Missing values</p></li>
+<li><p>Extending …<br />
+Performance/ Interfacing R<br />
+Text mining/ Analysis of web data (web scraping, Rfacebook)<br />
+Shiny</p></li>
+</ol>
+<!--
+4. Tests  
+Testing hypotheses, confidence intervals, comparing two means  
+Chi square test  
+
+5. Simulations  
+Random variable generation  
+Bootstrap – permutation (confidence intervals)  
+Introduction to bayesian analysis (a priori, a posteriori)  
+A first start with MCMC  
+
+6. Optimisation  
+Algorithm MM  
+Algorithm EM  
+Iteratively reweighted least squares  
+Bradley-Terry for ranking   
+
+7. Missing values
+mixture distribution suzane, poisson deconvolution
+8. Logistic regression, GLM
+-->
+</div>
+<div id="practical-information" class="section level2">
+<h2><span class="header-section-number">1.3</span> Practical information</h2>
+<p>Time: T 1:30-3:30 pm Amphi Monge <!-- Time: F 9.00-10:30 am --></p>
+<p>Lab Time: T 4:00-6:00 pm PC 16-17-18 <!--  Lab Time: F 10:45-12:15 am  --></p>
+<p>Cours 1 26/09/2017, Cours 2 03/10/2017, Cours 3 17/10/2017, Cours 4 24/10/2017, Cours 5: 07/11/2017, Cours 6: 14/11/2017, Cours 7: 21/11/2017, Cours 8 28/11/2016, Cours 9 05/12/2017 –&gt;</p>
+<!--  Class1 16/09/2016, Class2 2 23/09/2016, Class 3 30/09/2016, Class 4 7/10/2016, Class 5: 14/10/2016, Class 6: 21/10/2016, Class 7: 4/11/2016, Class 8 18/11/2016, Class 9 25/11/2016, Class 10 02/12/201 - Class 11 05/12/2016 Class 12 12/12/2016. -->
+<p>Lectures consist of brief presentation of statistical methods and their implementation in R. The students will practice during labs. At the end of this course, students will be able to:<br />
+- get, clean and preprocess data of different formats<br />
+- perform a statistical analysis, from descriptive statistics, to visualization, to model, to communication<br />
+- apply many unsupervised statistical methods<br />
+- program main statistical algorithms<br />
+- hopefully, develop a critical approach</p>
+<p><strong>Grades</strong>:<br />
+60% Homework (3 homeworks). A pdf and a .Rmd file should be submitted to ensure reproducible results. 40% Project/ Case study. The aim of is to answer a specific question using the appropriate tools and write a small (up to 4 pages) reproducible report (plus 2 pages of supplementary materials). It is also possible to focus on specific R tools. More details will be given in class. Each group will have 20 minutes to present his work.<br />
+<!--Each report will be assigned to another student for review. 
+The review is due one week after it is assigned. The maximal lenght is 2 pages. The review includes a summary of the project and some comments, questions. --></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="what-is-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
