@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="getting-started-with-r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="what-is-r" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> What is R?</h1>
+<p>R is closely related to the language S which is a language developed by John Chambers, Rick Beckers (and, later, Alan Wilks) along with Doug Dunn, Jean McRae, and Judy Schilling at the Bell Labs. <a href="https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/Forty-years-of-S">See the video of 40 years of S at the useR!2016 conference</a>. S was initiated in 1976 as an internal interactive statistical analysis environment to quickly analyse, model and represent data. <!--It was first implemented in FORTRAN then rewritten in the C language.--><br />
+It has the great advantage that it can be easily extended by users while developing more skills. The influential book “Statistical Models in S” by John Chambers and Trevor Hastie (1991) can still be used as a reference to perform statistical analysis in R.</p>
+<p>Then, follows a series of acquisitions (Insightful, Lucent, Alcatel-Lucent…). Insightful developed a product S-PLUS which was a implementation of the S language with new features such as a GUI. In 2008, TIBCO (Business Analytics compagny) acquired the Insightful Corporation.</p>
+<p>R as we use it, was created in 1991 by Ross Ihaka and Robert Gentleman (R &amp; R) at the University of Auckland (New Zealand). In 1995, Martin Maechler convinced Ross and Robert to establish R as an open source project (under the GNU General Public License). Since 1997, the R project has been managed by the R Core Group (around 20 people) which controls the source code. In February 2000, R 1.0.0 was released. More details can be found in this <a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/Interface98.pdf">paper</a> by Ross Ihaka on R history.</p>
+<p>R can be defined as a free software environment for statistical computing and graphics which runs on any operating system Mac, Windows, Linux. Its use is widespread in many different fields of application, in research, by academia, industries, institutes (Google, Facebook, <a href="https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/Transforming-a-museum-to-be-data-driven-using-R">British Museum</a>, <a href="http://datastori.es/ds-56-amanda-cox-nyt/">New York Times</a> with amazing graphics!, <a href="http://fivethirtyeight.com/">fivethirstyeight</a>, etc..). It is one of the favorite software of data scientists, widely used in Kaggle competions (<a href="https://www.youtube.com/watch?v=lx_iDU4EVv4">see the interview by Anthony Goldbloom</a>). Its success can be credited to the community which is very active and vibrant (many <a href="http://www.meetup.com/fr-FR/rparis/">meetup</a>, <a href="https://rladies.org/">R groups</a>, R conferences](<a href="https://www.r-project.org/conferences.html" class="uri">https://www.r-project.org/conferences.html</a>), mailing lists, stackoverflows, <a href="https://www.r-bloggers.com/">R bloggers</a>, etc..).<br />
+One important feature is that users contribute, it is a collaborative project which constantly evolves. People can contribute by developing R packages (libraries of functions) that are not controlled but should meet a certain level of quality (documentation, tests). More than 11127 available packages have been developed by users and programmers all around the world (plus the bioconductor project which gathers many packages related to genomics, microarrays data analysis). It ensures that latest research results are implemented and made available for users (who can look at the code since it is open source). The <a href="https://cran.r-project.org/web/views/">R Task View</a> clusters the packages by topics. Some packages have an associated publication often in <a href="https://www.jstatsoft.org/index">Journal of Statistical Software</a> where both the methods and code are reviewed.</p>
+<p>R is an open-source software, used both by academia and business, how are its maintenance and development funded ? Many companies and organisations (technology companies, hedge funds, philanthropic organisations, etc.) have an interest in the development of new tools in R and in the growth of the community of users, because they are dependent on the R software. They founded the R consortium to promote the expansion of the R ecosystem. It is a group of business and philanthropic enterprises which provide money to fund R projects (R-ladies, API for Distributed Computing, etc.), as well as manpower and infrastructure to organise meetings between users and companies. This system benefits private users through fundings and the companies through the improvement of the R software. For more information about the R ecosystem you can check the presentation of David Smith (link between Microsoft and R) in this <a href="https://channel9.msdn.com/Events/useR-international-R-User-conferences/useR-International-R-User-2017-Conference/How-the-R-Consortium-is-Supporting-the-R-Community">video</a>.</p>
+<p>Of course, R has drawbacks, it is not designed to be the unique tool fitted for any problems but it has the good feature of easily communicating with other languages, software, etc.</p>
+<p>There are numerous ressources on R that can be found at the <a href="http://cran.r-project.org/">R home page</a>. Many books are also available either on general or specialized topics (such as on the amazing graphics capabilities, on programming, on spatial statistics, bayesian statistics, etc); many of them are published under some special series such as SpringeR.</p>
+<p>We should conclude this introduction on R by these two quotes from J. Chambers:</p>
+<p>“The role of R is not just as a programming language or an interactive environment for data analysis. It provides both of these, but I believe its most transformative role has been when individuals and groups add their own contribution, extending R”. (Extending R, 2016).</p>
+<p>“The best future for R is the one of variety not uniformity.” (useR!2014 conference, UCLA).</p>
+<p>Another related question that you should think about is “what is data science?” My recommandation, is to have a look at David Donoho’s paper: <a href="http://courses.csail.mit.edu/18.337/2015/docs/50YearsDataScience.pdf">50 years of data science</a> that he wrote for John Tukey centennial, one of the father of exploratory data analysis. I also came to these slides that I like:</p>
+<p><img src="pic/datascience1.png" width="75%" angle=180 style="display: block; margin: auto;" /><img src="pic/datascience2.png" width="75%" angle=180 style="display: block; margin: auto;" /> <embed src="pic/datascientist.pdf" width="100%" style="display: block; margin: auto;" type="application/pdf" /></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-started-with-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Intro.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

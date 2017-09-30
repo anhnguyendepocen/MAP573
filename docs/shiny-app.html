@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="handling-missing-values.html">
+<link rel="next" href="ref.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a><ul>
+<li class="chapter" data-level="12.1" data-path="shiny-app.html"><a href="shiny-app.html#lecture"><i class="fa fa-check"></i><b>12.1</b> Lecture</a></li>
+<li class="chapter" data-level="12.2" data-path="shiny-app.html"><a href="shiny-app.html#lab-representation-of-the-results-of-election-in-usa-since-1789"><i class="fa fa-check"></i><b>12.2</b> Lab: Representation of the results of election in USA since 1789</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="shiny-app" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Shiny App</h1>
+<div id="lecture" class="section level2">
+<h2><span class="header-section-number">12.1</span> Lecture</h2>
+</div>
+<div id="lab-representation-of-the-results-of-election-in-usa-since-1789" class="section level2">
+<h2><span class="header-section-number">12.2</span> Lab: Representation of the results of election in USA since 1789</h2>
+<ol style="list-style-type: decimal">
+<li>Import the data data_us_presidential_elections.txt and data_electoral_votes.txt. Create a data set data_result that merge both data.</li>
+</ol>
+<p>The map of the US can be obtained as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## LOAD PACKAGES ####
+<span class="kw">library</span>(ggplot2)       <span class="co"># Need for 48 states map </span>
+<span class="kw">library</span>(mapproj) </code></pre></div>
+<pre><code>## Loading required package: maps</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get map - continental 48 states version</span>
+states =<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;state&quot;</span>) 
+<span class="kw">head</span>(states)</code></pre></div>
+<pre><code>##        long      lat group order  region subregion
+## 1 -87.46201 30.38968     1     1 alabama      &lt;NA&gt;
+## 2 -87.48493 30.37249     1     2 alabama      &lt;NA&gt;
+## 3 -87.52503 30.37249     1     3 alabama      &lt;NA&gt;
+## 4 -87.53076 30.33239     1     4 alabama      &lt;NA&gt;
+## 5 -87.57087 30.32665     1     5 alabama      &lt;NA&gt;
+## 6 -87.58806 30.32665     1     6 alabama      &lt;NA&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(states)</code></pre></div>
+<pre><code>##       long              lat            group           order      
+##  Min.   :-124.68   Min.   :25.13   Min.   : 1.00   Min.   :    1  
+##  1st Qu.: -96.22   1st Qu.:33.91   1st Qu.:15.00   1st Qu.: 3899  
+##  Median : -87.61   Median :38.18   Median :26.00   Median : 7794  
+##  Mean   : -89.67   Mean   :38.18   Mean   :30.15   Mean   : 7798  
+##  3rd Qu.: -79.13   3rd Qu.:42.80   3rd Qu.:47.00   3rd Qu.:11699  
+##  Max.   : -67.01   Max.   :49.38   Max.   :63.00   Max.   :15599  
+##     region           subregion        
+##  Length:15537       Length:15537      
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+## </code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>It contains for each state (region) its latitude, longitude. The variable group corresponds to the subregions. First, you should transform the variables region and subregion as factors and create a data data_plot by merging the states data to the data_us_presidential_elections.txt data.</p></li>
+<li><p>First, we build a map for year 2012. To do so, you can use ggplot on the data_plot data by specifying in the argument aes<br />
+the longitude for x the latitude for y<br />
+and the group variable for group<br />
+and then by using the geom_polygon function. Color each state according to the winner of the election.</p></li>
+</ol>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Give for the year 2012 a table with the number of votes for each party:</li>
+</ol>
+<pre><code>##   Group.1   x
+## 1       D 332
+## 2       R 206</code></pre>
+<p>The R package tidyverse created by Hadley Wickam contains a set of packages such as dplyr that can be useful to manipulate data. However, they use the syntax with the pipe operator <code>%&gt;%</code>. “Pipes are a powerful tool for clearly expressing a sequence of multiple operations”. You can have a look at this <a href="http://r4ds.had.co.nz/pipes.html">webpage</a> for more information.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) </code></pre></div>
+<pre><code>## Loading tidyverse: tibble
+## Loading tidyverse: tidyr
+## Loading tidyverse: readr
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr</code></pre>
+<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
+<pre><code>## filter(): dplyr, stats
+## lag():    dplyr, stats
+## map():    purrr, maps</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 148.4132</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="kw">exp</span>(<span class="dv">5</span>))</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> %&gt;%<span class="st"> </span><span class="kw">exp</span>()</code></pre></div>
+<pre><code>## [1] 148.4132</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> %&gt;%<span class="st"> </span><span class="kw">exp</span>() %&gt;%<span class="st"> </span><span class="kw">log</span>()</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>It works as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) 
+
+## MAKE TABLE SUMMARY OF ELECTION RESULT ####
+data_sum =<span class="st"> </span>data_result %&gt;%
+<span class="st">  </span><span class="co"># Focus on one specific year</span>
+<span class="st">  </span><span class="kw">filter</span>(year ==<span class="st"> </span><span class="dv">2012</span>) %&gt;%
+<span class="st">  </span><span class="co"># Aggregate by each party in that election year</span>
+<span class="st">  </span><span class="kw">group_by</span>(party_winner) %&gt;%
+<span class="st">  </span><span class="co"># Compute total number of votes for each party</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">total_votes =</span> <span class="kw">sum</span>(num_electoral_votes, <span class="dt">na.rm =</span> T))
+
+<span class="co"># Details:</span>
+ff &lt;-<span class="st"> </span><span class="kw">filter</span>(data_result, year ==<span class="st"> </span><span class="dv">2012</span>)
+gg &lt;-<span class="kw">group_by</span>(ff, party_winner)
+<span class="kw">summarise</span>(gg, <span class="kw">sum</span>(num_electoral_votes)) </code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##   party_winner `sum(num_electoral_votes)`
+##         &lt;fctr&gt;                      &lt;int&gt;
+## 1            D                        332
+## 2            R                        206</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Write a sentence which gives the winner:</li>
+</ol>
+<pre><code>## [1] &quot;The winner of the election was the D party with 332 electoral college votes.&quot;</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Create the shiny interface where you can select the year (you can use selectInput in the sidebarPanel) and then it gives the previous map as well the table (question 4) with the number of votes and the sentence (question 5) which specifies the winner.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="handling-missing-values.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ref.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/12-ShinyApp.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

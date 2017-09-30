@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="homework-exploratory-analysis.html">
+<link rel="next" href="homework-tests.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<link href="libs/plotlyjs-1.16.3/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.16.3/plotly-latest.min.js"></script>
+<script src="libs/plotly-binding-4.5.6/plotly.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a><ul>
+<li class="chapter" data-level="7.1" data-path="tests.html"><a href="tests.html#confidence-intervals-for-a-mean"><i class="fa fa-check"></i><b>7.1</b> Confidence intervals for a mean</a></li>
+<li class="chapter" data-level="7.2" data-path="tests.html"><a href="tests.html#mean-comparison"><i class="fa fa-check"></i><b>7.2</b> Mean comparison</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="tests.html"><a href="tests.html#testing-the-equality-of-variances"><i class="fa fa-check"></i><b>7.2.1</b> Testing the equality of variances</a></li>
+<li class="chapter" data-level="7.2.2" data-path="tests.html"><a href="tests.html#testing-the-equality-of-means"><i class="fa fa-check"></i><b>7.2.2</b> Testing the equality of means</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="tests.html"><a href="tests.html#some-comments-on-p-values"><i class="fa fa-check"></i><b>7.3</b> Some comments on <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="7.4" data-path="tests.html"><a href="tests.html#power"><i class="fa fa-check"></i><b>7.4</b> Power</a></li>
+<li class="chapter" data-level="7.5" data-path="tests.html"><a href="tests.html#chi-square-test"><i class="fa fa-check"></i><b>7.5</b> Chi-square test</a></li>
+<li class="chapter" data-level="7.6" data-path="tests.html"><a href="tests.html#MultipleTest"><i class="fa fa-check"></i><b>7.6</b> Multiple testing</a></li>
+<li class="chapter" data-level="7.7" data-path="tests.html"><a href="tests.html#correlations-spurious-causality-be-careful"><i class="fa fa-check"></i><b>7.7</b> Correlations spurious? causality? be careful!</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tests" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Tests</h1>
+<div id="confidence-intervals-for-a-mean" class="section level2">
+<h2><span class="header-section-number">7.1</span> Confidence intervals for a mean</h2>
+<p>Let us construct a confidence interval for the mean of a quantitative variable from a sample. The method presented here can be extended to construct a confidence interval of a proportion. The confidence interval for the population mean <span class="math inline">\(\mu\)</span> for a random variable <span class="math inline">\(X\)</span> is expressed: <span class="math display">\[\left[\bar x-\frac{\hat\sigma}{\sqrt{n}}\times t_{1-\alpha/2}(n-1) \ , \  \bar x+\frac{\hat\sigma}{\sqrt{n}}\times t_{1-\alpha/2}(n-1)\right]\]</span> where <span class="math inline">\(\bar x\)</span> is the empirical mean of an i.i.d sample <span class="math inline">\(X_1, ...,X_n\)</span>, <span class="math inline">\(\hat\sigma\)</span> the estimated standard deviation, <span class="math inline">\(n\)</span> the sample size, <span class="math inline">\(t_{1-\alpha/2}(n-1)\)</span> the quantile <span class="math inline">\(1-\alpha/2\)</span> of the Student’s <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\((n-1)\)</span> degrees of freedom. It is important to remember that the procedure assumes that the estimator of the mean <span class="math inline">\(\bar X\)</span> follows a normal distribution. This is true if <span class="math inline">\(X\)</span> follows a normal distribution or if the sample size is large enough (in practice <span class="math inline">\(n&gt;30\)</span>, thanks to the central limit theorem).</p>
+<p>We shall examine the average height of adults. This example is inspired by a study made by the French Institute of <a href="http://www.ifth.org/en/">Textile and Apparel</a>. They measured a sample of people to update the reference clothing system. Such studies have a huge economical impact since they impact many sectors: the car industry (to modify the seats of the cars), the hospitals (to modify the stretcher), etc.</p>
+<p>We have access to a sample of 119 men. For the overall population, we would like to obtain an estimation of the mean of the height and a confidence interval for this mean at 95%.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">data</span>(survey)
+HeightM &lt;-survey[survey[, <span class="st">&quot;Sex&quot;</span>]==<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Height&quot;</span>, drop =<span class="st"> </span><span class="ot">FALSE</span>]
+
+<span class="kw">ggplot</span>(HeightM) +<span class="st"> </span><span class="kw">aes</span>(<span class="dt">x =</span> Height) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>( <span class="dt">y =</span> ..density..))+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Height&quot;</span>)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 13 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>This distribution is not far from a normal distribution and the sample size is 106 so that we can pursue the analysis. For small samples, the normality of the sample should be tested, rather than that of the mean. In order to do so, the Shapiro-Wilk test could be used. If normality is refused, we can construct a confidence interval using for example a <strong>bootstrap</strong> (we will study this later) procedure.</p>
+<p>The confidence interval is calculated using the function t.test:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res &lt;-<span class="st"> </span><span class="kw">t.test</span>(HeightM$Height, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)
+res</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  HeightM$Height
+## t = 219.7, df = 105, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  177.2121 180.4400
+## sample estimates:
+## mean of x 
+##   178.826</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res$conf.int</code></pre></div>
+<pre><code>## [1] 177.2121 180.4400
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<p>Strictly speaking, the unknown mean <span class="math inline">\(\mu\)</span> of <span class="math inline">\(X\)</span>, estimated to be <span class="math inline">\(178.8\)</span> cm, either does or does not belong to the interval <span class="math inline">\([177.21, 180.44]\)</span>. It is therefore within the interval with a probability of 0 or 1. However, the procedure as a whole guarantees that, if it is repeated infinitely with new samples of the same size <span class="math inline">\(n=106\)</span>, then 95% of the confidence intervals will contain the true unknown value of <span class="math inline">\(\mu\)</span>.</p>
+<p><strong>Practice</strong> Calculate the confidence interval “by hand’’ by calculating the quantile 97.5% of the Student’s <span class="math inline">\(t\)</span>-distribution with the appropriate number of degrees of freedom.</p>
+</div>
+<div id="mean-comparison" class="section level2">
+<h2><span class="header-section-number">7.2</span> Mean comparison</h2>
+<p>Let us test the equality of the means of two sub-populations (<span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>) for a quantitative variable <span class="math inline">\(X\)</span>. In formal terms, we test the hypothesis <span class="math inline">\(H_0: \mu_1=\mu_2\)</span> against the alternative hypothesis <span class="math inline">\(H_1: \mu_1\ne \mu_2\)</span> (or <span class="math inline">\(H_1: \mu_1&gt; \mu_2\)</span> or <span class="math inline">\(H_1: \mu_1&lt; \mu_2\)</span>).</p>
+<p>In order to carry out this test, we have to know if the variances of the variable <span class="math inline">\(X\)</span> (<span class="math inline">\(\sigma_1^2\)</span> and <span class="math inline">\(\sigma^2_2\)</span>) in each sub-population are equal or not. Consequently, we have first to test the hypothesis <span class="math inline">\(H_0: \sigma_1^2=\sigma_2^2\)</span> against the alternative hypothesis <span class="math inline">\(H_1: \sigma_1^2 \ne \sigma_2^2\)</span>. The test statistic is <span class="math inline">\(F=\frac{\hat\sigma_1^2}{\hat\sigma_2^2}\)</span> and under the null hypothesis this quantity follows a Fisher’s distribution with respectively <span class="math inline">\(n_1-1\)</span> and <span class="math inline">\(n_2-1\)</span> degrees of freedom (where <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sample size in each sub-population).</p>
+<p>If we accept the equality of the two variances, we test the equality of the two means using the following <span class="math inline">\(t\)</span>-test. The variance of the difference (<span class="math inline">\(\bar X_1-\bar X_2\)</span>) is equal to <span class="math inline">\(\hat\sigma_D^2=\frac{(n_1-1)\hat\sigma_1^2+(n_2-1)\hat\sigma_2^2}{n_1+n_2-2}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\)</span>. The test statistic is <span class="math inline">\(T=\frac{\bar X_1-\bar X_2}{\hat\sigma_D}\)</span> and, under the null hypothesis (<span class="math inline">\(H_0: \mu_1=\mu_2\)</span>), this quantity follows a Student’s <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n_1+n_2-2\)</span> degrees of freedom.</p>
+<p>Do you know the history of Student’s test and who was <a href="https://priceonomics.com/the-guinness-brewer-who-revolutionized-statistics/">Student?</a></p>
+<p>If we reject the equality of the two variances, we test the equality of the two means using the Welch’s <span class="math inline">\(t\)</span>-test. The variance of the difference (<span class="math inline">\(\bar X_1-\bar X_2\)</span>) is equal to <span class="math inline">\(\hat\sigma_D^2=\frac{\hat\sigma_1^2}{n_1}+\frac{\hat\sigma_2^2}{n2}\)</span>. The test statistic is <span class="math inline">\(T = \frac{\bar X_1-\bar X_2}{\hat\sigma_D}\)</span> and, under the null hypothesis (<span class="math inline">\(H_0: \mu_1 = \mu_2\)</span>), this quantity follows a Student’s <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(\nu\)</span> degrees of freedom, where <span class="math inline">\(\frac{1}{\nu}=\frac{1}{n_1-1}\left(\frac{\hat\sigma_1^2/n_1}{\hat\sigma_D^2}\right)^2+\frac{1}{n_2-1}\left(\frac{\hat\sigma_2^2/n_2}{\hat\sigma_D^2}\right)^2\)</span>.</p>
+<p>There are many exemples of cases of mean comparisons. Famous exemples include pharmaceutical labs that suggest a new drug and compare it to a placebo (neither the patient nor the doctor know what he received). You can compare two diets, the salary of people coming from different universities, the impact of two differents adds, etc.</p>
+<p>Here, we use the Hospital data that was used in Homework exploratory analysis. We compare the systolic blood pressure of people with hemorrhagic shock and of people without hemorrhagic shock. The data can be imported as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TB &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;data/trauma.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&#39;,&#39;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>,<span class="st">&quot;NR&quot;</span>,<span class="st">&quot;IMP&quot;</span>,<span class="st">&quot;NA&quot;</span>,<span class="st">&quot;NF&quot;</span>), <span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)
+<span class="kw">colnames</span>(TB)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;Shock&quot;</span>
+<span class="kw">colnames</span>(TB)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;PAS&quot;</span></code></pre></div>
+<p>Before any analysis, it is important to summarize and visualize the data. First, we can calculate the descriptive statistics for each sub-population for instance with the ‘tapply’ function as follows, using the argument ‘na.rm’ to remove the missing values in the calculation:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Shock =<span class="st"> </span><span class="kw">as.factor</span>(TB[,<span class="st">&quot;Shock&quot;</span>])
+<span class="kw">tapply</span>(TB[,<span class="st">&quot;PAS&quot;</span>], Shock, mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##         0         1 
+## 128.56566  97.13246</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(TB[,<span class="st">&quot;PAS&quot;</span>],Shock, sd, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##        0        1 
+## 24.64947 31.51558</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(TB[,<span class="st">&quot;PAS&quot;</span>],Shock, quantile, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## $`0`
+##   0%  25%  50%  75% 100% 
+##    0  114  128  143  250 
+## 
+## $`1`
+##    0%   25%   50%   75%  100% 
+##   0.0  75.0  97.0 119.5 192.0</code></pre>
+<p>Note that ‘tapply’ does is similar to ‘by’ but requires a vector as an input and not a data frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+PASdata &lt;-<span class="kw">cbind.data.frame</span>(TB[,<span class="st">&quot;PAS&quot;</span>], Shock)
+<span class="kw">colnames</span>(PASdata)[<span class="dv">1</span>]&lt;-<span class="st">&quot;PAS&quot;</span>
+<span class="kw">ggplot</span>(PASdata, <span class="kw">aes</span>(Shock, PAS)) +<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<pre><code>## Warning: Removed 145 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Then, if necessary, we can test the normality of the data in each sub-population. In order to construct the comparison of means test, we assume that the mean estimator in each sub-population follows a normal distribution. This is true if the data is normally distributed or if the sample size is large enough (in practice greater than 30, thanks to the central limit theorem). Otherwise, the Shapiro-Wilk test is used (shapiro.test). If the assumption of normality is rejected, the test of equality of means can be conducted using non-parametric tests such as that of Wilcoxon or Kruskal-Wallis.</p>
+<div id="testing-the-equality-of-variances" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Testing the equality of variances</h3>
+<p>In order to compare the mean of the sub-populations there are two possible types of tests: one in which the unknown variances of the two sub-populations are different and the other in which they are equal. We must therefore test the equality of variances using a <span class="math inline">\(F\)</span>-test:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var.test</span>(TB[,<span class="st">&quot;PAS&quot;</span>] ~<span class="st"> </span>Shock, <span class="dt">conf.level=</span>.<span class="dv">95</span>)</code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  TB[, &quot;PAS&quot;] by Shock
+## F = 0.61174, num df = 6662, denom df = 686, p-value &lt; 2.2e-16
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.5459543 0.6819611
+## sample estimates:
+## ratio of variances 
+##          0.6117368</code></pre>
+<p>The <span class="math inline">\(p\)</span>-value associated with the test of comparison of variances is 0.6117368 : <span class="math inline">\(H_0\)</span> cannot be rejected. The variance ratio (<span class="math inline">\(\hat\sigma_1/\hat\sigma_2\)</span>) is 0.61 and the confidence interval for this ratio (to 95%) is <span class="math inline">\([0.54 ;0.68]\)</span>. In the variance ratio, the numerator is the variance of the first level of the variable Shock (no shock) and the denominator the variance of second level of the Shock variable.</p>
+</div>
+<div id="testing-the-equality-of-means" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Testing the equality of means</h3>
+<p>Here we use the ‘t.test’ function. As the variances are equal, the Student test is used, otherwise it would be Welch’s test to compare the means. In order to do so, specify that the variances are equal using the argument ‘var.equal=TRUE’. The default test is bilateral ‘alternative= “two.sided”’ , however the alternative hypothesis <span class="math inline">\(H_1\)</span> may be that people with Shock have smaller ‘alternative=“less”’ or higher ‘alternative=“greater”’ blood pressure. We here consider the category of reference to be 0 (first level of the variable Shock) and the other category is tested according to this reference.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(PAS ~<span class="st"> </span>Shock, <span class="dt">alternative =</span> <span class="st">&#39;two.sided&#39;</span>, <span class="dt">conf.level =</span> .<span class="dv">95</span>,
+      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">data =</span> PASdata)</code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  PAS by Shock
+## t = 30.921, df = 7348, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  29.44043 33.42597
+## sample estimates:
+## mean in group 0 mean in group 1 
+##       128.56566        97.13246</code></pre>
+<p>The <span class="math inline">\(p\)</span>-value &lt; 2.2e-16 associated with the test of unequal variances indicates that the means are significantly different. The mean of the “no shock” group (estimated at 128.56566) is thus significantly different to that of the shock group (estimated at 97.13246).</p>
+<p>If we need to compare more than two means, a number of tests are available. The choice of the test depends on whether or not the variances in each sub-population are equal. If the variances are equal, you can use analysis of variance (anova: the equivalent of regression but where the explanatory variable is categorical). If the variances are unequal, use the function ‘oneway.test’. Bartlett’s test can be used to test equality of variances.</p>
+</div>
+</div>
+<div id="some-comments-on-p-values" class="section level2">
+<h2><span class="header-section-number">7.3</span> Some comments on <span class="math inline">\(p\)</span>-values</h2>
+<p>The <span class="math inline">\(p\)</span>-value is the probability of getting data as or more extreme than the observed data assuming that the null is true. “How likely would it be to get a statistic this large or larger if the null was actually true?”. A very small p-value means “very unlikely” and so it sheds doubt on the null being true. Either the null is true and you have seen a rare event or the null is false.</p>
+<p>To perform a test at a Type I error rate, we compare the <span class="math inline">\(p\)</span>-value to the desired Type I error rate and if the <span class="math inline">\(p\)</span>-value is smaller, reject the null hypothesis.</p>
+<p>The <span class="math inline">\(p\)</span>-value has often been extensively used (and missused) to support scientific claims but without enough care so that it has lead to many flawed claims which casted doubt on science (we have even spoken about crisis in science). At some point, some scientific journals have even discouraged the use of <span class="math inline">\(p\)</span>-values.</p>
+<p>One reason of the problem is related to multiple testing issues.</p>
+<p>The american statistical association has published in June 2016 a statement on <a href="http://amstat.tandfonline.com/doi/abs/10.1080/00031305.2016.1154108">p-value</a> to clarify the issues. Latest twist on the topic! Look at the [science article] (<a href="http://www.sciencemag.org/news/2017/07/it-will-be-much-harder-call-new-findings-significant-if-team-gets-its-way" class="uri">http://www.sciencemag.org/news/2017/07/it-will-be-much-harder-call-new-findings-significant-if-team-gets-its-way</a>) to get the <span class="math inline">\(p\)</span>-value at 0.005.</p>
+</div>
+<div id="power" class="section level2">
+<h2><span class="header-section-number">7.4</span> Power</h2>
+<p>Let’s consider the power of the test of equality of means of two sub-populations. The test of equality of means is used to choose between the hypothesis <span class="math inline">\(H_0: \mu_1=\mu_2\)</span> and the alternative hypothesis <span class="math inline">\(H_1: \mu_1\ne \mu_2\)</span> (or <span class="math inline">\(H_1: \mu_1&gt; \mu_2\)</span> or <span class="math inline">\(H_1: \mu_1&lt; \mu_2\)</span>). The power of the test is the probability of rejecting the hypothesis <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_1\)</span> is true. Power is equal to <span class="math inline">\(1-\beta\)</span>, <span class="math inline">\(\beta\)</span> being the type-two error (that is to say the risk of mistakenly accepting <span class="math inline">\(H_0\)</span>). The power therefore corresponds to the probability of detecting a difference in means, if indeed this difference exists. The advantage of calculating the power of a test prior to conducting an experiment lies mainly in the ability to optimize the number of trials (i.e. statistical individuals) according to the aim of the experimenter. Indeed, the power of the test is directly related to: the number of individuals per group (<span class="math inline">\(n\)</span>), the amplitude of the difference that we want to detect (<span class="math inline">\(\delta\)</span>), the within-group variability (<span class="math inline">\(\sigma\)</span>), and the type-one error (<span class="math inline">\(\alpha\)</span>).</p>
+<p>We shall examine the example of an experiment in milk production. Researchers at INRA (the French National Institute for Agricultural Research) selected two genetically different types of dairy cows according to the volume of milk produced. The aim was to detect a potential difference in the protein levels in the milks produced by these two sub-populations.</p>
+<p>During a previous study, the standard deviation of protein levels in the milk from a herd of Normandy cows was found to be <span class="math inline">\(1.7\)</span> g<span class="math inline">\(/\)</span>kg of milk. As an approximation we will therefore use the standard deviation <span class="math inline">\(\sigma=1.7\)</span> and use the classical <span class="math inline">\(\alpha=5\%\)</span> threshold. The aim is to have <span class="math inline">\(\beta=80\)</span>% chance of detecting a difference in the means of the protein levels of <span class="math inline">\(\delta=1\)</span> g<span class="math inline">\(/\)</span>kg of milk from the two populations. To meet this objective, we will determine the number of dairy cows required using the function ‘power.t.test’.</p>
+<p>To calculate the number of individuals required to obtain a power of 80%, we proceed as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">1.7</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 46.34674
+##           delta = 1
+##              sd = 1.7
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>Here we can see that a minimum of 47 individuals are required per population in order to have more than an 80% chance of detecting a difference in means in the protein levels of 1 g<span class="math inline">\(/\)</span>kg of milk between the two populations.</p>
+<p>With 20 individuals per group, the power of the test is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">delta =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">1.7</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>)$power</code></pre></div>
+<pre><code>## [1] 0.4416243</code></pre>
+<p>If we decide to use only 20 cows per population in the experiment, there will be a 44% chance of detecting a difference in means in the protein levels of 1 g<span class="math inline">\(/\)</span>kg of milk between the two populations.</p>
+<p>The difference detectable at 80% with 20 individuals per group can be calculated as:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">power.t.test</span>(<span class="dt">n=</span><span class="dv">20</span>, <span class="dt">sd=</span><span class="fl">1.7</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">power=</span><span class="fl">0.8</span>)$delta</code></pre></div>
+<pre><code>## [1] 1.545522</code></pre>
+<p>If we decide to use only 20 cows per population in the experiment, there will then be an 80% chance of detecting a difference in means in the protein levels of 1.55 g<span class="math inline">\(/\)</span>kg of milk between the two populations.</p>
+<p>To wrap-up, tests are designed to control Type I error (rejecting the null hypothesis when it’s true). Type II error is when we fail to reject when H1 is true and the power is 1 - Type II error (probability of rejecting the null when it is false).</p>
+<!--Controling  power can be obtained by sampling large sample.
+Treatment A versus B - More power with 300 pers in each rather than 3 pers.-->
+</div>
+<div id="chi-square-test" class="section level2">
+<h2><span class="header-section-number">7.5</span> Chi-square test</h2>
+<p>Chi-square test can be used to test the independence between two qualitative variables. The data can be represented in a contingency table (two-way table).</p>
+<p>To test the independence of two qualitative variables, we test the null hypothesis <span class="math inline">\(H_0\)</span>: the two variables are independent against the alternative hypothesis <span class="math inline">\(H_1\)</span>: the two variables are not independent. In order to do so, we calculate the following test statistic: <span class="math display">\[T_n=\sum_{i=1}^I\sum_{j=1}^J\frac{(n_{ij}-T_{ij})^2}{T_{ij}},\]</span> where <span class="math inline">\(n_{ij}\)</span> is the number of individuals (observed frequency) who take the category <span class="math inline">\(i\)</span> of the first variable and the category <span class="math inline">\(j\)</span> of the second, and <span class="math inline">\(T_{ij}\)</span> corresponds to the expected frequency under the null hypothesis. <span class="math inline">\(I\)</span> and <span class="math inline">\(J\)</span> are the number of categories for each of the variables. Thus, <span class="math inline">\(T_{ij}=n\hat p_{i\bullet}\hat p_{\bullet j}\)</span> with <span class="math inline">\(n\)</span> the total sample size, <span class="math inline">\(\hat p_{i\bullet}=\frac{\sum_j n_{ij}}{n}\)</span> and <span class="math inline">\(\hat p_{\bullet j}=\frac{\sum_i n_{ij}}{n}\)</span>. Under <span class="math inline">\(H_0\)</span>, <span class="math display">\[T_n\xrightarrow[n\to\infty]{\cal L}\chi_{(I-1)\times(J-1)}^2,\]</span> under <span class="math inline">\(H_1\)</span>, <span class="math display">\[T_n\xrightarrow[n\to\infty]{p.s.}+\infty.\]</span></p>
+<p><span class="math inline">\(H_0\)</span> is rejected when the observation <span class="math inline">\(t_n\)</span> of the test statistic takes a large value.</p>
+<p>If there is no independence, it is interesting to calculate the contribution of pairs of categories to the chi-square statistic in order to highlight associations between categories.</p>
+<p>As an exemple, we consider text data about <em>What is the most important in life for you?</em> This question was included in a multinational survey conducted in seven countries (Japan, France, Germany, Italy, Nederland, United Kingdom, USA). We start with the answers of 1043 persons in the UK. In addition, many background observations such as their socio-economic and demographic characteristics are available (Age, Education, Sex, etc). Here an extract of the data:</p>
+<p><img src="pic/important-life.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Our objective is to analyze the preoccupation in life depending on the age, gender, etc. The data analyzed here are an aggregation according to Sex-Age.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">preocupation &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/Sex_Age.csv&quot;</span>, <span class="dt">header =</span> T)
+preocupation[,<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>:<span class="dv">9</span>, <span class="dv">12</span>)]</code></pre></div>
+<pre><code>##        children family good happiness health
+## F&lt;=30         7     31   12        16     20
+## F&gt;55          6     41   26        16     68
+## F31_55       21     97   23        24     58
+## M&lt;=30         4     31   12        23     18
+## M&gt;55          2     24   30        11     59
+## M31_55        6     70   13        20     35</code></pre>
+<p>The original data can be found here:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">base &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;http://juliejosse.com/wp-content/uploads/2016/01/Hasa.csv&quot;</span>, 
+<span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>)</code></pre></div>
+<p>To get the aggregated data that we analyze, we processed the text (words smaller than 3 where not included, words with frequency &lt;15 were excluded, such choices can be discussed but are part of the analysis of text data).</p>
+<p>We would like to know if the preocupation is independent of the SexAge variable with a type-one error rate of 5%. If it does depend on SexAge, we would like to study the association between categories, for example to know which are the categories which are more interested by their job.</p>
+<p><strong>Practice</strong> Create a data frame from the contingency table with only two variables SexCat and Word. It would be easier to use ggplot with such a data set.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">don[<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="dv">30</span>:<span class="dv">35</span>), ]
+   AgeSex     Word
+<span class="dv">1</span>   F&lt;=<span class="dv">30</span>      and
+<span class="dv">2</span>   F&lt;=<span class="dv">30</span>      and
+<span class="dv">3</span>   F&lt;=<span class="dv">30</span>      and
+<span class="dv">4</span>   F&lt;=<span class="dv">30</span>      and
+<span class="dv">5</span>   F&lt;=<span class="dv">30</span>      and
+<span class="dv">30</span>  F&lt;=<span class="dv">30</span> children
+<span class="dv">31</span>  F&lt;=<span class="dv">30</span> children
+<span class="dv">32</span>  F&lt;=<span class="dv">30</span> children
+<span class="dv">33</span>  F&lt;=<span class="dv">30</span> children
+<span class="dv">34</span>  F&lt;=<span class="dv">30</span> children
+<span class="dv">35</span>  F&lt;=<span class="dv">30</span> children</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data=</span>don, <span class="kw">aes</span> (<span class="dt">x =</span> Word)) +<span class="st"> </span><span class="kw">geom_bar</span>() </code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>We can enhance the plot using the The <strong>reorder</strong> function which reorders the levels of a factor. It can be reordered based on the values of numeric variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stest &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">group=</span><span class="kw">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Jane&quot;</span>, <span class="st">&quot;James&quot;</span>, <span class="st">&quot;John&quot;</span>), <span class="dt">mean=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">3</span>))
+stest</code></pre></div>
+<pre><code>##   group mean
+## 1  John    3
+## 2  Jane    5
+## 3 James    1
+## 4  John    3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(stest$group)</code></pre></div>
+<pre><code>## [1] &quot;James&quot; &quot;Jane&quot;  &quot;John&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stest$group &lt;-<span class="st"> </span><span class="kw">reorder</span>(stest$group, stest$mean)
+stest</code></pre></div>
+<pre><code>##   group mean
+## 1  John    3
+## 2  Jane    5
+## 3 James    1
+## 4  John    3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(stest$group)</code></pre></div>
+<pre><code>## [1] &quot;James&quot; &quot;John&quot;  &quot;Jane&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stest$group &lt;-<span class="st"> </span><span class="kw">reorder</span>(stest$group, -stest$mean)
+stest</code></pre></div>
+<pre><code>##   group mean
+## 1  John    3
+## 2  Jane    5
+## 3 James    1
+## 4  John    3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(stest$group)</code></pre></div>
+<pre><code>## [1] &quot;Jane&quot;  &quot;John&quot;  &quot;James&quot;</code></pre>
+<p>reorder can also take as argument a factor X to be reordered, a vector Y and a function FUN that takes a vector as argument and returns a scalar. FUN will be applied to the subsets of Y determined by the levels of X and the levels of X will be ordered according to the value of FUN on each subset. Example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stest &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">group=</span><span class="kw">c</span>(<span class="st">&quot;Jane&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Jane&quot;</span>, <span class="st">&quot;James&quot;</span> ,<span class="st">&quot;James&quot;</span>, <span class="st">&quot;John&quot;</span>), <span class="dt">mean=</span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>))
+stest</code></pre></div>
+<pre><code>##   group mean
+## 1  Jane    5
+## 2  John    3
+## 3  Jane    5
+## 4 James    1
+## 5 James    1
+## 6  John    3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(stest$group)</code></pre></div>
+<pre><code>## [1] &quot;James&quot; &quot;Jane&quot;  &quot;John&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Y1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)
+stest$group &lt;-<span class="st"> </span><span class="kw">reorder</span>(stest$group, Y1, mean)
+stest</code></pre></div>
+<pre><code>##   group mean
+## 1  Jane    5
+## 2  John    3
+## 3  Jane    5
+## 4 James    1
+## 5 James    1
+## 6  John    3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(stest$group)</code></pre></div>
+<pre><code>## [1] &quot;Jane&quot;  &quot;John&quot;  &quot;James&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stest &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">group=</span><span class="kw">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Jane&quot;</span>, <span class="st">&quot;James&quot;</span> ,<span class="st">&quot;James&quot;</span>, <span class="st">&quot;John&quot;</span>), <span class="dt">mean=</span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>))
+Y2 &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Jane&quot;</span>, <span class="st">&quot;James&quot;</span> ,<span class="st">&quot;James&quot;</span>, <span class="st">&quot;John&quot;</span>))
+stest$group &lt;-<span class="st"> </span><span class="kw">reorder</span>(stest$group, Y2, length)
+stest</code></pre></div>
+<pre><code>##   group mean
+## 1  John    5
+## 2  John    3
+## 3  Jane    5
+## 4 James    1
+## 5 James    1
+## 6  John    3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(stest$group)</code></pre></div>
+<pre><code>## [1] &quot;Jane&quot;  &quot;James&quot; &quot;John&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data=</span>don, <span class="kw">aes</span> (<span class="dt">x =</span> <span class="kw">reorder</span>(Word, Word, length))) +<span class="st"> </span><span class="kw">geom_bar</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">coord_flip</span>() +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Words&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>The Cleveland dots are a lighter way to display counts</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clev &lt;-<span class="kw">ggplot</span>(<span class="dt">data=</span>don, <span class="kw">aes</span> (<span class="dt">x =</span> <span class="kw">reorder</span>(Word, Word, length))) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">stat =</span> <span class="st">&quot;count&quot;</span>) +<span class="st"> </span><span class="kw">coord_flip</span>() +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>() ,
+  <span class="dt">panel.grid.major.y =</span> <span class="kw">element_line</span>(<span class="dt">linetype =</span> <span class="st">&quot;dotted&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;darkgray&quot;</span>)) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Words&quot;</span>)
+<span class="kw">library</span>(plotly)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     select</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplotly</span>(clev)</code></pre></div>
+<div id="htmlwidget-523a14f93d3f0f7ec46b" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-523a14f93d3f0f7ec46b">{"x":{"data":[{"x":[16,16,17,17,19,20,21,21,22,23,23,28,35,37,38,44,46,66,110,116,119,258,294],"y":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"text":["count: 16<br>reorder(Word, Word, length): all","count: 16<br>reorder(Word, Word, length): peaceofmind","count: 17<br>reorder(Word, Word, length): money","count: 17<br>reorder(Word, Word, length): work","count: 19<br>reorder(Word, Word, length): contentment","count: 20<br>reorder(Word, Word, length): are","count: 21<br>reorder(Word, Word, length): healthy","count: 21<br>reorder(Word, Word, length): just","count: 22<br>reorder(Word, Word, length): live","count: 23<br>reorder(Word, Word, length): have","count: 23<br>reorder(Word, Word, length): job","count: 28<br>reorder(Word, Word, length): with","count: 35<br>reorder(Word, Word, length): being","count: 37<br>reorder(Word, Word, length): husband","count: 38<br>reorder(Word, Word, length): wife","count: 44<br>reorder(Word, Word, length): life","count: 46<br>reorder(Word, Word, length): children","count: 66<br>reorder(Word, Word, length): happy","count: 110<br>reorder(Word, Word, length): happiness","count: 116<br>reorder(Word, Word, length): good","count: 119<br>reorder(Word, Word, length): and","count: 258<br>reorder(Word, Word, length): health","count: 294<br>reorder(Word, Word, length): family"],"key":null,"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","name":""}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":89.8630136986302},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"type":"linear","autorange":false,"tickmode":"array","range":[2.1,307.9],"ticktext":["100","200","300"],"tickvals":[100,200,300],"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"count","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"type":"linear","autorange":false,"tickmode":"array","range":[0.4,23.6],"ticktext":["all","peaceofmind","money","work","contentment","are","healthy","just","live","have","job","with","being","husband","wife","life","children","happy","happiness","good","and","health","family"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(169,169,169,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":"Words","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":[]}</script>
+<p>Information for the ’ggplot theme&quot; is available on <a href="http://docs.ggplot2.org/0.9.3/theme.html">the book website</a></p>
+<p>Let’s represent the distribution of the words according to the SexAge variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">ggplot</span>(<span class="dt">data=</span>don, <span class="kw">aes</span> (<span class="dt">x =</span> Word, <span class="dt">fill=</span> Word)) +<span class="st"> </span><span class="kw">geom_bar</span>() +<span class="st"> </span><span class="kw">coord_flip</span>() +<span class="st">  </span><span class="kw">facet_wrap</span>(~AgeSex)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aa=<span class="st"> </span><span class="kw">as.data.frame</span>(
+<span class="kw">sweep</span>(<span class="kw">table</span>(don[, <span class="kw">c</span>(<span class="st">&quot;AgeSex&quot;</span>,<span class="st">&quot;Word&quot;</span>)]),<span class="dv">2</span>, <span class="kw">colSums</span>(<span class="kw">table</span>(don[, <span class="kw">c</span>(<span class="st">&quot;AgeSex&quot;</span>,<span class="st">&quot;Word&quot;</span>)])), <span class="dt">FUN =</span> <span class="st">&quot;/&quot;</span>))
+
+<span class="kw">ggplot</span>(<span class="dt">data=</span>aa, <span class="kw">aes</span>(<span class="dt">x=</span>Word, <span class="dt">y=</span> Freq, <span class="dt">fill=</span> Word)) +<span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~AgeSex)+<span class="st"> </span><span class="kw">coord_flip</span>() +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-23-2.png" width="672" /></p>
+<p>To explore the data, it can be interesting to calculate the row and column profiles. First calculate the joint frequencies, that is to say the percentages <span class="math inline">\(n_{ij}/n\)</span>:</p>
+<pre><code>##        all and are being children contentment family good happiness happy
+## F&lt;=30  0.0 1.2 0.2   0.6      0.5         0.1    2.2  0.9       1.1   1.4
+## F&gt;55   0.3 1.8 0.3   0.5      0.4         0.1    2.9  1.8       1.1   0.6
+## F31_55 0.5 1.9 0.6   0.4      1.5         0.4    6.9  1.6       1.7   1.2
+## M&lt;=30  0.1 1.0 0.0   0.5      0.3         0.1    2.2  0.9       1.6   0.4
+## M&gt;55   0.1 1.4 0.1   0.3      0.1         0.4    1.7  2.1       0.8   0.5
+## M31_55 0.1 1.1 0.1   0.3      0.4         0.3    5.0  0.9       1.4   0.6
+##        have health healthy husband job just life live money peaceofmind
+## F&lt;=30   0.1    1.4     0.1     0.5 0.4  0.3  0.4  0.2   0.1         0.1
+## F&gt;55    0.6    4.8     0.3     1.2 0.0  0.4  0.4  0.2   0.1         0.1
+## F31_55  0.3    4.1     0.5     0.8 0.1  0.4  0.9  0.4   0.1         0.6
+## M&lt;=30   0.1    1.3     0.3     0.0 0.4  0.3  0.2  0.1   0.4         0.1
+## M&gt;55    0.1    4.2     0.2     0.1 0.2  0.0  0.6  0.4   0.2         0.1
+## M31_55  0.4    2.5     0.1     0.1 0.5  0.1  0.6  0.2   0.3         0.1
+##        wife with work
+## F&lt;=30   0.0  0.1  0.1
+## F&gt;55    0.1  0.4  0.1
+## F31_55  0.1  0.6  0.1
+## M&lt;=30   0.1  0.3  0.6
+## M&gt;55    1.3  0.1  0.1
+## M31_55  1.1  0.4  0.3</code></pre>
+<p>The row profiles (<span class="math inline">\(n_{ij}/\sum_j n_{ij}\)</span>) are calculated by using the prop.table function and the argument margin = 1. You can have a look at the function you use.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prop.table</code></pre></div>
+<pre><code>## function (x, margin = NULL) 
+## {
+##     if (length(margin)) 
+##         sweep(x, margin, margin.table(x, margin), &quot;/&quot;, check.margin = FALSE)
+##     else x/sum(x)
+## }
+## &lt;bytecode: 0x7ff171953ae0&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<p>Note that, to use this function, the dataset must be a matrix. kable is a function of knitr to display nice tables. The column profiles are calculated in the same way (<span class="math inline">\(n_{ij}/\sum_i n_{ij}\)</span>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">kable</span>(<span class="kw">round</span>(<span class="dv">100</span> *<span class="st"> </span><span class="kw">prop.table</span>(<span class="kw">as.matrix</span>(preocupation), <span class="dt">margin =</span> <span class="dv">1</span>), <span class="dv">1</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">all</th>
+<th align="right">and</th>
+<th align="right">are</th>
+<th align="right">being</th>
+<th align="right">children</th>
+<th align="right">contentment</th>
+<th align="right">family</th>
+<th align="right">good</th>
+<th align="right">happiness</th>
+<th align="right">happy</th>
+<th align="right">have</th>
+<th align="right">health</th>
+<th align="right">healthy</th>
+<th align="right">husband</th>
+<th align="right">job</th>
+<th align="right">just</th>
+<th align="right">life</th>
+<th align="right">live</th>
+<th align="right">money</th>
+<th align="right">peaceofmind</th>
+<th align="right">wife</th>
+<th align="right">with</th>
+<th align="right">work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F&lt;=30</td>
+<td align="right">0.0</td>
+<td align="right">9.9</td>
+<td align="right">1.8</td>
+<td align="right">4.7</td>
+<td align="right">4.1</td>
+<td align="right">1.2</td>
+<td align="right">18.1</td>
+<td align="right">7.0</td>
+<td align="right">9.4</td>
+<td align="right">11.7</td>
+<td align="right">1.2</td>
+<td align="right">11.7</td>
+<td align="right">0.6</td>
+<td align="right">4.1</td>
+<td align="right">3.5</td>
+<td align="right">2.3</td>
+<td align="right">3.5</td>
+<td align="right">1.8</td>
+<td align="right">1.2</td>
+<td align="right">0.6</td>
+<td align="right">0.0</td>
+<td align="right">1.2</td>
+<td align="right">0.6</td>
+</tr>
+<tr class="even">
+<td>F&gt;55</td>
+<td align="right">1.5</td>
+<td align="right">9.9</td>
+<td align="right">1.5</td>
+<td align="right">2.7</td>
+<td align="right">2.3</td>
+<td align="right">0.4</td>
+<td align="right">15.6</td>
+<td align="right">9.9</td>
+<td align="right">6.1</td>
+<td align="right">3.4</td>
+<td align="right">3.0</td>
+<td align="right">25.9</td>
+<td align="right">1.5</td>
+<td align="right">6.5</td>
+<td align="right">0.0</td>
+<td align="right">2.3</td>
+<td align="right">2.3</td>
+<td align="right">1.1</td>
+<td align="right">0.4</td>
+<td align="right">0.4</td>
+<td align="right">0.8</td>
+<td align="right">2.3</td>
+<td align="right">0.4</td>
+</tr>
+<tr class="odd">
+<td>F31_55</td>
+<td align="right">1.9</td>
+<td align="right">7.5</td>
+<td align="right">2.5</td>
+<td align="right">1.4</td>
+<td align="right">5.8</td>
+<td align="right">1.7</td>
+<td align="right">26.9</td>
+<td align="right">6.4</td>
+<td align="right">6.7</td>
+<td align="right">4.7</td>
+<td align="right">1.1</td>
+<td align="right">16.1</td>
+<td align="right">1.9</td>
+<td align="right">3.1</td>
+<td align="right">0.3</td>
+<td align="right">1.4</td>
+<td align="right">3.3</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="right">2.5</td>
+<td align="right">0.3</td>
+<td align="right">2.5</td>
+<td align="right">0.3</td>
+</tr>
+<tr class="even">
+<td>M&lt;=30</td>
+<td align="right">1.3</td>
+<td align="right">8.8</td>
+<td align="right">0.0</td>
+<td align="right">4.4</td>
+<td align="right">2.5</td>
+<td align="right">0.6</td>
+<td align="right">19.5</td>
+<td align="right">7.5</td>
+<td align="right">14.5</td>
+<td align="right">3.1</td>
+<td align="right">1.3</td>
+<td align="right">11.3</td>
+<td align="right">2.5</td>
+<td align="right">0.0</td>
+<td align="right">3.8</td>
+<td align="right">2.5</td>
+<td align="right">1.9</td>
+<td align="right">1.3</td>
+<td align="right">3.8</td>
+<td align="right">0.6</td>
+<td align="right">1.3</td>
+<td align="right">2.5</td>
+<td align="right">5.0</td>
+</tr>
+<tr class="odd">
+<td>M&gt;55</td>
+<td align="right">0.5</td>
+<td align="right">8.8</td>
+<td align="right">0.9</td>
+<td align="right">1.9</td>
+<td align="right">0.9</td>
+<td align="right">2.3</td>
+<td align="right">11.2</td>
+<td align="right">14.0</td>
+<td align="right">5.1</td>
+<td align="right">3.3</td>
+<td align="right">0.9</td>
+<td align="right">27.4</td>
+<td align="right">1.4</td>
+<td align="right">0.5</td>
+<td align="right">1.4</td>
+<td align="right">0.0</td>
+<td align="right">4.2</td>
+<td align="right">2.8</td>
+<td align="right">1.4</td>
+<td align="right">0.9</td>
+<td align="right">8.4</td>
+<td align="right">0.9</td>
+<td align="right">0.9</td>
+</tr>
+<tr class="even">
+<td>M31_55</td>
+<td align="right">0.8</td>
+<td align="right">6.7</td>
+<td align="right">0.8</td>
+<td align="right">1.7</td>
+<td align="right">2.5</td>
+<td align="right">1.7</td>
+<td align="right">29.4</td>
+<td align="right">5.5</td>
+<td align="right">8.4</td>
+<td align="right">3.4</td>
+<td align="right">2.1</td>
+<td align="right">14.7</td>
+<td align="right">0.8</td>
+<td align="right">0.4</td>
+<td align="right">2.9</td>
+<td align="right">0.8</td>
+<td align="right">3.4</td>
+<td align="right">1.3</td>
+<td align="right">1.7</td>
+<td align="right">0.8</td>
+<td align="right">6.3</td>
+<td align="right">2.1</td>
+<td align="right">1.7</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(<span class="kw">round</span>(<span class="dv">100</span> *<span class="st"> </span><span class="kw">prop.table</span>(<span class="kw">as.matrix</span>(preocupation), <span class="dt">margin =</span> <span class="dv">2</span>), <span class="dv">1</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">all</th>
+<th align="right">and</th>
+<th align="right">are</th>
+<th align="right">being</th>
+<th align="right">children</th>
+<th align="right">contentment</th>
+<th align="right">family</th>
+<th align="right">good</th>
+<th align="right">happiness</th>
+<th align="right">happy</th>
+<th align="right">have</th>
+<th align="right">health</th>
+<th align="right">healthy</th>
+<th align="right">husband</th>
+<th align="right">job</th>
+<th align="right">just</th>
+<th align="right">life</th>
+<th align="right">live</th>
+<th align="right">money</th>
+<th align="right">peaceofmind</th>
+<th align="right">wife</th>
+<th align="right">with</th>
+<th align="right">work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F&lt;=30</td>
+<td align="right">0.0</td>
+<td align="right">14.3</td>
+<td align="right">15</td>
+<td align="right">22.9</td>
+<td align="right">15.2</td>
+<td align="right">10.5</td>
+<td align="right">10.5</td>
+<td align="right">10.3</td>
+<td align="right">14.5</td>
+<td align="right">30.3</td>
+<td align="right">8.7</td>
+<td align="right">7.8</td>
+<td align="right">4.8</td>
+<td align="right">18.9</td>
+<td align="right">26.1</td>
+<td align="right">19.0</td>
+<td align="right">13.6</td>
+<td align="right">13.6</td>
+<td align="right">11.8</td>
+<td align="right">6.2</td>
+<td align="right">0.0</td>
+<td align="right">7.1</td>
+<td align="right">5.9</td>
+</tr>
+<tr class="even">
+<td>F&gt;55</td>
+<td align="right">25.0</td>
+<td align="right">21.8</td>
+<td align="right">20</td>
+<td align="right">20.0</td>
+<td align="right">13.0</td>
+<td align="right">5.3</td>
+<td align="right">13.9</td>
+<td align="right">22.4</td>
+<td align="right">14.5</td>
+<td align="right">13.6</td>
+<td align="right">34.8</td>
+<td align="right">26.4</td>
+<td align="right">19.0</td>
+<td align="right">45.9</td>
+<td align="right">0.0</td>
+<td align="right">28.6</td>
+<td align="right">13.6</td>
+<td align="right">13.6</td>
+<td align="right">5.9</td>
+<td align="right">6.2</td>
+<td align="right">5.3</td>
+<td align="right">21.4</td>
+<td align="right">5.9</td>
+</tr>
+<tr class="odd">
+<td>F31_55</td>
+<td align="right">43.8</td>
+<td align="right">22.7</td>
+<td align="right">45</td>
+<td align="right">14.3</td>
+<td align="right">45.7</td>
+<td align="right">31.6</td>
+<td align="right">33.0</td>
+<td align="right">19.8</td>
+<td align="right">21.8</td>
+<td align="right">25.8</td>
+<td align="right">17.4</td>
+<td align="right">22.5</td>
+<td align="right">33.3</td>
+<td align="right">29.7</td>
+<td align="right">4.3</td>
+<td align="right">23.8</td>
+<td align="right">27.3</td>
+<td align="right">22.7</td>
+<td align="right">5.9</td>
+<td align="right">56.2</td>
+<td align="right">2.6</td>
+<td align="right">32.1</td>
+<td align="right">5.9</td>
+</tr>
+<tr class="even">
+<td>M&lt;=30</td>
+<td align="right">12.5</td>
+<td align="right">11.8</td>
+<td align="right">0</td>
+<td align="right">20.0</td>
+<td align="right">8.7</td>
+<td align="right">5.3</td>
+<td align="right">10.5</td>
+<td align="right">10.3</td>
+<td align="right">20.9</td>
+<td align="right">7.6</td>
+<td align="right">8.7</td>
+<td align="right">7.0</td>
+<td align="right">19.0</td>
+<td align="right">0.0</td>
+<td align="right">26.1</td>
+<td align="right">19.0</td>
+<td align="right">6.8</td>
+<td align="right">9.1</td>
+<td align="right">35.3</td>
+<td align="right">6.2</td>
+<td align="right">5.3</td>
+<td align="right">14.3</td>
+<td align="right">47.1</td>
+</tr>
+<tr class="odd">
+<td>M&gt;55</td>
+<td align="right">6.2</td>
+<td align="right">16.0</td>
+<td align="right">10</td>
+<td align="right">11.4</td>
+<td align="right">4.3</td>
+<td align="right">26.3</td>
+<td align="right">8.2</td>
+<td align="right">25.9</td>
+<td align="right">10.0</td>
+<td align="right">10.6</td>
+<td align="right">8.7</td>
+<td align="right">22.9</td>
+<td align="right">14.3</td>
+<td align="right">2.7</td>
+<td align="right">13.0</td>
+<td align="right">0.0</td>
+<td align="right">20.5</td>
+<td align="right">27.3</td>
+<td align="right">17.6</td>
+<td align="right">12.5</td>
+<td align="right">47.4</td>
+<td align="right">7.1</td>
+<td align="right">11.8</td>
+</tr>
+<tr class="even">
+<td>M31_55</td>
+<td align="right">12.5</td>
+<td align="right">13.4</td>
+<td align="right">10</td>
+<td align="right">11.4</td>
+<td align="right">13.0</td>
+<td align="right">21.1</td>
+<td align="right">23.8</td>
+<td align="right">11.2</td>
+<td align="right">18.2</td>
+<td align="right">12.1</td>
+<td align="right">21.7</td>
+<td align="right">13.6</td>
+<td align="right">9.5</td>
+<td align="right">2.7</td>
+<td align="right">30.4</td>
+<td align="right">9.5</td>
+<td align="right">18.2</td>
+<td align="right">13.6</td>
+<td align="right">23.5</td>
+<td align="right">12.5</td>
+<td align="right">39.5</td>
+<td align="right">17.9</td>
+<td align="right">23.5</td>
+</tr>
+</tbody>
+</table>
+<p>This yields the distributions of words according to AgeSex which are represented in the previous graph. It seems that there are differences between the profiles, that we may confirm using a test.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(preocupation)</code></pre></div>
+<pre><code>## Warning in chisq.test(preocupation): Chi-squared approximation may be
+## incorrect</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">results</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  preocupation
+## X-squared = 316.17, df = 110, p-value &lt; 2.2e-16</code></pre>
+<p>Why do we have a warning?</p>
+<p><strong>Practice</strong> Compute by hand the <span class="math inline">\(p\)</span>.value.</p>
+<!--Retrouver à la main la proba critique. 
+# Question 2 :
+tab <- preocupation
+tab1 <- matrix(apply(tab,1,sum),nrow = 6, ncol=23)
+tab2 <- matrix(apply(tab,2,sum),nrow=6,ncol = 23, byrow=T)
+tab3 <- tab1*tab2/sum(tab)
+T <- sum((tab-tab3)^2/tab3) 
+alpha=0.05
+q=qchisq(1-alpha,df=((nrow(tab)-1)*(ncol(tab)-1)))
+T>q # FALSE : on rejette H0 => variables non independantes
+# Question 3 :
+chisq.test(tab) # p-value < 2.2e-16
+# Question 4 :
+pvalue=1-pchisq(T,df=((nrow(tab)-1)*(ncol(tab)-1))) # 0, ce qui est equivalent a < 2.2e-16
+-->
+<p>The <span class="math inline">\(p\)</span>-value indicates that such a big <span class="math inline">\(\chi^2_{obs}\)</span> value would have &lt; 2.2e-16% probability of being observed in a sample of this size if AgeSex were independent of words. Thus, at the 5% threshold, we reject the independence hypothesis and conclude that, according to this dataset, AgeSex depends on words.</p>
+<p>This relationship between the two variables can be studied in greater details by calculating the contributions <span class="math inline">\(\frac{(n_{ij}-T_{ij})^2}{T_{ij}}\)</span> to the <span class="math inline">\(\chi^2_{obs}\)</span> statistic. The squared roots of these contributions are in the object ‘residuals’. By dividing each term by the total (i.e. the <span class="math inline">\(\chi^2_{obs}\)</span> value contained in the ‘stat’ object), we obtain the contributions expressed as percentage:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">contri &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="dv">100</span> *<span class="st"> </span>results$residuals^<span class="dv">2</span> /<span class="st"> </span>results$stat, <span class="dv">1</span>)</code></pre></div>
+<p>We could create a function to print only the 5 largest contributions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">MaxMat</span>(contri, <span class="dv">5</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;M&gt;55&quot; &quot;wife&quot;
+## 
+## [[2]]
+## [1] &quot;M&lt;=30&quot; &quot;work&quot; 
+## 
+## [[3]]
+## [1] &quot;F&lt;=30&quot; &quot;happy&quot;
+## 
+## [[4]]
+## [1] &quot;F&gt;55&quot;    &quot;husband&quot;
+## 
+## [[5]]
+## [1] &quot;M31_55&quot; &quot;wife&quot;</code></pre>
+<p>The combinations which contribute the most to the non-independence of the two variables are those concerning F&gt;55 and husband, M&gt;55 and wife, M&gt;55 and family, M&lt;30 and work, F31_55 and children, etc..<br />
+In order to interpret the contribution, we inspect the residuals and more precisely their positivity or negativity:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(results$residuals, <span class="dv">3</span>)</code></pre></div>
+<pre><code>##           all    and    are  being children contentment family   good
+## F&lt;=30  -1.395  0.664  0.364  1.814    0.594      -0.204 -0.795 -0.561
+## F&gt;55    0.582  0.793  0.134  0.177   -0.888      -1.355 -1.887  0.923
+## F31_55  1.434 -0.629  1.714 -1.323    2.687       0.515  2.504 -1.230
+## M&lt;=30   0.142  0.148 -1.504  1.529   -0.527      -0.784 -0.390 -0.309
+## M&gt;55   -0.925  0.188 -0.605 -0.584   -1.898       1.229 -3.126  2.911
+## M31_55 -0.430 -0.923 -0.753 -0.791   -0.640       0.437  2.868 -1.498
+##        happiness  happy   have health healthy husband    job   just   life
+## F&lt;=30      0.717  4.226 -0.477 -2.031  -0.972   1.179  1.915  0.905  0.280
+## F&gt;55      -1.009 -0.952  1.783  2.841   0.036   3.831 -2.074  1.045 -0.777
+## F31_55    -0.785  0.025 -0.778 -0.992   0.700   0.496 -2.015 -0.163  0.219
+## M&lt;=30      2.994 -0.902 -0.373 -2.069   1.055  -2.046  2.108  1.055 -0.886
+## M&gt;55      -1.419 -0.973 -0.809  3.112  -0.118  -1.958 -0.276 -1.792  0.876
+## M31_55     0.320 -0.949  0.561 -1.312  -0.825  -2.103  1.574 -0.825  0.202
+##          live  money peaceofmind   wife   with   work
+## F&lt;=30   0.198 -0.047      -0.678 -2.150 -0.762 -0.742
+## F&gt;55   -0.550 -1.222      -1.152 -1.916  0.333 -1.222
+## F31_55 -0.267 -1.607       2.423 -2.799  0.684 -1.607
+## M&lt;=30  -0.309  2.941      -0.602 -1.108  0.468  4.383
+## M&gt;55    1.437  0.248      -0.286  5.057 -1.103 -0.372
+## M31_55 -0.375  0.662      -0.430  3.378  0.120  0.662</code></pre>
+<p>It can be said that the number of M&lt;30 answering happiness is greater than expected (implied: greater than if the independence hypothesis were true)</p>
+<p>As we will see, the contingency tables can be visualized with a correspondence analysis (CA) by using the CA function from the FactoMineR package. It will help to continue answering the questions such as which are the feminine words? how could you characterize the men of less than 30 years? what is the word which best describes this population (work, job, money?)</p>
+<p><strong>Practice</strong> You should think about criticizing this study and about the following points. We kept the words “husband” and “wife”, what could be done? We used the threshold 15 to select words. Could you suggest a strategy to assess the stability of the results regarding this threshold?</p>
+<p><strong>Practice</strong> With the hospital data (trauma_HWK1). Study the relationship between the mechanism of accident and the variable discrepency. comment!</p>
+</div>
+<div id="MultipleTest" class="section level2">
+<h2><span class="header-section-number">7.6</span> Multiple testing</h2>
+<p>The microarray example given in homework is a typical case of multiple testing issues. Examples are prominent with the new technologies which allow to collect a lot of information.</p>
+<p>The first point we can make is that when making <span class="math inline">\(m\)</span> tests at 5%, you may find of course m*0.05 fake discoveries… and it can be seen as far too much. So instead of controlling <span class="math inline">\(\alpha\)</span> for each test other criteria were suggested.</p>
+<ul>
+<li><p>Control the Family Wise Error Rate (FWER) at alpha: the probability to make at least one error. This is the oldest multiple testing correction known as Bonferroni correction. It works easily:<br />
+** perform <span class="math inline">\(m\)</span> hypothesis tests<br />
+** calculate the <span class="math inline">\(p\)</span>-values<br />
+** set your level <span class="math inline">\(alpha\)</span> at level/ m<br />
+and on average you control the FWER. This is known to be very stringent since you do not take enough risk and so you will not discover a lot.</p></li>
+<li><p>Control False Discovery Rate (FDR) at alpha: expectation of false discovery / total number of discovery. It means that alpha percent of the discovery will be false. It is known as the Benjamini Hochberg procedure, maybe one of the breakthrough in statistics these past years. <a href="http://www.tau.ac.il/~ybenja/">Yoav Benjamini</a> is a very famous statistician acting a lot for <a href="http://www.replicability.tau.ac.il/">replicability</a> in science. It works as follows:<br />
+** calculate the <span class="math inline">\(p\)</span>-values<br />
+** order the <span class="math inline">\(p\)</span>-values from smallest to largest. <span class="math inline">\(p_1\)</span> the smallest, <span class="math inline">\(p_2\)</span>, etc..<br />
+** if <span class="math inline">\(p_i\)</span> &lt; alpha i/m significant<br />
+This may lead to many false positives and is known to have problems with dependences…</p></li>
+</ul>
+<p>Let’s do some simulations to illustrate the issues and potential solutions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pval &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,<span class="dv">1000</span>)
+
+for (i in <span class="dv">1</span>:<span class="dv">1000</span>){
+x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)
+y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)
+pval[i] =<span class="st"> </span><span class="kw">summary</span>(<span class="kw">lm</span>(y~x))$coeff[<span class="dv">2</span>,<span class="dv">4</span>]
+}
+
+<span class="kw">length</span>(<span class="kw">which</span>((pval&lt;<span class="fl">0.05</span>)))/<span class="dv">1000</span>
+
+<span class="kw">sum</span>(<span class="kw">p.adjust</span>(pval, <span class="dt">method =</span> <span class="st">&quot;bonferroni&quot;</span>)&lt;<span class="fl">0.05</span>)/<span class="dv">1000</span>
+<span class="kw">sum</span>(<span class="kw">p.adjust</span>(pval, <span class="dt">method =</span> <span class="st">&quot;BH&quot;</span>)&lt;<span class="fl">0.05</span>)/<span class="dv">1000</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pval =<span class="kw">rep</span>(<span class="ot">NA</span>,<span class="dv">1000</span>)
+
+for (i in <span class="dv">1</span>:<span class="dv">1000</span>){
+x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)
+if (i&lt;<span class="dv">500</span>) {y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)} else{y &lt;-<span class="st">  </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">2</span>*x)}
+  pval[i] =<span class="st"> </span><span class="kw">summary</span>(<span class="kw">lm</span>(y~x))$coeff[<span class="dv">2</span>,<span class="dv">4</span>]
+}
+truenu &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;nonzero&quot;</span>), <span class="dt">each =</span> <span class="dv">500</span>)
+<span class="kw">table</span>((pval&lt;<span class="fl">0.05</span>), truenu)</code></pre></div>
+<pre><code>##        truenu
+##         nonzero zero
+##   FALSE       0  473
+##   TRUE      500   27</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">p.adjust</span>(pval, <span class="dt">method =</span> <span class="st">&quot;bonferroni&quot;</span>)&lt;<span class="fl">0.05</span>, truenu)</code></pre></div>
+<pre><code>##        truenu
+##         nonzero zero
+##   FALSE      22  499
+##   TRUE      478    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">p.adjust</span>(pval, <span class="dt">method =</span> <span class="st">&quot;BH&quot;</span>)&lt;<span class="fl">0.05</span>, truenu)</code></pre></div>
+<pre><code>##        truenu
+##         nonzero zero
+##   FALSE       0  488
+##   TRUE      500   12</code></pre>
+</div>
+<div id="correlations-spurious-causality-be-careful" class="section level2">
+<h2><span class="header-section-number">7.7</span> Correlations spurious? causality? be careful!</h2>
+<p>We will come back to these notions during the lecture but you should be aware of some traps and some problems on these topics…</p>
+<ul>
+<li><p>Create a function that simulate two vectors from a Gaussian distribution (0, 1) of size <span class="math inline">\(n\)</span> and outputs their correlation coefficient. Look at the values from <span class="math inline">\(n=2\)</span> to <span class="math inline">\(n=1000\)</span> and comment. What should we do?</p></li>
+<li><p>Be careful, first even significant correlation should be spurious, (see <a href="tests.html#MultipleTest">7.6</a>). You should have a look at these brilliant <a href="https://www.youtube.com/watch?v=g-g0ovHjQxs">videos</a> made by a <a href="http://www.tylervigen.com/spurious-correlations">student</a> <a href="http://tylervigen.com/page?page=2">here also</a> from Harvard on this topic.</p></li>
+<li><p>Of course, correlation is not causality. The first exemple that can be given is to think about the number of umbrella sold and the number of car accidents. Even, le monde discussed this topic … using ggplot <a href="http://www.lemonde.fr/les-decodeurs/article/2016/08/29/le-taux-de-chomage-peut-il-s-expliquer-par-la-qualite-de-l-education_4989352_4355770.html?xtmc=causalite&amp;xtcr=1">Le taux de chomage peut-il s’expliquer par l’éducation?</a></p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="homework-exploratory-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-Tests.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

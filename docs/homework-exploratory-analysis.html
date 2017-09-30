@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="graphics.html">
+<link rel="next" href="tests.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a><ul>
+<li class="chapter" data-level="6.1" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#wine-tasting"><i class="fa fa-check"></i><b>6.1</b> Wine tasting</a></li>
+<li class="chapter" data-level="6.2" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#hospital"><i class="fa fa-check"></i><b>6.2</b> Management of severe trauma patients</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-1---distribution-of-missing-data"><i class="fa fa-check"></i><b>6.2.1</b> Question 1 - distribution of missing data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-2---dealing-with-missing-data"><i class="fa fa-check"></i><b>6.2.2</b> Question 2 - dealing with missing data</a></li>
+<li class="chapter" data-level="6.2.3" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-3---exploration-of-the-data"><i class="fa fa-check"></i><b>6.2.3</b> Question 3 - exploration of the data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#prediction-of-chicago-criminality"><i class="fa fa-check"></i><b>6.3</b> Prediction of Chicago criminality</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-1---load-the-dataset"><i class="fa fa-check"></i><b>6.3.1</b> Question 1 - load the dataset</a></li>
+<li class="chapter" data-level="6.3.2" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-2---descriptive-statistics"><i class="fa fa-check"></i><b>6.3.2</b> Question 2 - descriptive statistics</a></li>
+<li class="chapter" data-level="6.3.3" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-3---first-maps"><i class="fa fa-check"></i><b>6.3.3</b> Question 3 - first maps</a></li>
+<li class="chapter" data-level="6.3.4" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-4---density-plots"><i class="fa fa-check"></i><b>6.3.4</b> Question 4 - density plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="homework-exploratory-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Homework: exploratory analysis</h1>
+<div id="wine-tasting" class="section level2">
+<h2><span class="header-section-number">6.1</span> Wine tasting</h2>
+<p>Let us consider a sensory analysis where judges assessed some products (here wines). They assigned ratings on sensory descriptors such as odor of fruit, taste of mushroom, sweetness, etc, ranging from 0 (the wine is not sweet at all) to 10 (the wine is very sweet). They also gave their hedonic appreciation. Using people and not only physico-chemical measurements is crucial for such studies since human sensations might not match scientific measurements. Such analyses can be used to characterize products (to put labels on the bottles), to position the wines relatively to one another (could you say that sauvignon wines are different from other white wines ?), to link the hedonic appreciation to the organoleptic composition of the products, etc. This study concerns 10 white wines,</p>
+<p><img src="pic/wine.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>that were described by 11 judges (our students!.. one aim of the data analysis was also to know if naive consumers are able to describe the wines as well as the experts - we will also study the experts’ data later) using 17 sensory descriptors. The students assessed the wines on two different days (this is a very common practice. Indeed you may be on a better mood one day and put higher scores, or the temperature in the room may be different which modifies the perception, etc..). To account for such effects, experiments are often organized using “experimental design” (experimental design is a very crucial field in statistics and deeply rooted in the core of statistical thinking; Fisher started with agronomy experiences). For instance, each judge did not taste the products in the same order (to avoid rank 1 effects, or a succession effect (carry-over effect) if wine 2 is always assessed after wine 1..). The wine data is representative of many sensory data used to describe products (yogurts, cosmetics, but also different rings of cellphones, etc) in many companies Danone, L’Oreal, Nestlé, etc..</p>
+<ul>
+<li><p>Import the data composed of 3 files vins_u.csv, nom_vins.csv, nom_juges.csv.</p></li>
+<li><p>Using the ‘merge’ function, create one data set with the names of the wines and judges. Be careful, it could be a bit tricky with levels.</p></li>
+</ul>
+<p>The aim of this case study is to use some descriptive statistics and plots to give first answers to the following questions. Note that G stands for Gout (taste) and O for Odor.</p>
+<ul>
+<li><p>Which wine is the most appreciated?</p></li>
+<li><p>Is there a relation between sweetness and appreciation?</p></li>
+<li><p>Is it the same relation for men and women? Who prefers sweet wines?</p></li>
+<li><p>Is the astringency perceived in the same way by men and women?</p></li>
+<li><p>Are the preferences modified from the firt session (seance) to the second one?</p></li>
+<li><p>Extract the indices of the descriptors (non categorical variables).</p></li>
+<li><p>Create a data table with wines as rows, descriptors as columns and the mean given by the judges.</p></li>
+<li><p>Could you describe the main differences between Sauvignon and Vouvray. Comment your claims.</p></li>
+<li><p>Could you explain what are the characteristics of the wine which is preferred? Suggest a way to give the identity card of a wine.</p></li>
+<li><p>Remark: the product effect might depend on the judge. In other words, the notations of the judges for one product and one descriptor might disagree. Do the judges assess O.Fruitpassion in the same way? Is it a problem? You should have a look at the judge florence for instance and the wine Trotignon. This is called an interaction (interaction between product effect and judge effect).</p></li>
+</ul>
+<p>This example will be continued in subsequent homeworks with the oenologues data and incomplete information. Indeed, given the difficulty in assessing a large number of wines (due to a sensory fatigue, a saturation phenomenon after tasting many wines even if the people split), each judge evaluates only a subset of products. This subset is determined by experimental design (Balanced Incomplete Block type). This induces missing (incomplete) information in the data to be analyzed.</p>
+</div>
+<div id="hospital" class="section level2">
+<h2><span class="header-section-number">6.2</span> Management of severe trauma patients</h2>
+<p>The aim of the study is to model the decisions and events when severe trauma patients are handled by emergency doctors. Indeed, underestimating the severity of the patient’s condition can be dramatic, while overestimating it leads to monopolizing an entire medical crew and therefore longer waiting times for other patients of the hospital. The main issue is to predict whether or not the patient risks a hemorrhagic shock. We have at disposal data which consist in the aggregation of several registers of severe trauma patients from Ile de France. More than 6000 patients and the details of their medical support are registered in this data set. The purpose of this case study is to import and explore the data using graphs and descriptive statistics.</p>
+<p>Each patient is described by 10 variables (selected out of the 147 variables of the data set):</p>
+<ul>
+<li>BMI (Body Mass Index): the body mass divided by the square of the body height. The BMI is an attempt to quantify the amount of tissue mass, and to categorize the patient as underweight, normal weight, overweight, or obese.</li>
+<li>Glasgow.initial: score between 3 and 15 linked to the head trauma gravity. (it includes motor and verbal responses and eye-opening).</li>
+<li>PAS.min (Pression Artérielle Systolique): minimal blood pressure during heart contraction phase (systole).</li>
+<li>PAD.min (Pression Artérielle Diastolique): minimal blood pressure during heart relaxation phase (diastole).</li>
+<li>FC.max (Fréquence Cardiaque): maximal heart frequency. Low PAS, PAD and high FC correspond to a risk of hemorrhagic shock.</li>
+<li>SpO2.min (Saturation pulsée en Oxygène): oxygen saturation rate, reflecting blood oxygenation. Low, it has two explanations: a lung injury or a weak cardiac flow.</li>
+<li>Hemocue.init: initial hemoglobine measured by blood sample on the finger top.</li>
+<li>IGS.II (Indice de Gravité Simplifié): empirical gravity index calculated from 15 parameters. It quantifies the degree of gravity of the patient, depending on his personal and physiological constants.</li>
+<li>Discordance: compares the prediction made by the emergency doctors on whether or not the patient risks an hemorrhagic shock with whether or not it happened. There are 4 levels: ** PDSC** (True negative) - physicians predicted no hemorrhagic shock and none occurred. ** PDAC** (True positive) - physicians predicted an hemorrhagic shock and one occurred. ** MGA** (False positive) - physicians predicted an hemorrhagic shock and none occurred. ** PGA** (False negative) - physicians predicted no hemorrhagic shock and one occurred.</li>
+<li>Mecanisme: describes the nature of the accident (car accident, fall, etc.). This is a categorical variable with 12 categories.</li>
+</ul>
+<!--Notice that the numeric variables are encoded as strings in the database with the decimal separator ",". You will have to process them to convert them to numeric data in R.-->
+<div id="question-1---distribution-of-missing-data" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Question 1 - distribution of missing data</h3>
+<p>This data set inherently contains missing data that are missing for different reasons. It is important for the analysis to be able differentiate the different types of missing data. The missing values have therefore been categorized subsequently: <strong>NA</strong> (Non Applicable), <strong>NR</strong> (Non Renseigné) - corresponding to data that were not filled in, <strong>IMP</strong> (Impossible) - corresponding to data that were impossible to measure. Before analyzing the data further, it is useful to have an idea of which data is missing (for instance, do all variables have missing values ? of which kind ?).</p>
+<p>Import the data set trauma_HWK1.csv.</p>
+<p>Using graphics, represent the distribution of the missing data accross variables and accross missing data types. Comment.</p>
+</div>
+<div id="question-2---dealing-with-missing-data" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Question 2 - dealing with missing data</h3>
+<p>In the sequel, all the missing values are considered as <strong>NA</strong>. Create a new data frame where all the missing values (NA, NR, IMP) have been replaced by <strong>NA</strong> or (it should be easier) import again the data by specifying the characters considered as missing.</p>
+<p>Among common approaches to deal with missing values, one consists in replacing the missing values by the mean of the column (for a quantitative variable) or by the most probable category (for a categorical variable). One can also remove all the individuals that contain a missing value. Comment the previous methods. Choose one of these methods or any other one of your choice and store the processed data in a new dataframe.</p>
+</div>
+<div id="question-3---exploration-of-the-data" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Question 3 - exploration of the data</h3>
+<p>Using descriptives statistics and graphs, give elements of answers for the following questions.</p>
+<!--To compute the necessary statistics you have to convert the numeric variables to numeric values (they are encoded as strings in the database). The "," is the decimal separator.-->
+<ul>
+<li><p>Which accidents (Mecanisme) are the most common?</p></li>
+<li><p>Using statistics and graphs for the discordance variable, comment the performance of the physicians diagnosis.</p></li>
+<li><p>describe the relationship between the errors (Discordance) and the type of accident (Mecanisme).</p></li>
+<li><p>Which type of accidents corresponds to the highest false negative rate ?</p></li>
+<li><p>Represent the relationship between the type of accident (Mecanisme) and the gravity of the condition (Glasgow.initial) using density plots. Comment.</p></li>
+<li><p>Which type of accident leads to the most severe condition on average ?</p></li>
+<li><p>Represent the variability of the hemoglobine rate Hemocue.init overall and per accident type (Mecanisme). Comment.</p></li>
+</ul>
+</div>
+</div>
+<div id="prediction-of-chicago-criminality" class="section level2">
+<h2><span class="header-section-number">6.3</span> Prediction of Chicago criminality</h2>
+<p>This dataset reflects reported incidents of crime (with the exception of murders) that occurred in the City of Chicago from 2001 to present. Data is extracted from the Chicago Police Department’s CLEAR (Citizen Law Enforcement Analysis and Reporting) system. The goal is to use the data to predict new crimes and optimize the schedule and route of police patrols. The purpose of this case study is to practice R tools to produce maps.</p>
+<div id="question-1---load-the-dataset" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Question 1 - load the dataset</h3>
+<p>You should first of all import the dataset crimes_HWK1_reduced.csv and the <strong>ggmap</strong> library.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;ggmap&quot;)</span></code></pre></div>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<p>Every criminal case is referenced by 18 variables that include</p>
+<ul>
+<li>Case.Number: the reference number of the criminal case.</li>
+<li>Date</li>
+<li>Block: location of the crime at the block level.</li>
+<li>Primary.Type: type of crime (theft, assault, burglary, etc.). This is a categorical variable</li>
+<li>Arrest: boolean indicating whether or not the culprit was arrested.</li>
+<li>Latitude, Longitude and Location (Location=(Latitude, Longitude)).</li>
+</ul>
+</div>
+<div id="question-2---descriptive-statistics" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Question 2 - descriptive statistics</h3>
+<ul>
+<li><p>Represent graphically the relationship between arrests and crime type, for crimes of burglary, narcotics, prostitution and kidnapping. Comment.</p></li>
+<li><p>Which is the most frequent type of crime according to this data set ?</p></li>
+</ul>
+</div>
+<div id="question-3---first-maps" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Question 3 - first maps</h3>
+<p>You can use the <strong>ggmap</strong> library to represent locations on a map. The coordinates must be stored in a data frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hdf &lt;-<span class="st"> </span><span class="kw">get_map</span>(<span class="st">&quot;chicago, illinois&quot;</span>)
+lon &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="fl">87.9</span>, -<span class="fl">87.6</span>)
+lat &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">41.9</span>,<span class="fl">41.65</span>)      
+chkpts &lt;-<span class="st"> </span><span class="kw">data.frame</span>(lon,lat)
+<span class="kw">names</span>(chkpts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>)
+<span class="kw">ggmap</span>(hdf, <span class="dt">extent =</span> <span class="st">&quot;normal&quot;</span>) +
+<span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>), <span class="dt">data =</span> chkpts, <span class="dt">alpha =</span> <span class="dv">1</span>)</code></pre></div>
+<p>Extract the extremal locations in terms of latitude and longitude and plot them together on the map of Chicago. First you must convert the values of <strong>Longitude</strong> and <strong>Latitude</strong> to numerics.</p>
+</div>
+<div id="question-4---density-plots" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Question 4 - density plots</h3>
+<p>Extract the crimes that took place on May 3. 2003 (05/03/2003) and represent them on the map with a density plot. Hint: check the <strong>grepl</strong> and <strong>stat_density2d</strong> functions</p>
+<p>Represent the crime density for burglaries, narcotics, prostitution and kidnapping. Comment</p>
+<p>Extract the crimes that occurred in 2002. Represent the crime density for every month of the year.</p>
+<p>Plot the density of all crimes per value of Arrest. Comment.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="graphics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Homework1_casestudy.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,3 +1,0 @@
-{bash, eval=FALSE, echo=TRUE}
-touch .nojekyll
-git add .nojekyll

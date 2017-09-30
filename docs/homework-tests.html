@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="tests.html">
+<link rel="next" href="principal-components-analysis.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a><ul>
+<li class="chapter" data-level="8.1" data-path="homework-tests.html"><a href="homework-tests.html#simulations-confidence-interval-for-mu"><i class="fa fa-check"></i><b>8.1</b> Simulations: confidence interval for <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="8.2" data-path="homework-tests.html"><a href="homework-tests.html#missing-values-introduction"><i class="fa fa-check"></i><b>8.2</b> Missing values, introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="homework-tests.html"><a href="homework-tests.html#microarray-analysis"><i class="fa fa-check"></i><b>8.3</b> Microarray analysis</a></li>
+<li class="chapter" data-level="8.4" data-path="homework-tests.html"><a href="homework-tests.html#chi-squares-test---goodness-of-fit."><i class="fa fa-check"></i><b>8.4</b> Chi-squares test - Goodness of fit.</a></li>
+<li class="chapter" data-level="8.5" data-path="homework-tests.html"><a href="homework-tests.html#rv-and-dcov-coefficients"><i class="fa fa-check"></i><b>8.5</b> RV and dCov coefficients</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="homework-tests.html"><a href="homework-tests.html#expected-values-of-the-rv-coefficient-with-respect-to-the-dimensions"><i class="fa fa-check"></i><b>8.5.1</b> Expected values of the RV coefficient with respect to the dimensions</a></li>
+<li class="chapter" data-level="8.5.2" data-path="homework-tests.html"><a href="homework-tests.html#permutation-test-for-wine-data"><i class="fa fa-check"></i><b>8.5.2</b> Permutation test for wine data</a></li>
+<li class="chapter" data-level="8.5.3" data-path="homework-tests.html"><a href="homework-tests.html#power-of-the-rv-and-dcov-tests-in-the-case-of-a-linear-relation"><i class="fa fa-check"></i><b>8.5.3</b> Power of the RV and dCov tests in the case of a linear relation</a></li>
+<li class="chapter" data-level="8.5.4" data-path="homework-tests.html"><a href="homework-tests.html#power-of-the-rv-and-dcov-tests-in-the-case-of-a-nonlinear-relation"><i class="fa fa-check"></i><b>8.5.4</b> Power of the RV and dCov tests in the case of a nonlinear relation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="homework-tests" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Homework: tests</h1>
+<!--Rappel theorique Fiche 5 arnaud. 
+Test, fiche 6 arnaud, alpha, beta. -->
+<!--qqnorm-->
+<div id="simulations-confidence-interval-for-mu" class="section level2">
+<h2><span class="header-section-number">8.1</span> Simulations: confidence interval for <span class="math inline">\(\mu\)</span></h2>
+<ul>
+<li>Create a random sample of size <span class="math inline">\(n=50\)</span> drawn from a Gaussian distribution <span class="math inline">\(\mathcal{N}(175,100)\)</span>. Compute a confidence interval for <span class="math inline">\(\mu\)</span>.</li>
+<li>Create 1000 sample of size <span class="math inline">\(n=50\)</span>. For each sample, compute a confidence interval for <span class="math inline">\(\mu\)</span> and the width of the confidence interval. Count how many times the true value <span class="math inline">\(\mu\)</span> is inside the confidence interval. Compute the mean width of the intervals.</li>
+</ul>
+<!--
+**Hint: to return more than one result in a function use **
+
+```r
+return(structure(list(res1 = res1, res2=res2)))
+```
+Example:
+
+
+```r
+x <- rnorm(100,0,1)
+stats <- function(x){
+  return(structure(list(mean = mean(x), sd=sd(x))))
+}
+res <- stats(x)
+res$mean
+res$sd
+```
+-->
+<ul>
+<li>Create a function that takes as input an integer <span class="math inline">\(n\)</span> and that perform the previous operation. Keep the results in a table (with 2 columns) varying sample size from 10 à 500 (by 10). Comment.</li>
+</ul>
+<!--
+**Hint: use function do.call to apply a function to a list of arguments**
+
+```r
+l <- list("A", "B", "C", "D")
+do.call(paste, l)
+```
+-->
+</div>
+<div id="missing-values-introduction" class="section level2">
+<h2><span class="header-section-number">8.2</span> Missing values, introduction</h2>
+<p>The aim is to assess different strategies to handle missing values: deletion, mean imputation, regression imputation, stochastic regression imputation. Then, to tackle the issues of single imputation, multiple imputation will be used.</p>
+<ol style="list-style-type: decimal">
+<li><p>Generate bivariate data with <span class="math inline">\(n = 100\)</span> drawn from a Gaussian distribution with <span class="math inline">\(\mu_y = \mu_x = 125\)</span>, standard deviation <span class="math inline">\(\sigma_y = \sigma_x = 25\)</span> and correlation <span class="math inline">\(\rho = 0.6\)</span>. You should use the rmvnorm function. We note <span class="math inline">\(\theta = \mu_y\)</span>.</p></li>
+<li><p>Plot the data.</p></li>
+<li><p>Introduce <span class="math inline">\(73\%\)</span> of missing completely at random (MCAR) values on one variable (<span class="math inline">\(y\)</span>).</p></li>
+</ol>
+<p>A very popular approach to handle missing values consists in replacing the missing entries by plausible values to get a completed data set that can be analyzed by any statistical method. The most popular strategy consists of imputing with the mean of the observed values. But you may want to take into account the relationship between variables and impute with regression for instance. However, in order to preserve as well as possible the joint and marginal distributions you may prefer imputing by stochastic regression which means adding to the imputation by regression a random draw from a Gaussian distribution with mean zero and variance equals to the residuals variance. Let us assess these approaches.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>For each strategy (deletion, mean imputation, regression imputation, stochastic regression imputation), compute the empirical mean of <span class="math inline">\(y\)</span> (<span class="math inline">\(\hat \theta = \bar y\)</span>), its standard deviation (<span class="math inline">\(\hat \sigma_y\)</span>), the correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (<span class="math inline">\(r(X,Y)\)</span>), a confidence interval for <span class="math inline">\(\mu_y\)</span> and the width of the confidence interval.</p></li>
+<li><p>Plot the results</p></li>
+<li><p>Repeat steps 1, 3 and 4, 10000 times (generating data, generating missing entries, imputing values, computing some stats) and compute the bias of <span class="math inline">\(\hat \theta\)</span>, the coverage of the confidence interval for <span class="math inline">\(\mu_y\)</span> as well as the average of the width of the confidence intervals. Comment.</p></li>
+<li><p>What is your explanation regarding the previous results. What could be done?</p></li>
+<li><p>Repeat all the steps but for missing values generated under the mechanism Missing At Random MAR or Missing non at Random MNAR. MAR means that the probability to have a missing entry does not depend on the value itself but may depend on values of other variables (ex: the probability to have missing entries on the income does not depend on the income but may depend on the age; older people may be less incline to reveal their income - but within an age cluster the probability to have missing values is the same for each individual). MNAR means that the probability to have a missing entry depends on the value itself (rich people are less encline to reveal their income). For MAR, put missing values on <span class="math inline">\(y\)</span> when values for <span class="math inline">\(x \leq 140\)</span>; for MNAR, put missing values on <span class="math inline">\(y\)</span> when values for <span class="math inline">\(y \leq 140\)</span>. Comment the results.</p></li>
+</ol>
+<p>One main references on missing values is the book of Little &amp; Rubin (2002) <em>Statistical Analysis with missing data</em>.</p>
+</div>
+<div id="microarray-analysis" class="section level2">
+<h2><span class="header-section-number">8.3</span> Microarray analysis</h2>
+<p>The data we consider concerns 43 brain tumors of 4 different types defined by the standard world health organization (WHO) classification (O, oligodendrogliomas; A, astrocytomas; OA, mixed oligo-astrocytomas and GBM, glioblastomas) described by data both at the transcriptome level (with expression data) and at the genome level (with CGH data). More precisely, there are 356 continuous variables for the microarray data and 76 continuous variables for the CGH data. One aim of the study is to see whether the genes are expressed differently (underexpress or overexpress) depending on the tumor types.<br />
+A deep analysis of this data can be found in this <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2636827/">publication</a> where they also aim at comparing the information brought by the microarray data and the CGH data.</p>
+<ul>
+<li>Import the data that can be found here: <a href="http://factominer.free.fr/docs/gene.csv" class="uri">http://factominer.free.fr/docs/gene.csv</a></li>
+<li>Create a new variable with two categories GBM (which are the dangerous tumors) and Others (for lower grades tumors).</li>
+<li>Compare the means of the genes according to these two tumor types. You could output a data table, with the mean of each gene according to the two tumors types, the <span class="math inline">\(p\)</span>-value associated to the test and where genes are sorted according to their <span class="math inline">\(p\)</span>-values.</li>
+</ul>
+</div>
+<div id="chi-squares-test---goodness-of-fit." class="section level2">
+<h2><span class="header-section-number">8.4</span> Chi-squares test - Goodness of fit.</h2>
+<p>We want to test, the fit between the sample <span class="math inline">\((N_1,\dots,N_m)\)</span> of size <span class="math inline">\(n=N_1+\dots+N_m\)</span> to a Multinomiale distribution <span class="math inline">\({\cal M}(n;p_1,\dots,p_m)\)</span> with <span class="math inline">\(p_i\)</span> known. The test is <span class="math display">\[H_0:\ (N_1,\dots,N_m)\sim{\cal M}(n;p_1,\dots,p_m)\hspace{1cm}\mbox{vs}\hspace{1cm}H_1:\ (N_1,\dots,N_m)\nsim{\cal M}(n;p_1,\dots,p_m).\]</span> The statistic <span class="math display">\[T_n=n\sum_{i=1}^m\frac{\left(\frac{N_{i}}{n}-p_i\right)^2}{p_i}=\sum_{i=1}^m\frac{(N_{i}-np_i)^2}{np_i},\]</span> measure the distance between observed values and theoritical frequencies. Under <span class="math inline">\(H_0\)</span>, <span class="math display">\[T_n\xrightarrow[n\to\infty]{\cal L}\chi_{m-1}^2,\]</span> and under <span class="math inline">\(H_1\)</span>, <span class="math display">\[T_n\xrightarrow[n\to\infty]{p.s.}+\infty.\]</span> We reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(t_n\)</span> is large.</p>
+<p>We give the number of births in the USA relatively to the day of the week. The mean number of births per day for 1997 (source [National Vital Statistics Report] (<a href="http://www.cdc.gov/nchs/products/nvsr.htm" class="uri">http://www.cdc.gov/nchs/products/nvsr.htm</a>)) are the following: <span class="math inline">\(N_{monday}=10861\)</span>, <span class="math inline">\(N_{tuesday}=12104\)</span>, <span class="math inline">\(N_{wednesday}=11723\)</span>, <span class="math inline">\(N_{thursday}=11631\)</span>, <span class="math inline">\(N_{friday}=11640\)</span>, <span class="math inline">\(N_{saturday}=8670\)</span>, <span class="math inline">\(N_{sunday}=7778\)</span>.</p>
+<ul>
+<li><p>Are births uniform on days of the week ?</p></li>
+<li><p>Should we use the mean number of births per day or the total number of births per day to apply the test ?</p></li>
+</ul>
+</div>
+<div id="rv-and-dcov-coefficients" class="section level2">
+<h2><span class="header-section-number">8.5</span> RV and dCov coefficients</h2>
+<p>Exam 2016</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mvtnorm)
+<span class="kw">library</span>(FactoMineR)
+<span class="kw">library</span>(energy)
+<span class="kw">library</span>(ggplot2)</code></pre></div>
+<p>Consider two random vectors <span class="math inline">\(X\)</span> in <span class="math inline">\(\mathbb{R}^p\)</span> and <span class="math inline">\(Y\)</span> in <span class="math inline">\(\mathbb{R}^q\)</span>. Our aim in this exercise is to study and test the association between these two vectors. We will introduce two ways of measuring the association between two random vectors: the RV coefficient and the dCov coefficient. The RV coefficient is restricted to the study of linear relations, while the dCov coefficient extends to a nonlinear setting.</p>
+<p>The RV coefficient is defined as follows. Let <span class="math inline">\(\Sigma_{XY}\)</span> denote the population covariance matrix between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and <span class="math inline">\({\operatorname{tr}}\)</span> the trace operator. Let us define the following correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[ \rho V(X,Y) = \frac{{\operatorname{tr}}(\Sigma_{XY}\Sigma_{YX})}{\sqrt{{\operatorname{tr}}(\Sigma^2_{XX}){\operatorname{tr}}(\Sigma^2_{YY})}} \]</span></p>
+<p>Note that for <span class="math inline">\(p=q=1\)</span>, <span class="math inline">\(\rho V=\rho^2\)</span> the square of the standard correlation coefficient. In a statistical context, we consider <span class="math inline">\(n\)</span> independent realizations of the random vectors stored in matrices <span class="math inline">\({\mathbf{X}}_{n\times p}\)</span> and <span class="math inline">\({\mathbf{Y}}_{n\times q}\)</span>. Denoting <span class="math inline">\(S_{{\mathbf{X}}{\mathbf{Y}}}=1/(n-1) \times {\mathbf{X}}&#39; {\mathbf{Y}}\)</span> the empirical covariance matrix between <span class="math inline">\({\mathbf{X}}\)</span> and <span class="math inline">\({\mathbf{Y}}\)</span>, the <span class="math inline">\(\rho V\)</span> coefficient can be consistently estimated by:</p>
+<p><span class="math display">\[  {\operatorname{RV}}({\mathbf{X}},{\mathbf{Y}}) = \frac{{\operatorname{tr}}(S_{{\mathbf{X}}{\mathbf{Y}}}S_{{\mathbf{Y}}{\mathbf{X}}})}{\sqrt{{\operatorname{tr}}(S^2_{{\mathbf{X}}{\mathbf{X}}}){\operatorname{tr}}(S^2_{{\mathbf{Y}}{\mathbf{Y}}})}} \]</span></p>
+<p>To interpret the RV coefficient, we define <span class="math inline">\({\mathbf{W}}_{\mathbf{X}}= {\mathbf{X}}{\mathbf{X}}&#39;\)</span> and <span class="math inline">\({\mathbf{W}}_{\mathbf{Y}}= {\mathbf{Y}}{\mathbf{Y}}&#39;\)</span>.</p>
+<p><strong>(Q1)</strong> Write the RV coefficient with <span class="math inline">\({\mathbf{W}}_{\mathbf{X}}\)</span>, <span class="math inline">\({\mathbf{W}}_{\mathbf{Y}}\)</span> and the <a href="https://en.wikipedia.org/wiki/Hilbert%E2%80%93Schmidt_operator">Hilbert-Schmidt inner product</a> between matrices. Show that <span class="math inline">\(0 \leq {\operatorname{RV}}\leq 1\)</span> and interpret the case of <span class="math inline">\({\operatorname{RV}}=0\)</span>.</p>
+<p>As with the ordinary correlation coefficient, a high value of the RV coefficient does not necessarily mean there is a significant relationship between the two sets of measurements. The next paragraph aims at showing numerically that the RV coefficient depends on the dimensions <span class="math inline">\(n,p,q\)</span>.</p>
+<div id="expected-values-of-the-rv-coefficient-with-respect-to-the-dimensions" class="section level3">
+<h3><span class="header-section-number">8.5.1</span> Expected values of the RV coefficient with respect to the dimensions</h3>
+<p>To compute numerically the RV coefficient, we can use the function <strong>coeffRV</strong> of the package <strong>FactoMineR</strong>. Besides, the function <strong>rmvnorm</strong> of the package <strong>mvtnorm</strong> enables to simulate multivariate gaussian variables.</p>
+<p><strong>(R1)</strong> Let <span class="math inline">\(n=25\)</span> and <span class="math inline">\(p=q=5\)</span>. Generate matrices <span class="math inline">\({\mathbf{X}}\)</span> and <span class="math inline">\({\mathbf{Y}}\)</span> by drawing observations from independent gaussian distributions with mean <span class="math inline">\(\mu=(0)_{1 \times p}\)</span> and covariance matrix <span class="math inline">\(\text{Id}_{p \times p}\)</span>. Compute the value of the RV coefficient. Repeat the process 100 times and take the quantile at 95% of this empirical distribution (under the null hypothesis of no linear relationship) of RV coefficient. The aim is now to vary <span class="math inline">\(n\)</span> and <span class="math inline">\(p=q\)</span> and to perform the same operation for for <span class="math inline">\(n=25,30,35,50,70,100\)</span> and <span class="math inline">\(p=q=5,10,20,50,100\)</span>. Create a matrix to gather your results, i.e. which contains the values of these quantiles of RV coefficient for the different size.</p>
+<p><strong>(Q2)</strong> Comment in two or three sentences the obtained values of the RV coefficient.</p>
+</div>
+<div id="permutation-test-for-wine-data" class="section level3">
+<h3><span class="header-section-number">8.5.2</span> Permutation test for wine data</h3>
+<p>From the results of the preceding section (RV coefficient), a testing procedure to test the significance of the association between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is necessary. One usually sets up the hypothesis test by taking</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>, <span class="math inline">\(\rho V=0\)</span> there is no linear relationship between the two sets</li>
+<li><span class="math inline">\(H_1\)</span>, <span class="math inline">\(\rho V&gt;0\)</span> there is a linear relationship between the two sets</li>
+</ul>
+<p>The fact that <span class="math inline">\(\rho V=0\)</span> (which corresponds to the population covariance matrix <span class="math inline">\(\Sigma_{XY}=0\)</span>) does not necessarily imply independence between X and Y (except when they are multivariate normal), only the absence of a linear relationship between them.</p>
+<p>In this section, we focus on a permutation test. Repeated permutation of the rows of one matrix and computation of the statistic such as the RV coefficient provides the distribution of the RV coefficient under <span class="math inline">\(H_0\)</span>.</p>
+<p>The data we are working on have already been introduced in the classes (Wine tasting). It is a sensory analysis where judges assessed wines. We worked on a data set where the judges were experts (Expert_wine.csv). In addition, we have at disposal data where the wines have been described by Students (Student_wine.csv) and usual consumers (Consumer_wine.csv). We want to globally compare the analysis of the wines between these different judges, i.e. to see if the wines are described in the same way by the different panelists (if wines which are close for Experts are also close for Students).</p>
+<p><strong>(R2)</strong> Import the data sets and keep only the quantitative variables. Compute the RV coefficients between the different pairs of the judges (Experts, Consumers, Students). Comment the results.</p>
+<p>For a couple of matrices, <span class="math inline">\({\mathbf{X}}_1\)</span> and <span class="math inline">\({\mathbf{X}}_2\)</span> (for instance Experts, Consumers), using the <strong>sample</strong> function, produce 10000 permutations of the rows of one matrix say <span class="math inline">\({\mathbf{X}}_1\)</span> and compute each time the RV coefficient between the matrix with permuted rows <span class="math inline">\({\mathbf{X}}_1^{perm}\)</span> and <span class="math inline">\({\mathbf{X}}_2\)</span>, (perm=1, …, 10000). Plot the histogram of the empirical distribution of the RV coefficient you obtain. Position the observed value of the RV coefficient calculated between the initial matrices <span class="math inline">\({\mathbf{X}}_1\)</span> and <span class="math inline">\({\mathbf{X}}_2\)</span>. Calculate the <span class="math inline">\(p\)</span>-value using this empirical distribution, and compare it to the <span class="math inline">\(p\)</span>-value given by the <strong>coeffRV</strong> function. The <span class="math inline">\(p\)</span>-value is defined as the proportion of the values that are greater or equal to the observed coefficient.</p>
+<p><strong>(Q3)</strong> Explain in two sentences why this procedure makes sense to test the null hypothesis of no association.</p>
+</div>
+<div id="power-of-the-rv-and-dcov-tests-in-the-case-of-a-linear-relation" class="section level3">
+<h3><span class="header-section-number">8.5.3</span> Power of the RV and dCov tests in the case of a linear relation</h3>
+<p>The dCov coefficient enables to detect relationships between two variables in a nonlinear setting. The definition and properties are beyond the scope of this exercice, but the dCov coefficient is equal to zero, if and only if there is independence between the random vectors.</p>
+<p>Several testing procedures exist for the RV and dCov coefficients, based on the asymptotic distribution or on permutation tests (as we have seen in the preceding paragraph). Numerically, they are implemented in the <strong>coeffRV</strong> function for the RV coefficient and in the <strong>dcov.test</strong> function of the package <strong>energy</strong> for the dCov coefficient.</p>
+<p>We want to compare the power of these tests in the case of a linear relation. Let us denote by <span class="math inline">\(\mathbb{1}\)</span> the matrix full of <span class="math inline">\(1\)</span>.</p>
+<p><strong>(R3)</strong> For <span class="math inline">\(p=q=5\)</span> and <span class="math inline">\(n=25,30,35,50,70,100\)</span>, simulate a gaussian vector <span class="math inline">\((X,Y)\)</span> of dimension <span class="math inline">\(p+q=10\)</span>, of mean <span class="math inline">\(0\)</span> and covariance matrix <span class="math inline">\(0.1 \times \mathbb{1}_{10 \times 10} + 0.9 \times \text{Id}_{10 \times 10}\)</span>. For 1000 simulations, calculate the <span class="math inline">\(p\)</span>-value of the RV and dCov tests respectively. Count the number of times the <span class="math inline">\(p\)</span>-value is less than <span class="math inline">\(0.1\)</span>. The frequencies obtained respectively for the RV and dCov tests are approximations of the power of the tests. Plot the powers of these tests as a function of <span class="math inline">\(n\)</span>.</p>
+<p><strong>(Q4)</strong> Comment in two or three sentences the plot.</p>
+</div>
+<div id="power-of-the-rv-and-dcov-tests-in-the-case-of-a-nonlinear-relation" class="section level3">
+<h3><span class="header-section-number">8.5.4</span> Power of the RV and dCov tests in the case of a nonlinear relation</h3>
+<p>The same steps can be done in the case of a nonlinear relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<p><strong>(R4)</strong> For <span class="math inline">\(p=q=10\)</span> and <span class="math inline">\(n=25,30,35,50,70,100\)</span>, simulate a gaussian vector <span class="math inline">\(X\)</span> of dimension <span class="math inline">\(p=10\)</span>, of mean <span class="math inline">\(0\)</span> and covariance matrix <span class="math inline">\(\text{Id}_{10 \times 10}\)</span>. Then set <span class="math inline">\(Y=\log(X^2)\)</span>. For 1000 simulations, calculate the <span class="math inline">\(p\)</span>-value of the RV and dCov tests respectively. Count the number of times the <span class="math inline">\(p\)</span>-value is less than <span class="math inline">\(0.1\)</span>. The frequencies obtained respectively for the RV and dCov tests are approximations of the power of the tests. Plot the powers of these tests in function of <span class="math inline">\(n\)</span>.</p>
+<p><strong>(Q5)</strong> Comment in two or three sentences the plot.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="principal-components-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-Homework2_test.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

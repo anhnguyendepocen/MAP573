@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="homework-tests.html">
+<link rel="next" href="homework-pca.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a><ul>
+<li class="chapter" data-level="9.1" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#lecture"><i class="fa fa-check"></i><b>9.1</b> Lecture</a></li>
+<li class="chapter" data-level="9.2" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#lab"><i class="fa fa-check"></i><b>9.2</b> Lab</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#lecture-questions"><i class="fa fa-check"></i><b>9.2.1</b> Lecture questions</a></li>
+<li class="chapter" data-level="9.2.2" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#analysis-of-decathlon-data"><i class="fa fa-check"></i><b>9.2.2</b> Analysis of decathlon data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="principal-components-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Principal components analysis</h1>
+<div id="lecture" class="section level2">
+<h2><span class="header-section-number">9.1</span> Lecture</h2>
+<p>Before starting, you should watch the lecture by François Husson on a practical presentation of PCA. <a href="https://www.youtube.com/playlist?list=PLnZgp6epRBbRn3FeMdaQgVsFh9Kl0fjqX">french</a>,<a href="https://www.youtube.com/playlist?list=PLnZgp6epRBbQuZSHJ5hBzxdDZNzBFKBoB">english</a></p>
+<p>Principal component analysis (PCA) summarizes a data table where the observations are described by (continuous) quantitative variables. PCA is used to study the similarities between individuals from the point of view of all of the variables and identifies individuals profiles. It is also used to study the linear relationships between variables (based on correlation coefficients). The two studies are linked, which means that the individuals or groups can be characterized by the variables and the links between variables illustrated from typical individuals. More details are in the lecture slides.</p>
+<p>To perform PCA, we use the PCA function from the FactoMineR package. A <a href="http://factominer.free.fr">website</a> is dedicated to this package. The code associated to the lecture slides is the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FactoMineR)
+Expert &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://factominer.free.fr/docs/Expert_wine.csv&quot;</span>,
+<span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)
+res.pca &lt;-<span class="st"> </span><span class="kw">PCA</span>(Expert, <span class="dt">scale =</span> T, <span class="dt">quanti.sup =</span> <span class="dv">29</span>:<span class="dv">30</span>, <span class="dt">quali.sup =</span> <span class="dv">1</span>)
+<span class="kw">summary</span>(res.pca)
+<span class="kw">barplot</span>(res.pca$eig[,<span class="dv">1</span>], <span class="dt">main =</span> <span class="st">&quot;Eigenvalues&quot;</span>, <span class="dt">names.arg =</span> <span class="dv">1</span>:<span class="kw">nrow</span>(res.pca$eig))
+<span class="kw">plot.PCA</span>(res.pca, <span class="dt">habillage =</span> <span class="dv">1</span>)
+res.pca$ind$coord; res.pca$ind$cos2; res.pca$ind$contrib
+<span class="kw">plot.PCA</span>(res.pca, <span class="dt">axes =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">habillage =</span> <span class="dv">1</span>)
+<span class="kw">dimdesc</span>(res.pca)
+<span class="kw">plotellipses</span>(res.pca, <span class="dv">1</span>)
+<span class="kw">write.infile</span>(res.pca, <span class="dt">file =</span> <span class="st">&quot;my_FactoMineR_results.csv&quot;</span>)</code></pre></div>
+<p>A Shiny interface has been developed for FactoMineR, you should install the Factoshiny package, it may give you an idea of what interfaces you should produce to facilitate the use of the methods you develop.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Factoshiny)
+<span class="kw">data</span>(decathlon)
+<span class="kw">PCAshiny</span>(decathlon)</code></pre></div>
+<p>A very useful package is FactoInvestigate. It generates an automatic report and interpretation of FactoMineR principal component analyses. The main function provided by the package is the function Investigate(), which can be used to create either a Word, PDF or a HTML report.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;FactoInvestigate&quot;</span>)
+<span class="co"># Principal component analyses</span>
+<span class="kw">Investigate</span>(res.pca, <span class="dt">file =</span> <span class="st">&quot;PCA.Rmd&quot;</span>, <span class="dt">document =</span> <span class="st">&quot;pdf_document&quot;</span>, 
+            <span class="dt">parallel =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>The aim of this package is also to encourage you going further in the interpretation!</p>
+<p>Finally, we should mention that there exists a package that has embedded FactoMineR within ggplot2!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(factoextra)</code></pre></div>
+<p>References on principal component methods and on the FactoMineR package: Exploratory Multivariate Analysis by Example using R, Husson, Lê, Pagès (2017), Chapman &amp; Hall Multiple Factor Analysis by Example using R, Pagès (2015), CRC Press.</p>
+</div>
+<div id="lab" class="section level2">
+<h2><span class="header-section-number">9.2</span> Lab</h2>
+<div id="lecture-questions" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Lecture questions</h3>
+<ul>
+<li>When do we need to scale the variables? Simulate and comment:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mvtnorm)
+Z &lt;-<span class="st"> </span><span class="kw">rmvnorm</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="kw">rep</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="dt">sigma =</span> <span class="kw">diag</span>(<span class="dv">3</span>))
+X1 &lt;-<span class="st"> </span>Z[, <span class="dv">1</span>]
+X2 &lt;-<span class="st"> </span>X1 +<span class="st"> </span><span class="fl">0.001</span>*Z[, <span class="dv">2</span>]
+X3 &lt;-<span class="st"> </span><span class="dv">10</span>*Z[, <span class="dv">3</span>]
+don &lt;-<span class="st"> </span><span class="kw">cbind.data.frame</span>(X1, X2, X3)
+<span class="kw">library</span>(FactoMineR)
+res.pca &lt;-<span class="st"> </span><span class="kw">PCA</span>(don, <span class="dt">scale =</span> F)
+res.pcascaled &lt;-<span class="st"> </span><span class="kw">PCA</span>(don, <span class="dt">scale =</span> T)</code></pre></div>
+<ul>
+<li><p>TRUE or FALSE. If you perform a standardized PCA on a huge number of variables: the percentage of variability of the two first dimenions is small.</p></li>
+<li><p>A scaled PCA has been performed on 4 data sets. Link correlation matrices and PCA results.</p></li>
+</ul>
+<p><img src="pic/PCA_cor.png" width="75%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>What is the percentage of variability of the first dimension? The first plane?</li>
+</ul>
+<p><img src="pic/AnaDo_ACP_exo_Graphe_var2.jpg" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="analysis-of-decathlon-data" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Analysis of decathlon data</h3>
+<p>This dataset contains the results of decathlon events during two athletic meetings which took place one month apart in 2004: the Olympic Games in Athens (23 and 24 August), and the Decastar 2004 (25 and 26 September). For both competitions, the following information is available for each athlete: performance for each of the 10 events, total number of points (for each event, an athlete earns points based on performance; here the sum of points scored) and final ranking. The events took place in the following order: 100 metres, long jump, shot put, high jump, 400 metres (first day) and 110 metre hurdles, discus, pole vault, javelin, 1500 metres (second day). Nine athletes participated to both competions. We would like to obtain a typology of the performance profiles.</p>
+<p>The aim of conducting PCA on this dataset is to determine profiles for similar performances: are there any athletes who are better at endurance events or those requiring short bursts of energy, etc? And are some of the events similar? If an athlete performs well in one event, will he necessarily perform well in another?</p>
+<p>The data can be found with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FactoMineR)
+<span class="kw">data</span>(decathlon)</code></pre></div>
+<ul>
+<li><p>Have a quick look at the centered and scaled data, what can be said?</p></li>
+<li><p>Explain your choices for the active and illustrative variables/individuals and perform the PCA on this data set.</p></li>
+<li><p>Comment the percentage of variability explained by the two first dimensions. What would you like (a small percentage, a high percentage) and why?</p></li>
+<li>Comment:</li>
+<li>the correlation between the 100 m and long.jump</li>
+<li>the correlation between long.jump and Pole.vault</li>
+<li>can you describe the athlete Casarsa?</li>
+<li>the proximity between Sebrle and Clay</li>
+<li><p>the proximity between Schoenbeck and Barras</p></li>
+<li><p>Enhance the graphical outputs with the following options:</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">plot.PCA</span>(res.pca, <span class="dt">choix =</span> <span class="st">&quot;ind&quot;</span>, <span class="dt">habillage =</span> <span class="kw">ncol</span>(decathlon), <span class="dt">cex =</span> <span class="fl">0.7</span>)
+ <span class="kw">plot.PCA</span>(res.pca, <span class="dt">choix =</span> <span class="st">&quot;ind&quot;</span>, <span class="dt">habillage =</span> <span class="kw">ncol</span>(decathlon), <span class="dt">cex =</span> <span class="fl">0.7</span>, 
+ <span class="dt">autolab =</span> <span class="st">&quot;no&quot;</span>)
+ <span class="kw">plot</span>(res.pca, <span class="dt">select =</span> <span class="st">&quot;cos2 0.8&quot;</span>,  <span class="dt">invisible =</span> <span class="st">&quot;quali&quot;</span>)
+ <span class="kw">plot</span>(res.pca, <span class="dt">select =</span> <span class="st">&quot;contrib 10&quot;</span>)
+ <span class="kw">plot</span>(res.pca, <span class="dt">choix =</span> <span class="st">&quot;var&quot;</span>, <span class="dt">select =</span> <span class="st">&quot;contrib 8&quot;</span>, <span class="dt">unselect =</span> <span class="dv">0</span>)
+ <span class="kw">plot</span>(res.pca, <span class="dt">choix =</span> <span class="st">&quot;var&quot;</span>, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&quot;400m&quot;</span>, <span class="st">&quot;1500m&quot;</span>))</code></pre></div>
+<ul>
+<li><p>In which trials those who win the decathlon perform the best? Could we say that the decathlon trials are well selected?</p></li>
+<li><p>Compare and comment the performances during both events: Decastar and Olympic. Could we conclude on the differences? Plot confidence ellipses or perfom a test:</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plotellipses</span>(res.pca)
+<span class="kw">dimdesc</span>(res.pca)
+<span class="kw">dimdesc</span>(res.pca, <span class="dt">proba =</span> <span class="fl">0.2</span>) </code></pre></div>
+<p>To select the number of dimensions, you should have a look at</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?estim_ncp</code></pre></div>
+<p>which performs cross validation as detailed in the lectures slides.</p>
+<!--TRUE or FALSE.   
+
+If you perform a standardized PCA on a huge number of variables: the percentage of variability of the two first dimensions is small.
+
+A scaled PCA has been performed on 4 data sets. Link correlation matrices and PCA results.
+
+\begin{tabular}{lllllp{2cm}lllll}
+\cline{1-5}\cline{7-11}
+\multicolumn{5}{c}{\bf Correlation matrix A}&&\multicolumn{5}{c}{\bf Correlation matrix  B}\\
+\cline{1-5}\cline{7-11}
+1.00&-0.46&0.54&-0.10&-0.14&&1.00&0.95&0.95&0.94&0.94\\
+-0.46&1.00&-0.55&-0.14&-0.10&&0.95&1.00&0.94&0.95&0.95\\
+0.54&-0.55&1.00&0.04&0.04&&0.95&0.94&1.00&0.93&0.92\\
+-0.10&-0.14&0.04&1.00&0.94&&0.94&0.95&0.93&1.00&0.94\\
+-0.14&-0.09&0.04&0.94&1.00&&0.94&0.95&0.92&0.94&1.00\\
+\cline{1-5}\cline{7-11}
+\end{tabular} 
+
+\begin{tabular}{lllllp{2cm}lllll}
+\cline{1-5}\cline{7-11}
+\multicolumn{5}{c}{\bf Correlation matrix  C}&&\multicolumn{5}{c}{\bf Correlation matrix  D}\\
+\cline{1-5}\cline{7-11}
+1.00&0.59&0.53&0.56&0.56&&1.00&-0.01&0.04&-0.06&0.07\\
+0.59&1.00&0.55&0.59&0.72&&-0.01&1.00&-0.07&0.09&0.01\\
+0.53&0.55&1.00&0.47&0.50&&0.04&-0.07&1.00&0.23&0.29\\
+0.56&0.59&0.47&1.00&0.51&&-0.06&0.09&0.23&1.00&0.17\\
+0.56&0.72&0.50&0.51&1.00&&0.07&0.01&0.29&0.17&1.00\\\\\\
+\end{tabular}
+
+\begin{tabular}{|cccc|p{1.2cm}|cccc|}
+\cline{1-4}\cline{6-9}
+\multicolumn{4}{|c|}{\bf PCA 1}&&\multicolumn{4}{|c|}{\bf PCA 2}\\
+\cline{1-4}\cline{6-9}
+&Eigenvalue&\%inertia&\% inertia&&&Eigenvalue&\% inertia&\% inertia\\
+\cline{1-4}\cline{6-9}
+1&4.77&95.39&95.39&&1&1.47&29.31&29.31\\
+2&0.08&1.63&97.02&&2&1.08&21.64&50.95\\
+3&0.06&1.21&98.23&&3&1.00&20.01&70.96\\
+4&0.05&0.90&99.13&&4&0.77&15.49&86.45\\
+5&0.04&0.87&100&&5&0.68&13.55&100\\
+\cline{1-4}\cline{6-9}
+\end{tabular}
+
+\begin{tabular}{|cccc|p{1.2cm}|cccc|}
+\cline{1-4}\cline{6-9}
+\multicolumn{4}{|c|}{\bf PCA 3}&&\multicolumn{4}{|c|}{\bf PCA 4}\\
+\cline{1-4}\cline{6-9}
+&Eigenvalue&\%inertia&\% inertia&&&Eigenvalue&\% inertia&\% inertia\\
+\cline{1-4}\cline{6-9}
+1&3.24&64.86&64.86&&1&2.05&40.95&40.95\\
+2&0.54&10.84&75.70&&2&1.964&39.27&80.22\\
+3&0.52&10.40&86.10&&3&0.498&9.96&90.18\\
+4&0.43&8.50&94.60&&4&0.431&8.61&98.79\\
+5&0.27&5.40&100&&5&0.06&1.21&100\\
+\cline{1-4}\cline{6-9}
+\end{tabular}
+
+What is the percentage of variability of the first dimension? The first plane?
+
+\includegraphics[width=0.5 \textwidth]{pic/AnaDo_ACP_exo_Graphe_var2.jpg}
+
+
+What is a supplementary individual?
+
+What is the maximum number of dimensions in PCA?
+
+What is the impact of the centering for the variables cloud?
+
+What is the total inertia of the variable cloud?
+
+What is the mean of the observations coordinates ($F_{.q}$) on each dimension?
+-->
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="homework-tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-pca.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-PCA.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

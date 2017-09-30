@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="what-is-r.html">
+<link rel="next" href="reproducible.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a><ul>
+<li class="chapter" data-level="3.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#download-r-and-r-studio"><i class="fa fa-check"></i><b>3.1</b> Download R and R Studio</a></li>
+<li class="chapter" data-level="3.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#objects"><i class="fa fa-check"></i><b>3.2</b> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#vectors"><i class="fa fa-check"></i><b>3.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#factors"><i class="fa fa-check"></i><b>3.2.2</b> Factors</a></li>
+<li class="chapter" data-level="3.2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#matrices"><i class="fa fa-check"></i><b>3.2.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#lists"><i class="fa fa-check"></i><b>3.2.4</b> Lists</a></li>
+<li class="chapter" data-level="3.2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#data-frames"><i class="fa fa-check"></i><b>3.2.5</b> Data frames</a></li>
+<li class="chapter" data-level="3.2.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#missing-values"><i class="fa fa-check"></i><b>3.2.6</b> Missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-packages"><i class="fa fa-check"></i><b>3.3</b> Installing packages</a></li>
+<li class="chapter" data-level="3.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#programming"><i class="fa fa-check"></i><b>3.4</b> Programming</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#loops"><i class="fa fa-check"></i><b>3.4.1</b> Loops</a></li>
+<li class="chapter" data-level="3.4.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#conditions-if-else"><i class="fa fa-check"></i><b>3.4.2</b> Conditions (if, else)</a></li>
+<li class="chapter" data-level="3.4.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#predefined-functions"><i class="fa fa-check"></i><b>3.4.3</b> Predefined Functions</a></li>
+<li class="chapter" data-level="3.4.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#creating-a-function"><i class="fa fa-check"></i><b>3.4.4</b> Creating a Function</a></li>
+<li class="chapter" data-level="3.4.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#practice"><i class="fa fa-check"></i><b>3.4.5</b> Practice</a></li>
+<li class="chapter" data-level="3.4.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#distributions"><i class="fa fa-check"></i><b>3.4.6</b> Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#import"><i class="fa fa-check"></i><b>3.5</b> Import data</a></li>
+<li class="chapter" data-level="3.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#first-descriptive-statistics"><i class="fa fa-check"></i><b>3.6</b> First descriptive statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="getting-started-with-r" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Getting Started with R</h1>
+<div id="download-r-and-r-studio" class="section level2">
+<h2><span class="header-section-number">3.1</span> Download R and R Studio</h2>
+<p>R can be downloaded at the following address <a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a> from the CRAN (comprehensive R archive network; see the <a href="https://channel9.msdn.com/Events/useR-international-R-User-conferences/useR-International-R-User-2017-Conference/KEYNOTE-20-years-of-CRAN">talk</a> at useR!2017 20 years of CRAN.</p>
+<p>The installation of R varies according to the operating system (Windows, Mac<sub>OS</sub>X or Linux) but the functions are exactly the same and most of the programs are portable from one system to another. Installing R is very simple, just follow the instructions.</p>
+<p>R is an interpreted language, typically accessed through a command-line interpreter. A powerful interactive development environment (IDE) oriented to R, RStudio is available to work with R. R must have already been installed before you can install RStudio. RStudio can be downloaded at the <a href="http://rstudio.com">RStudio web site</a>, the installation is also very simple.</p>
+<p>The RStudio interface consists of several windows: The upper left can be used to edit R code (script). You can open a script with “File, New, R script”. You can click on “Run” to execute the code or use the appropriate shortcut. The bottom left corresponds to the R console. R waits for an instruction, as indicated by the symbol &gt;. at the beginning of the line. Each instruction must be validated by Enter to be run. If the instruction is correct, R again waits for another instruction, as indicated by &gt;. If the instruction is incomplete, R yields the symbol +. You must then complete the instruction or take control again by typing Ctrl + c or Esc. If the instruction is incorrect, an error message will appear. The upper right is the workspace with objects created. The bottom right gives the file system, plots, information about packages and help.</p>
+<p>Before starting, it is important to <strong>set the working directory</strong>, <em>i.e.</em> the working folder where the data and scripts are stored. If one asked R to open a file or save a figure, it will operate in the working directory. Within RStudio the working directory can be specified with “Tools / Set working directory”. Otherwise, you should write:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;../data&quot;</span>)
+<span class="kw">list.files</span>(<span class="st">&quot;./data&quot;</span>)
+
+if(!<span class="kw">file.exists</span>(<span class="st">&quot;data&quot;</span>)){
+  <span class="kw">dir.create</span>(<span class="st">&quot;data&quot;</span>)
+}</code></pre></div>
+<p>You can check your working directory using</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<p>Time for good resolutions… try to avoid:</p>
+<embed src="pic/phd101212s.pdf" width="50%" type="application/pdf" />
+<p>or also</p>
+<p><img src="pic/documents.png" width="50%" /></p>
+</div>
+<div id="objects" class="section level2">
+<h2><span class="header-section-number">3.2</span> Objects</h2>
+<p>R uses functions or operators which act on objects (vector, factor, matrix, array, list, data.frame, etc.). The main modes (types) of objects are numeric (real numbers), character (“hi”), logical (boolean TRUE or FALSE), complex. Each object has two intrinsic attributes: its mode and its length. There are also other specific attributes which vary according to the type of object: dim, dimnames, class, etc. It is possible to request a list of these specific attributes by running the command: attributes(object).</p>
+<div id="vectors" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Vectors</h3>
+<p>Vectors are atomic objects, that is to say they are of a unique type (null, logical, numeric, etc.), made up of a set of values called components, coordinates or elements. There are differents ways to create a vector as illustrated below. Selecting an elements is perfomed using the squared brackets and specifying the index of the element to select.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># creation</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,-<span class="dv">5</span>,-<span class="dv">6</span>, <span class="dv">9</span>) <span class="co"># concatenate</span>
+x <span class="co"># to print x (or print(x))</span>
+
+y =<span class="st"> </span><span class="dv">1</span>:<span class="dv">6</span> <span class="co"># Rq: you can use = instead of &lt;- (but the latter is my preference)</span>
+y =<span class="st"> </span><span class="kw">c</span>(x, y)
+
+z &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">6</span> , <span class="dt">by =</span> <span class="fl">0.5</span>)
+<span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>)
+?rep <span class="co"># or help(rep) help is a function we spend our time using</span>
+<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">each =</span> <span class="dv">3</span>)
+
+<span class="co"># attributes</span>
+<span class="kw">is.numeric</span>(x); <span class="kw">is.vector</span>(x)
+<span class="kw">length</span>(x)
+
+<span class="co"># selection</span>
+y[<span class="dv">4</span>] 
+y[-<span class="dv">1</span>]
+y[<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)]
+y[(y&gt;<span class="dv">2</span>)&amp;(y&lt;<span class="dv">5</span>)] <span class="co"># and</span>
+y[(y&lt;<span class="dv">2</span>)|(y&gt;<span class="dv">5</span>)] <span class="co"># or</span>
+## &quot;&gt;&quot;, &quot;&lt;&quot;, &quot;&gt;=&quot;, &quot;&lt;=&quot;, &quot;==&quot;, &quot;!=&quot; 
+y[y&lt;<span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">10</span>
+
+<span class="co"># Hint: Hit the up arrow to display the previous commands.</span></code></pre></div>
+<p>It is also possible to create vectors of characters:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;green&quot;</span>,<span class="st">&quot;red&quot;</span>,<span class="st">&quot;black&quot;</span>,<span class="st">&quot;yellow&quot;</span>)
+X &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&#39;A&#39;</span>,<span class="dv">5</span>)
+X &lt;-<span class="st"> </span><span class="kw">tolower</span>(X)
+
+<span class="kw">is.character</span>(x)
+<span class="kw">length</span>(x)
+
+<span class="kw">paste</span>(<span class="st">&quot;X&quot;</span>, <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)
+<span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>), <span class="dv">1</span>:<span class="dv">5</span>,<span class="st">&quot;txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;.&quot;</span>)
+<span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>), <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">sep =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)</code></pre></div>
+<p><strong>Practice</strong> create the following vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;X_1.txt&quot;</span>,<span class="st">&quot;Y_1.txt&quot;</span>,<span class="st">&quot;X_2.txt&quot;</span>,<span class="st">&quot;Y_2.txt&quot;</span>,..,
+<span class="st">&quot;X_5.txt&quot;</span>,<span class="st">&quot;Y_5.txt&quot;</span></code></pre></div>
+<p>Here a list of useful functions for vectors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">34</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>)
+
+<span class="kw">which.min</span>(x)
+<span class="kw">which</span>(x==<span class="kw">min</span>(x))
+
+<span class="kw">sort</span>(x)
+<span class="kw">order</span>(x)
+x[<span class="kw">order</span>(x)]
+
+<span class="kw">set.seed</span>(<span class="dv">12</span>)
+<span class="kw">sample</span>(x, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+
+txtvec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;arm&quot;</span>,<span class="st">&quot;foot&quot;</span>,<span class="st">&quot;lefroo&quot;</span>, <span class="st">&quot;bafoobar&quot;</span>)
+<span class="kw">grep</span>(<span class="st">&quot;foo&quot;</span>, txtvec)
+<span class="kw">gsub</span>(<span class="st">&quot;foo&quot;</span>, txtvec, <span class="dt">replacement =</span> <span class="st">&quot;DON&quot;</span>)
+<span class="kw">substr</span>(<span class="st">&quot;extraction&quot;</span>, <span class="dv">1</span>,<span class="dv">4</span> )
+vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)
+<span class="st">&quot;A&quot;</span> %in%<span class="st"> </span>vec
+vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)
+<span class="st">&quot;A&quot;</span> %in%<span class="st"> </span>vec</code></pre></div>
+</div>
+<div id="factors" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Factors</h3>
+<p>Factors are vectors which enable the user to manipulate qualitative data. The categories of the factor are defined by levels. They form a class of objects and are treated differently depending on the function, such as the plot function for graphs. Factors can be non-ordinal (male, female), or ordinal (levels of scores A, B, C…).</p>
+<p>Different functions can be used to create factors as illustrated below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># creation</span>
+sex &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>))
+
+sexnum &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)
+<span class="kw">summary</span>(sexnum)
+sex &lt;-<span class="st"> </span><span class="kw">as.factor</span>(sexnum)
+<span class="kw">summary</span>(sex)
+<span class="kw">levels</span>(sex) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)
+
+sex &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>))
+
+niveau &lt;-<span class="st"> </span><span class="kw">ordered</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,
+<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>))
+
+<span class="co"># attributes</span>
+<span class="kw">class</span>(sex)
+<span class="kw">is.factor</span>(sex)
+<span class="kw">nlevels</span>(sex)
+<span class="kw">levels</span>(sex)</code></pre></div>
+<p>There are some very common transformations that can be tricky:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">3</span>), <span class="kw">rep</span>(<span class="dv">12</span>,<span class="dv">2</span>), <span class="kw">rep</span>(<span class="dv">13</span>,<span class="dv">4</span>))
+xquali &lt;-<span class="st"> </span><span class="kw">as.factor</span>(x)
+
+<span class="co"># modify the levels</span>
+<span class="kw">levels</span>(xquali)
+<span class="kw">levels</span>(xquali)[<span class="dv">1</span>]=<span class="st">&quot;12&quot;</span>; <span class="kw">levels</span>(xquali)
+
+<span class="co"># be careful with empty levels</span>
+y &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">3</span>),<span class="st">&quot;B&quot;</span>,<span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">4</span>)))
+y &lt;-<span class="st"> </span>y[-<span class="dv">4</span>]; <span class="kw">table</span>(y); <span class="kw">levels</span>(y)
+<span class="kw">as.factor</span>(<span class="kw">as.character</span>(y))
+
+<span class="co"># to construct cross tabulations</span>
+<span class="kw">table</span>(sex) 
+
+<span class="co"># transform a factor into a numeric vector</span>
+<span class="kw">as.numeric</span>(xquali)
+<span class="kw">as.character</span>(xquali)
+<span class="kw">as.numeric</span>(<span class="kw">as.character</span>(xquali))</code></pre></div>
+</div>
+<div id="matrices" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Matrices</h3>
+<p>Matrices are atomic objects, that is to say, they are of the same mode or type for all values. Each value of the matrix can be located by its row and column numbers and elements can be selected using the squared brackets and two indexes as illustrated hereafter:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a matrix</span>
+mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
+mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)
+mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">byrow =</span> T) <span class="co"># By default, R ranks the values in a matrix by column. To rank the elements by row, use the argument  byrow</span>
+
+<span class="co"># attributes</span>
+<span class="kw">class</span>(mat); <span class="kw">is.matrix</span>(mat)
+<span class="kw">length</span>(mat)
+<span class="kw">dim</span>(mat); <span class="kw">ncol</span>(mat); <span class="kw">nrow</span>(mat)
+<span class="kw">rownames</span>(mat)
+<span class="kw">colnames</span>(mat) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;var&#39;</span>, <span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)
+mat
+
+<span class="co"># select elements</span>
+mat[<span class="dv">1</span>, <span class="dv">2</span>]; mat[-<span class="dv">2</span>, <span class="dv">1</span>:<span class="dv">2</span>]
+mat[<span class="dv">1</span>, ]; <span class="kw">is.vector</span>(mat[<span class="dv">1</span>, ]) 
+mat[<span class="dv">1</span>, , drop =<span class="st"> </span>F]; <span class="kw">is.matrix</span>(mat[<span class="dv">1</span>, , <span class="dt">drop =</span> F]) <span class="co">#Be careful, the argument drop = F is the only way to keep the object with one row as a matrix (thus rownames are kept)</span>
+
+mat[<span class="dv">3</span>]; mat[mat&gt;<span class="dv">4</span>]=<span class="dv">5</span></code></pre></div>
+<p><strong>Practice</strong> select the rows of mat when the values of the second columns are <span class="math inline">\(&gt;3\)</span></p>
+<p>Here a list of useful functions for matrices:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">3</span>:<span class="dv">6</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)
+Y =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">8</span>:<span class="dv">11</span>, <span class="dt">ncol =</span> <span class="dv">2</span> , <span class="dt">byrow =</span> T)
+X+Y
+X*Y  <span class="co"># hadamard product</span>
+
+X%*%Y <span class="co"># product of matrices</span>
+<span class="kw">t</span>(X) <span class="co"># transposed</span>
+<span class="kw">det</span>(X)
+<span class="kw">solve</span>(X) <span class="co"># inverse</span>
+<span class="kw">svd</span>(X)
+<span class="kw">eigen</span>(X)
+<span class="kw">diag</span>(X) <span class="co"># diagonal elements</span></code></pre></div>
+</div>
+<div id="lists" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Lists</h3>
+<p>A list is a heterogeneous object. It is a set of ranked objects which do not always have the same mode or length. The objects are referred to as components of the list. These components can be named. Lists have an attribute length, as well as the additional attribute names. Lists are important objects as all of the functions which yield multiple objects do so in the form of a list. To extract a component from the list, we can simply indicate the position of the element that we want to extract. [[ ]] are used to identify the element in the list or $.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a list</span>
+mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">myvect =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,-<span class="dv">3</span>), <span class="dt">mymat =</span> mat, <span class="dt">myfact=</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>))
+<span class="kw">class</span>(mylist)
+
+<span class="co"># attributes</span>
+<span class="kw">length</span>(mylist)
+<span class="kw">names</span>(mylist)
+
+<span class="co"># selection</span>
+mylist$myvect
+mylist[[<span class="dv">2</span>]]
+mylist[[<span class="st">&quot;mymat&quot;</span>]]
+
+<span class="co"># an element of a list can be a list</span>
+bb &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">onelist =</span> mylist, <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+<span class="kw">length</span>(bb)
+bb$onelist$myfact</code></pre></div>
+</div>
+<div id="data-frames" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Data frames</h3>
+<p>Data-frames may be the most important objects. They are a special type of lists with components of the same length but with potentially different modes. The data tables generally used in statistics are often referred to as data-frames. Indeed, a data table is made up of quantitative and/or qualitative variables taken from the same individuals.</p>
+<p>Creating a data-frame can be obtained with the function data.frame to concatenate vectors of the same size but which may have different modes, with the read.table function (see section import data <a href="getting-started-with-r.html#import">3.5</a>) to read a data table; the as.data.frame function for explicit conversion.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a data frame</span>
+v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>); v2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">27</span>,<span class="dv">54</span>,<span class="dv">34</span>,<span class="dv">21</span>,<span class="dv">57</span>)
+v3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">177</span>,<span class="dv">183</span>,<span class="dv">190</span>,<span class="dv">158</span>,<span class="dv">178</span>)
+don &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">sex=</span>v1, <span class="dt">age=</span>v2, <span class="dt">height=</span>v3)
+
+<span class="co"># attributes</span>
+<span class="kw">class</span>(don)
+<span class="kw">dim</span>(don); <span class="kw">colnames</span>(don); <span class="kw">rownames</span>(don)
+<span class="kw">summary</span>(don) <span class="co"># generic function</span>
+
+<span class="co"># transformation of a numeric vector into a factor</span>
+<span class="kw">is.factor</span>(v1); <span class="kw">is.numeric</span>(v1)
+don[,<span class="st">&quot;sex&quot;</span>]=<span class="kw">factor</span>(don[,<span class="st">&quot;sex&quot;</span>],<span class="dt">label=</span><span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>)) <span class="co"># This is one of the most current transformation very important to be sure that you have a categorical variables</span>
+<span class="kw">summary</span>(don)
+
+<span class="co"># selection</span>
+don$height
+<span class="kw">cor</span>(don[,<span class="dv">2</span>], don[,<span class="dv">3</span>])
+
+<span class="co"># concatenate</span>
+weight &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">60</span>,<span class="dv">65</span>,<span class="dv">89</span>,<span class="dv">45</span>, <span class="dv">68</span>)
+don &lt;-<span class="st"> </span><span class="kw">cbind.data.frame</span>(don, weight) <span class="co">#rbind.data.frame per row</span></code></pre></div>
+<p><strong>Practice</strong> create a data with individuals taller than 180.</p>
+</div>
+<div id="missing-values" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Missing values</h3>
+<p>For a number of reasons, certain elements of data may not be collected during an experiment or study. These elements are known as missing data. They are therefore not available for the user and R denotes them as NA for ``Not Available’’.</p>
+<p>In order to know where to find the missing values of an object <span class="math inline">\(x\)</span>, one must ask the question is.na(<span class="math inline">\(x\)</span>). This yields a Boolean of the same length as <span class="math inline">\(x\)</span>. The question is asked element by element. In the case of a vector, this yields a logical vector the same length as <span class="math inline">\(x\)</span> with TRUE if the corresponding element in is NA and FALSE if not.</p>
+<p>Other special values should be noted here: Inf for infinity and NaN for ``Not a Number’’, values resulting from calculation problems, for example exp(1e10) or log(-2) respectively.</p>
+<p>Here, examples of ways to identify the missing entries or to skip or replace the missing entries.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">7</span>, -<span class="dv">3</span>, <span class="ot">NA</span>)
+<span class="kw">is.na</span>(x)
+<span class="kw">which</span>(<span class="kw">is.na</span>(x)) 
+<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+<span class="kw">mean</span>(x[!<span class="kw">is.na</span>(x)])
+x[<span class="kw">is.na</span>(x)]=<span class="dv">0</span>
+
+don[<span class="dv">1</span>,<span class="dv">5</span>]=<span class="ot">NA</span>
+<span class="kw">is.na</span>(don)
+<span class="kw">which</span>(<span class="kw">is.na</span>(don))
+<span class="kw">which</span>(<span class="kw">is.na</span>(don), <span class="dt">arr.ind =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+</div>
+<div id="installing-packages" class="section level2">
+<h2><span class="header-section-number">3.3</span> Installing packages</h2>
+<p>Packages are available on the <a href="http://cran.r-project.org/">CRAN network</a>. A number of mirror sites, or exact copies of the CRAN site, are available. To install a package from CRAN, simply run the</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;FactoMineR&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>You can also use Rstudio and click on the install button of the package page on the right bottom panel.</p>
+<p>Packages need only be installed once. Once they are installed, simply load the package using the library function each time you open an R session.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FactoMineR)</code></pre></div>
+<p>Some packages constantly evolve, with new versions regularly available. It is therefore important to update them from time to time. To do this, they must not be in use. The best solution is to update packages when you open an R session either by using the function update.packages() or by clicking on update within the R Studio package page. A list of available package updates is then displayed, all the packages can be selected.</p>
+<p>N.B. package updates depend on the version of R used. Some packages are not compatible with past versions, or have not been compiled for these. We therefore also recommend that you regularly update your version of R before updating packages.</p>
+<p>Some packages are installed by default with R such as the MASS packag which can be used to generate three vectors of <span class="math inline">\(R^2\)</span> according to a multivariate normal distribution with mean <span class="math inline">\((0,1)\)</span> and covariance matrix <span class="math inline">\(\bigl( \begin{smallmatrix} 1&amp;0.5\\0.5&amp;1\end{smallmatrix}\bigr)\)</span>. Look at the function mvrnorm.</p>
+<p>To check if a package is installed you can use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">any</span>(<span class="kw">grepl</span>(<span class="st">&quot;FactoMineR&quot;</span>,
+          <span class="kw">installed.packages</span>())) </code></pre></div>
+<p>Note also that packages contain many data sets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="dt">package =</span><span class="st">&quot;FactoMineR&quot;</span>)</code></pre></div>
+<p>Then, you can download the data with</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(decathlon)
+<span class="kw">summary</span>(decathlon)
+?decathlon</code></pre></div>
+</div>
+<div id="programming" class="section level2">
+<h2><span class="header-section-number">3.4</span> Programming</h2>
+<p>R is a programming language and can be used to automate some processes. Programming in R is based on the same principles as any other software for scientific calculations. It therefore uses familiar programming structures (loops, condition if else, etc.) as well as predefined functions specific to statistical practices.</p>
+<p>If you are doing an internship or working at Google, they suggest <a href="https://google.github.io/styleguide/Rguide.xml">strict syntax</a> for the R programs that is useful to enhance the readability of the programs.</p>
+<div id="loops" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Loops</h3>
+<p>Conventional loops are available in R. Let us start with the for loop. We want to display all of the integers from 1 to 99. One solution is the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for (i in <span class="dv">1</span>:<span class="dv">99</span>) <span class="kw">print</span>(i)
+for (i in <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">99</span>, <span class="dt">by=</span><span class="dv">2</span>)) <span class="kw">print</span>(i)  <span class="co"># to display only odd integers</span></code></pre></div>
+<p>In general there are multiple orders to be executed for each iteration. To do so, the commands must be grouped together. Generally speaking, the for loop is expressed as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for (i in vector) {
+  expr1
+  expr2
+  ...
+}</code></pre></div>
+<p>Another possibility of a loop is the while condition. Its general syntax is as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">while (condition) {
+  expr1
+  expr2
+  ...
+}</code></pre></div>
+<p>The orders expr 1, expr 2, etc. are executed as long as the condition is true, and this is evaluated at the beginning of the loop. As soon as the condition is found to be false the loop is stopped. For instance:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> </span><span class="dv">1</span>
+while (i&lt;<span class="dv">3</span>) {
+  <span class="kw">print</span>(i)
+  i &lt;-<span class="st"> </span>i<span class="dv">+1</span> 
+}</code></pre></div>
+<pre><code>## [1] 1
+## [1] 2</code></pre>
+<p>is used to display i and to increase it by 1 while i is less than 3.</p>
+<p>One final possibility for a loop is the order repeat. It is understood as: repeat the orders indefinitely. To ensure the loop is stopped, we use the order break. This order can be used for any loop. An example is given in the following paragraph.</p>
+</div>
+<div id="conditions-if-else" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Conditions (if, else)</h3>
+<p>This involves executing an order under condition: the order is executed if, and only if, the condition is true. In its simplest form it is written:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (condition) {
+  expr1
+  expr2
+  ...
+}</code></pre></div>
+<p>For example, if we want to use a repeat loop to print i varying from 1 to 3 inclusive, we must come out of the loop prior to printing, and when i is greater than 3:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> </span><span class="dv">1</span>
+repeat {
+  <span class="kw">print</span>(i)
+  i &lt;-<span class="st"> </span>i<span class="dv">+1</span>
+  if (i&gt;<span class="dv">3</span>) break
+}</code></pre></div>
+<p>Here, if i is greater than 3, we only need to execute a (break) order. Therefore the commands do not need to be grouped together (the curly brackets can be omitted).</p>
+<p>In its most general form, the if, else condition is written:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (condition){
+  expr1
+  expr2
+}else{
+  expr1
+  expr2
+}</code></pre></div>
+<p>Be aware that the order else must be on the same line as the } closing bracket of the if clause (as above).</p>
+</div>
+<div id="predefined-functions" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Predefined Functions</h3>
+<p>Certain functions in R are predefined in order to avoid having to use loops which generally have lengthy calculation times. The most common of these functions is undoubtedly apply, which is used to apply one function to all of the margins of a table. Let us consider the table <span class="math inline">\(X\)</span> made up of 20 randomly chosen integers between 1 and 20. The mean for each column is calculated as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">20</span>, <span class="dv">20</span>), <span class="dt">ncol =</span> <span class="dv">4</span>)
+X
+res &lt;-<span class="st"> </span><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> mean)
+res</code></pre></div>
+<p>It is also possible to add additional arguments to the function which is applied to each column. For example, if there is a missing piece of data in <span class="math inline">\(X\)</span>, it can be interesting to use the argument na.rm=TRUE of the mean function, which only calculates the mean of the present data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X[<span class="dv">1</span>, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
+<span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Due to the frequent use in statistics of means per column (or row) there is a shortcut in the form of a function colMeans or rowMeans (also colSums, rowSums):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colMeans</span>(X, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<p>Here we have used the R functions mean or sum, but we could just as easily have used functions of our own which we programmed in advance. For example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MyFunction &lt;-<span class="st"> </span>function(x,y){
+  z &lt;-<span class="st"> </span>x+<span class="kw">sqrt</span>(y)
+  <span class="kw">return</span>(<span class="dv">1</span>/z)}
+X &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">20</span>, <span class="dv">20</span>), <span class="dt">ncol =</span> <span class="dv">4</span>)
+X
+<span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">FUN =</span> MyFunction, <span class="dt">y =</span> <span class="dv">2</span>)</code></pre></div>
+<p>Many functions are based on the same principle as the apply function. For example, the tapply function applies one same function, not to the margins of the table but instead at each level of a factor or combination of factors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Z &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">5</span>
+vec1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A1&quot;</span>,<span class="dv">2</span>),<span class="kw">rep</span>(<span class="st">&quot;A2&quot;</span>,<span class="dv">2</span>),<span class="kw">rep</span>(<span class="st">&quot;A3&quot;</span>,<span class="dv">1</span>))
+vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;B1&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;B2&quot;</span>,<span class="dv">2</span>))
+<span class="kw">tapply</span>(Z, vec1, sum)
+<span class="kw">tapply</span>(Z, <span class="kw">list</span>(vec1, vec2), sum)</code></pre></div>
+<p>lapply, or its equivalent, sapply, applies one same function to every element in a list. The difference between these two functions is as follows: the lapply function by default yields a list when the sapply function yields a matrix or a vector. Let us therefore create a list containing two matrices and then calculate the mean of each element of the list; here each matrix:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">12</span>), <span class="dt">ncol =</span> <span class="dv">4</span>)
+mat1
+
+mat2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">4</span>), <span class="dt">ncol =</span> <span class="dv">2</span>)
+mat2
+
+mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">matrix1=</span>mat1,<span class="dt">matrix2=</span>mat2)
+<span class="kw">lapply</span>(mylist,mean)</code></pre></div>
+<p>It is even possible to calculate the sum by column of each element of the list using the apply functions as FUN function of the lapply function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(mylist,apply,<span class="dv">2</span>,sum,<span class="dt">na.rm=</span>T)</code></pre></div>
+<pre><code>## $matrix1
+## [1] 20 14 18 26
+## 
+## $matrix2
+## [1] 5 5</code></pre>
+<p>The function ‘Reduce’ can also be used as an alternative</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Reduce(&quot;+&quot;, mylist)</span></code></pre></div>
+<p>The function ‘do.call’ is also very useful and applies a function to a list of arguments</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>)
+<span class="kw">do.call</span>(paste, l)</code></pre></div>
+<pre><code>## [1] &quot;A B C D&quot;</code></pre>
+<p>The ‘aggregate’ function works on data-frames. It separates the data into sub-groups defined by a vector, and calculates a statistic for all of the variables of the data-frame for each sub-group. Let us reexamine the data which we generated earlier and create a data-frame with two variables Z and T:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">T=<span class="st"> </span><span class="dv">5</span>:<span class="dv">1</span>
+
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Z,T,vec1,vec2)
+df
+<span class="kw">aggregate</span>(df[,<span class="dv">1</span>:<span class="dv">2</span>],<span class="kw">list</span>(<span class="dt">FactorA=</span>vec1),sum)
+<span class="kw">aggregate</span>(df[,<span class="dv">1</span>:<span class="dv">2</span>],<span class="kw">list</span>(<span class="dt">FactorA=</span>vec1,<span class="dt">FactorB=</span>vec2),sum)</code></pre></div>
+<p>The sweep function is used to apply one single procedure to all of the margins in a table. For example, if we want to center and standardize the columns of a matrix X, we write:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X &lt;-<span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">12</span>),<span class="dt">ncol=</span><span class="dv">3</span>)
+mean.X &lt;-<span class="st"> </span><span class="kw">apply</span>(X,<span class="dv">2</span>,mean)
+mean.X
+sd.X &lt;-<span class="st"> </span><span class="kw">apply</span>(X,<span class="dv">2</span>, sd)
+sd.X
+Xc &lt;-<span class="st"> </span><span class="kw">sweep</span>(X,<span class="dv">2</span>,mean.X,<span class="dt">FUN=</span><span class="st">&quot;-&quot;</span>)
+Xc
+Xcr &lt;-<span class="st"> </span><span class="kw">sweep</span>(Xc,<span class="dv">2</span>,sd.X,<span class="dt">FUN=</span><span class="st">&quot;/&quot;</span>)
+Xcr</code></pre></div>
+<p>It must be noted that to center and standardize table X, we can more simply use the scale function.</p>
+<p>The by function, however, is used to apply one function to a whole data-frame for the different levels of a factor or list of factors. This function is thus similar to the tapply function, as it is used with a data-frame rather than a vector. Let us generate some data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">T &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)
+Z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)+<span class="dv">3</span>*T<span class="dv">+5</span>
+vec1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A1&quot;</span>,<span class="dv">25</span>),<span class="kw">rep</span>(<span class="st">&quot;A2&quot;</span>,<span class="dv">25</span>),<span class="kw">rep</span>(<span class="st">&quot;A3&quot;</span>,<span class="dv">50</span>))
+don &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Z,T)</code></pre></div>
+<p>We can thus obtain a summary of each variable for each level of the factor vec1:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(don,<span class="kw">list</span>(<span class="dt">FactorA=</span>vec1),summary)</code></pre></div>
+<p>There are also other functions such as the replicate function which is used to repeat an expression n times. For example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(<span class="dt">n=</span><span class="dv">8</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>)))</code></pre></div>
+<p>The outer function is used to repeat a function for each occurrence of the combination of two vectors. For example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Month &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Jan&quot;</span>,<span class="st">&quot;Feb&quot;</span>,<span class="st">&quot;Mar&quot;</span>)
+Year &lt;-<span class="st"> </span><span class="dv">2008</span>:<span class="dv">2010</span>
+<span class="kw">outer</span>(Month,Year,<span class="dt">FUN=</span><span class="st">&quot;paste&quot;</span>)</code></pre></div>
+<pre><code>##      [,1]       [,2]       [,3]      
+## [1,] &quot;Jan 2008&quot; &quot;Jan 2009&quot; &quot;Jan 2010&quot;
+## [2,] &quot;Feb 2008&quot; &quot;Feb 2009&quot; &quot;Feb 2010&quot;
+## [3,] &quot;Mar 2008&quot; &quot;Mar 2009&quot; &quot;Mar 2010&quot;</code></pre>
+<p>Again, it is possible here to add arguments to the chosen function. Here, we separate the months and the years by a dash rather than a space, which is the default character:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">outer</span>(Month,Year,<span class="dt">FUN=</span><span class="st">&quot;paste&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;-&quot;</span>)</code></pre></div>
+<pre><code>##      [,1]       [,2]       [,3]      
+## [1,] &quot;Jan-2008&quot; &quot;Jan-2009&quot; &quot;Jan-2010&quot;
+## [2,] &quot;Feb-2008&quot; &quot;Feb-2009&quot; &quot;Feb-2010&quot;
+## [3,] &quot;Mar-2008&quot; &quot;Mar-2009&quot; &quot;Mar-2010&quot;</code></pre>
+</div>
+<div id="creating-a-function" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Creating a Function</h3>
+<p>Functions are used to carry out many different R commands. Functions return one unique result object. These resulting objects are specified within the functions by the return function. By default, if the written function yields no result, the last result obtained prior to output is returned as the result.</p>
+<p>Let us begin with a simple example, the sum of the first <span class="math inline">\(n\)</span> integers. The number <span class="math inline">\(n\)</span> is an integer which is the input argument, the result is simply the sum, as requested:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mysum &lt;-<span class="st"> </span>function(n){
+            if (n&lt;=<span class="dv">0</span>) <span class="kw">stop</span>(<span class="st">&quot;n must be a positive integer&quot;</span>)
+            if (<span class="kw">floor</span>(n)!=n) <span class="kw">warning</span>(<span class="kw">paste</span>(<span class="st">&quot;rounds&quot;</span>,n,<span class="st">&quot;as&quot;</span>,<span class="kw">floor</span>(n)))
+            
+            result &lt;-<span class="st"> </span><span class="kw">sum</span>(<span class="dv">1</span>:<span class="kw">floor</span>(n))
+            <span class="kw">return</span>(result)
+          }</code></pre></div>
+<p>The function is called upon using its name (mysum), followed by the input arguments between brackets. Here, the function has one argument as input. It is therefore called upon by simply using:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mysum</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res &lt;-<span class="st"> </span><span class="kw">mysum</span>(<span class="dv">3</span>)
+res</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mysum</span>(<span class="fl">4.54</span>)</code></pre></div>
+<pre><code>## Warning in mysum(4.54): rounds 4.54 as 4</code></pre>
+<pre><code>## [1] 10</code></pre>
+<p>We shall now suggest a function with two input arguments: factor 1 and factor 2, two qualitative variables. This function yields the contingency table as well as the character vector for the levels of factor 1 and factor 2, for which the combined sample size is zero. Here, more than one result will be returned. As one will be a table and the other a character vector (or character matrix), these two objects cannot be brought together in a matrix (they are not of the same type), nor can they be combined in a data-frame (they are not the same length). The only possible result will therefore be a list grouping together these two results. The function will therefore calculate the contingency table and then select the void cells. We then need to know the indices corresponding to the void cells of the contingency table (which function, option arr.ind=TRUE) and identify the names of the corresponding categories:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myfun &lt;-<span class="st"> </span>function(factor1,factor2){
+  res1 &lt;-<span class="st"> </span><span class="kw">table</span>(factor1,factor2)
+  selection &lt;-<span class="st"> </span><span class="kw">which</span>(res1==<span class="dv">0</span>,<span class="dt">arr.ind =</span> <span class="ot">TRUE</span>)
+  res2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="st">&quot;&quot;</span>,<span class="dt">nrow=</span><span class="kw">nrow</span>(selection),<span class="dt">ncol=</span><span class="dv">2</span>)
+  res2[,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">levels</span>(factor1)[selection[,<span class="dv">1</span>]]
+  res2[,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">levels</span>(factor2)[selection[,<span class="dv">2</span>]]
+  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">tab=</span>res1,<span class="dt">level=</span>res2))
+}</code></pre></div>
+<p>If we call upon the function with the factors wool and tension:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tension &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;Low&quot;</span>,<span class="dv">5</span>),<span class="kw">rep</span>(<span class="st">&quot;High&quot;</span>,<span class="dv">5</span>)))
+wool &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;Mer&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;Ang&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;Tex&quot;</span>,<span class="dv">4</span>)))
+<span class="kw">myfun</span>(tension,wool)</code></pre></div>
+<pre><code>## $tab
+##        factor2
+## factor1 Ang Mer Tex
+##    High   1   0   4
+##    Low    2   3   0
+## 
+## $level
+##      [,1]   [,2] 
+## [1,] &quot;High&quot; &quot;Mer&quot;
+## [2,] &quot;Low&quot;  &quot;Tex&quot;</code></pre>
+<p>The function can be saved as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save</span>(myfun.R)</code></pre></div>
+<p>and loaded with</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(myfun.R)</code></pre></div>
+<p><strong>Practice</strong> Look at the begining of the function imputeada of the denoiseR package and comment the housekeeping part.</p>
+<p>Run the following code to understand well the use of lapply and Reduce.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nbsim &lt;-<span class="dv">5</span>
+lossFrob &lt;-<span class="st"> </span>function(X.loss) <span class="kw">sum</span>((X.loss -<span class="st"> </span>MU)^<span class="dv">2</span>)
+
+n &lt;-<span class="st"> </span><span class="dv">200</span>
+p &lt;-<span class="st"> </span><span class="dv">500</span>
+sigma &lt;-<span class="st"> </span><span class="dv">1</span>/(SNR*<span class="kw">sqrt</span>(n*p))
+k &lt;-<span class="st"> </span><span class="dv">100</span>
+SNR &lt;-<span class="st"> </span><span class="dv">1</span>
+
+results.list &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span>:nbsim, function(iter){
+  
+  Xsim &lt;-<span class="st"> </span><span class="kw">LRsim</span>(<span class="dt">n =</span> n, <span class="dt">p =</span> p, <span class="dt">k =</span> k, <span class="dt">SNR =</span> SNR)
+  X &lt;-<span class="st"> </span>Xsim$X
+  MU &lt;-<span class="st"> </span>Xsim$mu
+  
+  
+  TSVD.muhat &lt;-<span class="st"> </span><span class="kw">reconst</span>(<span class="kw">PCA</span>(X, <span class="dt">graph =</span> F, <span class="dt">scale =</span> F, <span class="dt">ncp =</span> k), k)
+  TSVD.loss &lt;-<span class="st"> </span><span class="kw">lossFrob</span>(TSVD.muhat)
+  
+ 
+  TSVD_opt.res &lt;-<span class="st"> </span><span class="kw">optishrink</span>(X, <span class="dt">sigma =</span> sigma, <span class="dt">center =</span> <span class="st">&quot;TRUE&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;ASYMPT&quot;</span>)
+  TSVD_opt.loss &lt;-<span class="st"> </span><span class="kw">lossFrob</span>(TSVD_opt.res$mu.hat)
+  
+  ISA.res  &lt;-<span class="st">  </span><span class="kw">ISA</span>(X, <span class="dt">sigma =</span> sigma, <span class="dt">maxiter =</span> <span class="dv">50</span>)
+  ISA.loss  &lt;-<span class="st"> </span><span class="kw">lossFrob</span>(ISA.res$mu.hat)
+
+  loss.res  &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="dt">ISA=</span>ISA.loss, <span class="dt">TSVD=</span>TSVD.loss,  <span class="dt">TSVD_opt=</span>TSVD_opt.loss)
+  nbeig &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="dt">ISA=</span>ISA.res$nb.eigen, <span class="dt">TSVD=</span>k, <span class="dt">TSVD_opt=</span> TSVD_opt.res$nb.eigen)
+  <span class="kw">cbind.data.frame</span>(loss.res, nbeig)
+})
+results &lt;-<span class="st"> </span><span class="kw">Reduce</span>(<span class="st">&quot;+&quot;</span>, results.list) /<span class="st"> </span><span class="kw">length</span>(results.list)</code></pre></div>
+</div>
+<div id="practice" class="section level3">
+<h3><span class="header-section-number">3.4.5</span> Practice</h3>
+<div id="syracuse-conjecture" class="section level4">
+<h4><span class="header-section-number">3.4.5.1</span> Syracuse conjecture</h4>
+<p>The Syracuse algorithm, or <span class="math inline">\(3x+1\)</span> algorithm, works as follows: let’s start with a natural number <span class="math inline">\(n \in \mathbb{N}^\star\)</span>. If <span class="math inline">\(n\)</span> is even it is divided by two, else if <span class="math inline">\(n\)</span> is odd it is multiplied by 3 and 1 is added. The process is then repeated. For instance, let’s start with 5, we will get, 5, 16, 8, 4, 2, 1. The conjecture states that the process will end up on 1 and indefinitely cycle: from this number, we will cycle 4,2, 1.</p>
+<ul>
+<li><p>Create a function <em>syracuse</em> taking <span class="math inline">\(n\)</span> as an input, and generate Syracuse numbers and stop when 1 is reached.</p></li>
+<li><p>Plot the length of the vectors for each number.</p></li>
+<li><p>What is the maximal length reached? For which number? Reprensent the Syracuse serie.</p></li>
+</ul>
+</div>
+<div id="dealing-with-rare-categories" class="section level4">
+<h4><span class="header-section-number">3.4.5.2</span> Dealing with rare categories</h4>
+<p>Let’s consider the following qualitative variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> Xfac &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">60</span>),<span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">20</span>),<span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">17</span>),
+     <span class="kw">rep</span>(<span class="st">&quot;D&quot;</span>,<span class="dv">3</span>)))</code></pre></div>
+<p>The idea of ventilation<span class="math inline">\(^{1}\)</span> is to allocate the individuals which select a category taken by less than 5% of the individuals at random according to the frequencies of the other categories. Indeed, rare categories may be problematic in some cases.</p>
+<p>Write a function ventilation which take both a variable and the threshold from which categories must be ventilated as input. Set the threshold to 5% by default. Write a function so that all of the qualitative variables in a table can be ventilated.</p>
+<p>An alternative is to gather categories when it make sense such as when the categories are ordered. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Xfac &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;0-10&quot;</span>,<span class="dv">1</span>),<span class="kw">rep</span>(<span class="st">&quot;11-20&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;21-30&quot;</span>,<span class="dv">5</span>),
+     <span class="kw">rep</span>(<span class="st">&quot;31-40&quot;</span>,<span class="dv">20</span>),<span class="kw">rep</span>(<span class="st">&quot;41-50&quot;</span>,<span class="dv">2</span>),<span class="kw">rep</span>(<span class="st">&quot;51-60&quot;</span>,<span class="dv">2</span>),
+     <span class="kw">rep</span>(<span class="st">&quot;61-70&quot;</span>,<span class="dv">1</span>),<span class="kw">rep</span>(<span class="st">&quot;71-80&quot;</span>,<span class="dv">31</span>),<span class="kw">rep</span>(<span class="st">&quot;+ 80&quot;</span>,<span class="dv">20</span>)))</code></pre></div>
+<p>You can start with the weakest (according to the order of the categories) categories and if the number of the individuals is smaller than 5%, merge this category with the category immediately above. If the sample size of these two merged categories is greater than 5% of the total, go on to the next category (if there is one). If not, merge again with the category immediately above (out of all of the categories). Proceed in the same way until all of the categories have been used.</p>
+<p>Write a function so that all of the ordered qualitative variables in a table can be ventilated.</p>
+<p>You can apply your function to the Credit data sets.</p>
+<p>The dataset contains information from 66 clients who took out loans from a credit company. The 11 qualitative variables and the associated categories are as follows:<br />
+* Loan: Renovation, Car, Scooter, Motorbike, Furnishings, Sidecar. This variable represents the item for which clients took out a loan.<br />
+* Deposit: yes, no. This variable indicates whether or not clients paid a deposit before taking out the loan. A deposit represents a guarantee for the loan organisation.<br />
+* Unpaid: 0, 1 or 2, 3 and more. This variable indicates the number of unpaid loan repayments for each client.<br />
+* Debt load: 1 (low), 2, 3, 4 (high). This variable indicates the client’s debt load. The debt load is calculated as the ratio between costs (sum of expenses) and income. The debt load is divided into 4 classes.<br />
+* Insurance: No insurance, DI (Disability Insurance), TPD (Total Permanent Disability), Senior (for people over than 60). This variable indicates the type of insurance the client has taken out.<br />
+* Family: Common-law, Married, Widower, Single, Divorcee.<br />
+* Children: 0, 1, 2, 3, 4 and more.<br />
+* Accommodation: Home owner, First-time buyers, Tenant, Lodged by family, Lodged by employer.<br />
+* Profession: Technician, Manual Labourer, Retired, Management, Senior management.<br />
+* Title: Mr., Mrs., Miss.<br />
+* Age: 20 (18 to 29 years old), 30 (30 to 39), 40 (40 to 49), 50 (50 to 59), 60 and over.</p>
+<p>The aim of the study is to characterise the credit company’s clientele. (identify the different banking behaviour profiles and study the relationship with the labels (profession, age, etc.). This data can be described with Multiple Correspondence Analysis (the equivalent of PCA for categorical data and chi-squares tests).</p>
+</div>
+</div>
+<div id="distributions" class="section level3">
+<h3><span class="header-section-number">3.4.6</span> Distributions</h3>
+<p>Functions for probability distributions are named as follows. The first letter indicates: d for density, p for the cumulative distribution, q for quantiles. Then, you add binom for binomial, norm for normal, etc. Then specific parameters are specified for each family. Look at help(runif), ?dbinom, dnorm, pchisq, qt (quantile for student), df (for fisher) etc…</p>
+<p><strong>Practice: Simulation</strong> Simulation consits in drawing a sample (<span class="math inline">\(X_1\)</span>, …, <span class="math inline">\(X_n\)</span>) of i.i.d variables with the same law of the random variable <span class="math inline">\(X\)</span>.<br />
+Functions to simulate in R work as previously but use the prefix r. For instance:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gauss &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">2</span>)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">qplot</span>(gauss, <span class="dt">geom=</span><span class="st">&quot;histogram&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histogram of gauss&quot;</span>,<span class="dt">y=</span>..density.., <span class="dt">binwidth=</span><span class="fl">0.5</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p>In the following code, we plot the density of a Gaussian <span class="math inline">\(\mathcal N(0.1)\)</span>. Then, on the same graph, we represent Student distributions with 2 to 30 ddf, and add a legend.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="st"> </span><span class="kw">seq</span>(-<span class="dv">4</span>, <span class="dv">4</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">rep</span>(x,<span class="dv">3</span>), <span class="dt">value=</span><span class="kw">c</span>(<span class="kw">dnorm</span>(x), <span class="kw">dt</span>(x,<span class="dv">2</span>), <span class="kw">dt</span>(x,<span class="dv">30</span>)), <span class="dt">type=</span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;N(0,1)&quot;</span>,<span class="kw">length</span>(x)), <span class="kw">rep</span>(<span class="st">&quot;T2&quot;</span>,<span class="kw">length</span>(x)), <span class="kw">rep</span>(<span class="st">&quot;T30&quot;</span>,<span class="kw">length</span>(x)))))
+<span class="kw">ggplot</span>(df)+<span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>value, <span class="dt">colour=</span>type))
+
+
+<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;N(0,1)&quot;</span>,<span class="st">&quot;T2&quot;</span>, <span class="st">&quot;T30&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;blue&quot;</span>),<span class="dt">lty=</span><span class="dv">1</span>)</code></pre></div>
+<p>Let’s simulate a ChiSquare and a Fisher distribution.</p>
+<p>Let <span class="math inline">\(X_1,...,X_d\)</span> i.i.d. from a Gaussian (0,1), then <span class="math inline">\(Y=\sum_{j=1}^dX_j^2\)</span> follows a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(d\)</span> degrees of freedom: <span class="math inline">\(Y\sim\chi_d^2\)</span>.</p>
+<p>You can generate <span class="math inline">\(d=20\)</span> samples of size <span class="math inline">\(n = 500\)</span> for instance from a <span class="math inline">\(\mathcal N(0,1)\)</span>. Then generate a Chi square distribution, represent its histogramm and superimpose the distribution of the Chi-square.</p>
+<p>The same procedure can be used to generate a Fisher distribution. (<span class="math inline">\(U\sim\chi^2(k)\)</span>, <span class="math inline">\(V\sim\chi^2(\ell)\)</span> with <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> independent, then <span class="math display">\[\frac{U/k}{V/\ell}\]</span> follows a Fisher with <span class="math inline">\(k\)</span> and <span class="math inline">\(\ell\)</span> ddf. Take as an example <span class="math inline">\(k=8\)</span> and <span class="math inline">\(\ell=16\)</span>.</p>
+<div id="central-limit-theorem" class="section level4">
+<h4><span class="header-section-number">3.4.6.1</span> Central limit Theorem</h4>
+<ul>
+<li>Draw a sample of size <span class="math inline">\(n = 20\)</span> from the Uniform distribution on [0,1]. Represent its distribution. Compute its empirical mean.</li>
+<li>Draw 1000 samples of size <span class="math inline">\(n = 20\)</span> from the Uniform distribution on [0,1]. On each sample compute its empirical mean. Represent the distribution of the means as well as the cumulative distribution.</li>
+<li>Create a function that takes as an input <span class="math inline">\(n\)</span> and performs the previous steps.</li>
+<li>Represent the distribution of the mother distribution (of <span class="math inline">\(X\)</span>), as well as the one of <span class="math inline">\(\bar X\)</span> as a function of <span class="math inline">\(n\)</span> (take <span class="math inline">\(n=2\)</span>, <span class="math inline">\(n=5\)</span>, <span class="math inline">\(n=10\)</span>, <span class="math inline">\(n=30\)</span>, <span class="math inline">\(n=100\)</span>). Comment.</li>
+<li>Repeat the process for a Gaussian distribution (<span class="math inline">\(\mathcal{N}(175,100)\)</span>) a Chi 2 with 1 degree of freedom, an exponential distribution. Comment.</li>
+</ul>
+</div>
+<div id="variance-stabilizing" class="section level4">
+<h4><span class="header-section-number">3.4.6.2</span> Variance-stabilizing</h4>
+<p>In statistics, we often use variance-stabilizing transformation (VST). Let <span class="math inline">\(T_n(X_1, ... X_n)\)</span> be an estimator of a parameter <span class="math inline">\(\theta\)</span> linked to the independent observations <span class="math inline">\(X_i\)</span>. We suppose that the central limit theorem applies and that for all <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\sqrt{n}(T_n-\theta) \Rightarrow \mathcal{N}(0, \sigma^2(\theta))\)</span>. This means that we have: <span class="math display">\[ \mathbb{P}_\theta\left(T_n-z_{1-\alpha/2}\frac{\sigma(\theta)}{\sqrt{n}} \leq \theta \leq T_n + z_{1-\alpha/2}\frac{\sigma(\theta)}{\sqrt{n}}\right) \rightarrow 1 - \alpha \]</span> where <span class="math inline">\(z_{1-\alpha/2}\)</span> is the quantile or order <span class="math inline">\(1-\alpha/2\)</span> of <span class="math inline">\(\mathcal{N}(0,1)\)</span>. The confidence interval depends on the parameter <span class="math inline">\(\theta\)</span> to be estimated. One workaround is to use the empirical variance and by Slutsky’s lemma, we have the same confidence interval with <span class="math inline">\(\sigma(\theta)\)</span> replaced by the empirical variance <span class="math inline">\(\sigma(T_n)\)</span>. Another workaround that we illustrate here is to use a variance-stabilizing transformation. The idea is to use the Delta method that gives for a function <span class="math inline">\(g\)</span>: <span class="math display">\[\sqrt{n}(g(T_n)-g(\theta)) \Rightarrow \mathcal{N}(0, (g&#39;(\theta))^2 \sigma^2(\theta))\]</span> and to choose <span class="math inline">\(g\)</span> appropriately in order to have <span class="math inline">\((g&#39;(\theta))^2 \sigma^2(\theta))=\text{constant}\)</span>.</p>
+<p>Let us take an example. Let <span class="math inline">\((X_n)\)</span> be a sequence of iid variable following a Bernoulli law of parameter <span class="math inline">\(\theta\)</span>.</p>
+<ul>
+<li>For <span class="math inline">\(\theta=0.1\)</span> and <span class="math inline">\(0.5\)</span>, simulate 1000 Bernoulli of parameter <span class="math inline">\(\theta\)</span> and compute the confidence interval using the CLT, and an empirical variance.</li>
+<li>Draw 1000 sample of size <span class="math inline">\(n=20, 50, 100\)</span> from a Bernoulli of parameter <span class="math inline">\(\theta=0.1, 0.5\)</span>. Check empirically the confidence interval that you derived above.</li>
+<li>Find the right <span class="math inline">\(g\)</span> for a VST.</li>
+<li>Repeat the two first questions using <span class="math inline">\(g\)</span> and the VST (without empirical variance).</li>
+</ul>
+</div>
+<div id="law-of-large-numbers" class="section level4">
+<h4><span class="header-section-number">3.4.6.3</span> Law of large Numbers</h4>
+<ul>
+<li>State the law of large numbers</li>
+<li>Draw a sample <span class="math inline">\((x_1,...,x_{1000})\)</span> from a Bernoulli distribution with <span class="math inline">\(p=0.6\)</span>.</li>
+<li>Compute successive means <span class="math inline">\(M_\ell=S_\ell/\ell\)</span> where <span class="math inline">\(S_\ell=\sum_{i=1}^\ell X_i\)</span> (you can use cumsum).</li>
+<li>Plot <span class="math inline">\(M_\ell\)</span> as a function of <span class="math inline">\(\ell\)</span> and add an horizontal line at <span class="math inline">\(y=0.6\)</span> with abline(h=0.6).</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="import" class="section level2">
+<h2><span class="header-section-number">3.5</span> Import data</h2>
+<p>(Classical) data are generally contained within a file in which the individuals are presented in rows and the variables in columns. The classical way to read a data file is to use the function read.table or read.csv as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?read.table
+ozone &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/ozone.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">sep =</span><span class="st">&quot; &quot;</span>)
+<span class="kw">dim</span>(ozone) 
+<span class="kw">summary</span>(ozone)
+ozone &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/ozone.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>,  <span class="dt">row.names =</span> <span class="dv">1</span>) <span class="co"># Be careful, the first column corresponds to the names of the rows</span>
+<span class="kw">summary</span>(ozone)</code></pre></div>
+<p>The sep option indicates between quotation marks the character which separates the columns. For a space, use &quot; “, and for a tabulation”“. The argument header indicates whether or not the first row contains the names of the variables (TRUE if so, otherwise FALSE). The argument dec specifies that the decimal point is a”.&quot; . Finally, the argument row.names indicates that column 1 is not a variable but the row identifier: here the individuals’ names.</p>
+<p>All of the first names must therefore be different. This identifier is generally a string of characters or the identification number of the individual. In some cases, individuals do not have identifiers and/or the variables do not have names.</p>
+<p>It must be noted that the result of the importation is always a data-frame type object. The types of variables are inferred by the importation function, which can be wrong! It is therefore necessary to check each variable type using the summary function.</p>
+<p>The path can also be an URL:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">decath &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://www.agrocampus-ouest.fr/math/</span>
+<span class="st">RforStat/decathlon.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">dec=</span><span class="st">&quot;.&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)</code></pre></div>
+<p>Note that the use of the package <strong>data.table</strong> may become mainstream to import data. It reads data much faster than read.table using the fread function. fread automatically infers the separator as well as if the first row corresponds to the name of the variables. However, fread creates an object of the class data.table which is a bit different from a data.frame object. We will come back to this function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> ozone_fast &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;data/ozone.txt&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Within R, it is possible to import data from many other formats:</p>
+<ul>
+<li>From Excel, HTML, XML, JSON, SPSS, SAS, STATA, relational data base MongoDB, MySQL, etc. <a href="https://www.datacamp.com/community/tutorials/r-data-import-tutorial?tap_a=5644-dce66f&amp;tap_s=10907-287229#gs.OD5VPT0">Many packages are available and explained at this datacamp tutorial</a>. We will detail later how to do webscrapping within R. A reference book on this topic is that of XML and Web Technologies for Data Sciences with R by Deborah Nolan and Duncan Temple Lang (2013).</li>
+</ul>
+</div>
+<div id="first-descriptive-statistics" class="section level2">
+<h2><span class="header-section-number">3.6</span> First descriptive statistics</h2>
+<p>Since we have imported data, we should start inspecting the data, practice our skills and do our first descriptive analysis. However, any analysis has to be reproducible and so we warmly recommend to use a reproducible framework such as RMarkdown (see Chapter <a href="reproducible.html#reproducible">4</a>) for this purpose.</p>
+<p>Just a bit of background on the data.<br />
+Air pollution is currently one of the most serious public health worries worldwide. Many epidemiological studies have proved the influence that some chemical compounds, such as sulphur dioxide (SO2), nitrogen dioxide (NO2), ozone (O3) can have on our health. Associations set up to monitor air quality are active all over the world to measure the concentration of these pollutants. They also keep a record of meteorological conditions such as temperature, cloud cover, wind, etc. Here the final aim is to analyse the relationship between the maximum daily ozone level and meteorological variables. We have at our disposal 112 observations collected during the summer of 2001 in Rennes by <a href="http://www.airbreizh.asso.fr/">AirBreizh</a>. The variables available are maxO3 (maximum daily ozone), maxO3v (maximum daily ozone the previous day), T12 (temperature at midday), T9, T15 (Temp at3pm), Vx12 (projection of the wind speed vector on the east-west axis at midday), Vx9 and Vx15, as well as the Nebulosity (cloud) Ne9, Ne12, Ne15.</p>
+<p>You can visualize your data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(ozone)
+<span class="kw">head</span>(ozone)
+ozone[<span class="dv">1</span>:<span class="dv">2</span>, ]
+ozone$T9
+oz &lt;-<span class="st"> </span>ozone[, <span class="kw">c</span>(<span class="st">&quot;T12&quot;</span>,<span class="st">&quot;maxO3&quot;</span>,<span class="st">&quot;vent&quot;</span>)] </code></pre></div>
+<p><strong>Practice</strong><br />
+<!--* Why Vx12? --> * Find the hottest day at noon.<br />
+* Select the values of maxO3 when the wind comes from est.<br />
+* Create a data base with rainy days.<br />
+* Order the data in ozone according to the variable Temperature at 9.</p>
+<p>Let’s examine the summary and review some concepts.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(ozone)
+<span class="kw">cor</span>(ozone[,<span class="st">&quot;maxO3y&quot;</span>], ozone[, <span class="st">&quot;maxO3&quot;</span>])</code></pre></div>
+<p>By default, R compute the Pearson correlation coefficient. To study other relations than linear ones, it is possible to use Spearman’s <span class="math inline">\(\rho\)</span> and Kendall’s tau which are based on ranks.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(ozone[,<span class="st">&quot;maxO3y&quot;</span>], ozone[, <span class="st">&quot;maxO3&quot;</span>], <span class="dt">method =</span> <span class="st">&quot;kendal&quot;</span>)</code></pre></div>
+<p>Note that the topic of measures of association and tests of independence is a very active research area! New measures with better statistical properties are suggested (Bergsma and Dassios, 2014 Bernouilli: <a href="https://projecteuclid.org/euclid.bj/1393594014">A consistent test of independence based on a sign covariance related to Kendall’s tau</a>). The article of Szekely, Rizzo, Bakirov, 2007, Ann. Statist, <a href="https://arxiv.org/pdf/0803.4101.pdf">Measuring and testing dependence by correlation of distances</a>, had a major impact since he get measures and tests that are consistent against all alternatives. An R package dcov is associated to this work.</p>
+<p>You can easily do your first graphs:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">hist</span>(ozone[,<span class="st">&quot;T9&quot;</span>], <span class="dt">prob=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, 
+ <span class="dt">main=</span> <span class="st">&quot;Histogram of T9&quot;</span>,
+ <span class="dt">xlab=</span><span class="st">&quot;T9&quot;</span>) </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="kw">subset</span>(ozone, wind ==<span class="st"> &quot;East&quot;</span>)$maxO3, <span class="dt">col=</span><span class="dv">6</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(ozone[,<span class="st">&quot;T9&quot;</span>],  <span class="dt">ylab =</span> <span class="st">&quot;T9&quot;</span>)</code></pre></div>
+<p><strong>Practice</strong> Manipulate data.</p>
+<p>Load the wine data in FactoMineR. data(wine)</p>
+<ul>
+<li>Summary the data - gives its dimension.<br />
+</li>
+<li>Select the wines with a score on Overall.quality greater than 3.5.<br />
+</li>
+<li>Compute the means of the Alcohol variable for the wines which are highly appreciated &gt;3.5 and for the wines which are less appreciated.<br />
+</li>
+<li>Create a new variable for typical: round the variable to the closest integer (use function round); transform this variable in a factor; rename the categories with “not typical”, “typical”, “very typical” ; gather the two first categories; add this new variable to the data set.<br />
+</li>
+<li>Create a data set called Env2 with wines only from Soil Env2.<br />
+</li>
+<li>Remove the variable Soil from your new data set Look at the levels of the variable Label. Transform this variable not to have a level with 0 individual.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(hint:<span class="st"> </span>Env2$<span class="dt">Label=</span> <span class="kw">as.factor</span>(<span class="kw">as.character</span>(Env2$Label))  </code></pre></div>
+<!--as.factor ou factor un des deux est automatique-->
+<ul>
+<li>Export the data with the name Envi.txt<br />
+</li>
+<li>Use the initial data. By using the cut function, cut the variable Spice in 3 clusters (&lt; 2 ; between 2 and 2.5 ; &gt; 3). Using the quantile function, cut the variable Spice in 3 cluster of same size. Remark: one can also use the quantile function with the default quantiles (0,25,50,75,100%)<br />
+</li>
+<li>Create a new variable which is a combination of the two categorical variables “Label” and “Soil” (you could use the function paste). The new variable that we want is a factor containing the two variables Label and Soil (“Saumur Env1” )</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="what-is-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reproducible.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Getting_Start.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

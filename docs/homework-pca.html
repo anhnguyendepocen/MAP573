@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Statistics</title>
+  <meta name="description" content="R for Statistics">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Statistics" />
+  
+  
+  
+
+<meta name="author" content="Julie Josse">
+
+
+<meta name="date" content="2017-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="principal-components-analysis.html">
+<link rel="next" href="handling-missing-values.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a></li>
+<li class="chapter" data-level="2" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2</b> What is R?</a></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a></li>
+<li class="chapter" data-level="4" data-path="reproducible.html"><a href="reproducible.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Graphics</a></li>
+<li class="chapter" data-level="6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html"><i class="fa fa-check"></i><b>6</b> Homework: exploratory analysis</a></li>
+<li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
+<li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
+<li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a></li>
+<li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a><ul>
+<li class="chapter" data-level="10.1" data-path="homework-pca.html"><a href="homework-pca.html#pca-on-random-data"><i class="fa fa-check"></i><b>10.1</b> PCA on random data</a></li>
+<li class="chapter" data-level="10.2" data-path="homework-pca.html"><a href="homework-pca.html#pca-by-hand"><i class="fa fa-check"></i><b>10.2</b> PCA by hand</a></li>
+<li class="chapter" data-level="10.3" data-path="homework-pca.html"><a href="homework-pca.html#other-applications-to-practice"><i class="fa fa-check"></i><b>10.3</b> Other applications to practice</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="homework-pca.html"><a href="homework-pca.html#ozone-data"><i class="fa fa-check"></i><b>10.3.1</b> Ozone data</a></li>
+<li class="chapter" data-level="10.3.2" data-path="homework-pca.html"><a href="homework-pca.html#mice-microarray-data-and-fatty-acid-concentration"><i class="fa fa-check"></i><b>10.3.2</b> Mice microarray data and fatty acid concentration</a></li>
+<li class="chapter" data-level="10.3.3" data-path="homework-pca.html"><a href="homework-pca.html#chicken-microarray-data"><i class="fa fa-check"></i><b>10.3.3</b> Chicken microarray data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="homework-pca.html"><a href="homework-pca.html#low-rank-matrix-approximation---reconstruction-with-pca"><i class="fa fa-check"></i><b>10.4</b> Low rank matrix approximation - reconstruction with PCA</a></li>
+<li class="chapter" data-level="10.5" data-path="homework-pca.html"><a href="homework-pca.html#reconstruct-an-image"><i class="fa fa-check"></i><b>10.5</b> Reconstruct an image</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="handling-missing-values.html"><a href="handling-missing-values.html"><i class="fa fa-check"></i><b>11</b> Handling missing values</a></li>
+<li class="chapter" data-level="12" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>12</b> Shiny App</a></li>
+<li class="chapter" data-level="13" data-path="ref.html"><a href="ref.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="homework-pca" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Homework: PCA</h1>
+<div id="pca-on-random-data" class="section level2">
+<h2><span class="header-section-number">10.1</span> PCA on random data</h2>
+<ul>
+<li><p>We have a data table with 4 rows and 10 independent variables. Without performing the PCA, do we have an idea of the shape of the correlation circle obtained? Simulate and comment. (You can increase the number of rows, also look at cases with 10 rows and 2000 variables, etc..)</p></li>
+<li><p>A needle in a haystack? Simulate a table with 500 samples and 335 variables (330 independent variables and 5 variables highly correlated). Perform the PCA. Then, decrease the sample size <span class="math inline">\(n\)</span>=100, 50, 20. Comment.</p></li>
+<li><p>Generate a data set with 500 rows and 150 columns from independent gaussian variables. Comment the shape of the barplot of the eigenvalues. Should you refer to the theory? What are we expecting?</p></li>
+<li><p>Write a program to obtain the tables of the lecture slides. “Percentage of variability under the null”.</p></li>
+</ul>
+<p>Does it make sense to consider Gaussian data? Try to give some theoretical arguments, what could we do as an alternative?</p>
+</div>
+<div id="pca-by-hand" class="section level2">
+<h2><span class="header-section-number">10.2</span> PCA by hand</h2>
+<p>Exam 2016</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FactoMineR)
+<span class="kw">library</span>(ggplot2)</code></pre></div>
+<p><strong>(Q1)</strong> You have a data set with <span class="math inline">\(n\)</span> rows and <span class="math inline">\(p\)</span> variables. Your aim is to find two synthetics variables that “best summarize” the individuals. Explain what is your suggestion and gives the object (the output in the PCA function) where you can retrieve the result.</p>
+<p>Import the data Expert_wine.csv. The aim is to do a PCA on this data set, without using the function PCA of FactoMineR. Be careful not to include qualitative variables. First, run the function PCA of FactoMineR. Note that by default of the PCA function, the data is centered and standardized by columns. Besides, for each column <span class="math inline">\(j\)</span>, the empirical variance used to standardize the column is</p>
+<p><span class="math display">\[ \hat{\sigma}_j = \frac{1}{n}\sum_{i=1}^n (x_{ij}-\bar{x}_j) \: , \qquad  
+\bar{x}_j = \frac{1}{n} \sum_{i=1}^n x_{ij}
+\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of rows of the data (here <span class="math inline">\(n=10\)</span>). Be careful, in R the <strong>scale</strong> function computes the empirical variance as follows:</p>
+<p><span class="math display">\[ \hat{\sigma}_j = \frac{1}{n-1}\sum_{i=1}^n (x_{ij}-\bar{x}_j) \: , \qquad  
+\bar{x}_j = \frac{1}{n} \sum_{i=1}^n x_{ij}
+\]</span></p>
+<p><strong>(R1)</strong> In a few lines of code, recover by yourself the eigenvalues found with PCA of FactoMineR.</p>
+<p><strong>(R2)</strong> In a few lines of code, recover the projections of the individuals (the coordinates of the individuals) on the 2 first principal axis.</p>
+<p><strong>(Q2)</strong> From the preceding question, you obtain 2 vectors of dimension <span class="math inline">\(10\)</span>. Show (theoretically) that their empirical variances are respectively the first and the second eigenvalues of the PCA (given by PCA of FactoMineR for example).</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-3-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre><code>##        S Michaud       S Renaudie      S Trotignon S Buisse Domaine 
+##    -4.440892e-15    -1.776357e-15    -5.329071e-15    -1.088019e-14 
+## S Buisse Cristal      V Aub Silex    V Aub Marigny   V Font Domaine 
+##    -3.552714e-15    -1.110223e-14     9.325873e-15     4.884981e-15 
+##    V Font Brules   V Font Coteaux 
+##     8.881784e-15     1.110223e-14</code></pre>
+<pre><code>## Warning in svdM$d - resPCA$eig$eigenvalue: la taille d&#39;un objet plus long
+## n&#39;est pas multiple de la taille d&#39;un objet plus court</code></pre>
+<pre><code>##  [1]  -1.002805   1.426807   2.427074   2.491577   2.473375   2.181726
+##  [7]   2.044241   1.592458   1.475476 -11.921255</code></pre>
+<pre><code>## Warning in svdM$d^2 - resPCA$eig$eigenvalue: la taille d&#39;un objet plus long
+## n&#39;est pas multiple de la taille d&#39;un objet plus court</code></pre>
+<pre><code>##  [1]  0.000000e+00  1.154632e-14  0.000000e+00  2.664535e-15  1.776357e-15
+##  [6]  4.440892e-16  1.554312e-15  9.436896e-16 -5.551115e-16 -1.192125e+01</code></pre>
+<!-- Page Rank? simon. -->
+</div>
+<div id="other-applications-to-practice" class="section level2">
+<h2><span class="header-section-number">10.3</span> Other applications to practice</h2>
+<div id="ozone-data" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> Ozone data</h3>
+<p>Air pollution is currently one of the most serious public health worries worldwide. Many epidemiological studies have proved the influence that some chemical compounds, such as sulphur dioxide (SO2), nitrogen dioxide (NO2), ozone (O3) can have on our health. Associations set up to monitor air quality are active all over the world to measure the concentration of these pollutants. They also keep a record of meteorological conditions such as temperature, cloud cover, wind, etc. Here the final aim is to analyse the relationship between the maximum daily ozone level and meteorological variables. We have at our disposal 112 observations collected during the summer of 2001 in Rennes. Before trying to build a prediction model, we will inspect the data with a PCA and illustrate the reconstruction property of PCA. The variables available are maxO3 (maximum daily ozone), maxO3v (maximum daily ozone the previous day), T12 (temperature at midday), T9, T15 (Temp at 3pm), wind (direction), rain and Vx12 (projection of the wind speed vector on the east-west axis at midday), Vx9 and Vx15, as well as the Nebulosity (cloud) Ne9, Ne12, Ne15. The data is contained in the file ozone.txt.</p>
+<ul>
+<li>Perform the PCA on the ozone data (also using the categorical variables) and give a short interpretation of the first dimensions of variability (interpretation of the observations plot, correlation between variables, percentage of variability, etc.). The variable maxO3 that we want to predict using a regression model for instance can be put as a supplementary variable in the analysis. Explain the interest of perfoming this PCA before a regression.</li>
+</ul>
+</div>
+<div id="mice-microarray-data-and-fatty-acid-concentration" class="section level3">
+<h3><span class="header-section-number">10.3.2</span> Mice microarray data and fatty acid concentration</h3>
+<p>The data comes from Agrocampus genetics department (S. Lagarrigue). This is an experiment with 40 mice of 2 genotypes (wild, PPAR<span class="math inline">\(\alpha\)</span>-deficient). In the field of molecular biology, the peroxisome proliferator-activated receptors (PPARs) are a group of nuclear receptor proteins that function as transcription factors regulating the expression of genes. PPARs play essential roles in the regulation of cellular differentiation, development, and metabolism (carbohydrate, lipid, and protein) of higher organisms. PPAR<span class="math inline">\(\alpha\)</span> are expressed in liver, kidney, heart, muscle, adipose tissue, and others. The mice endured 5 diet conditions: dha, efad, lin, ref, tsol. More precisely, dha: diet rich in fatty acids of the Omega 3 family and particularly docosahexaenoic acid (DHA), based on fish oil; efad (Essential Fatty Acid Deficient): diet based on saturated fatty acids only, made from hydrogenated coconut oil; lin: diet rich in Omega 3, made from linseed oil; ref: regime with seven times more Omega 6 than Omega 3; tsol: diet rich in Omega 6, based on sunflower oil. At the end of the diet, the genes were analysed using DNA chips, and the expression of 120 genes retained for all the mice. The aim of the study is to see whether the genes are expressed differently depending on the situation of stress. We also have 21 hepatic fatty acid concentration. Two groups of different king of variables are available (genes/fatty acid). \</p>
+<p>The idea is to highligh the interest of using supplementary variables. First, we consider separate PCAs. Perform the PCA on the fatty acid data and use the genes data as supplementary variables. Comment these choices and the obtained results. Then, consider the other way. Data can be found at <a href="http://factominer.free.fr/docs/souris.csv" class="uri">http://factominer.free.fr/docs/souris.csv</a>.</p>
+</div>
+<div id="chicken-microarray-data" class="section level3">
+<h3><span class="header-section-number">10.3.3</span> Chicken microarray data</h3>
+<p>This is an experiment with 43 chickens with six diet conditions: normal diet (N), fasting for 16 hours (F16), fasting for 16 hours then refed for 5 hours (F16R5), fasting for 16 hours then refed for 16 hours (F16R16) fasting for 48 hours (F48), and fasting for 48 hours then refed for 24 hours (F48R24). At the end of the diet, the genes were analyzed using DNA chips, and the expression of 7407 genes retained for all the chickens. The data were then preprocessed in a standard manner for DNA chips (normalisation, eliminating the chip effect, etc.). The aim of the study is to see whether the genes are expressed differently depending on the situation of stress. More precisely, it may be interesting to see how long the chicken needs to be refed after fasting before it returns to a normal state, i.e., a state comparable to the state of a chicken with a normal diet. Might some genes be underexpressed during fasting and overexpressed during feeding? Data can be found at <a href="http://factominer.free.fr/docs/chicken.txt" class="uri">http://factominer.free.fr/docs/chicken.txt</a></p>
+</div>
+</div>
+<div id="low-rank-matrix-approximation---reconstruction-with-pca" class="section level2">
+<h2><span class="header-section-number">10.4</span> Low rank matrix approximation - reconstruction with PCA</h2>
+<p>Let’s look at the low-rank (say <span class="math inline">\(k\)</span>) approximation of the ozone data.</p>
+<ul>
+<li>With the PCA outputs, one could reconstruct the data. First, reconstruct the data with one dimension. You should be aware that with the results of PCA, you could reconstruct the centered and scaled data.</li>
+</ul>
+<!--, so that you may need to add the means and multiplied by the standard deviations to get the approximation of the original matrix. -->
+<ul>
+<li>You can observe the difference between <span class="math inline">\(X\)</span> and <span class="math inline">\(\hat X\)</span> (noted HatX1dim) by looking at the following plot for the variable maxO3y:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">plot</span>(ozone[,<span class="st">&quot;maxO3y&quot;</span>], <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)
+ <span class="kw">lines</span>(HatX1dim[,<span class="st">&quot;maxO3v&quot;</span>], <span class="dt">col =</span> <span class="dv">2</span>)</code></pre></div>
+<p>Comment.</p>
+<ul>
+<li>Build a function to reconstruct the data with a specific number of dimensions. Then, reconstruct the data with 2 to 4 dimensions and represent different variables (observed and estimated). Comment your results with respect to the correlation circle.</li>
+</ul>
+</div>
+<div id="reconstruct-an-image" class="section level2">
+<h2><span class="header-section-number">10.5</span> Reconstruct an image</h2>
+<p>Import the data missing.jpg or breton.png and reconstruct the image with 1 to 100 dimensions. There are different packages dedicated to images. With the following lines of code, you could read an image, reprensent it and then transform it in a grey scale. (Be careful that you may need to execute the code in the R console and not by knitting).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;https://bioconductor.org/biocLite.R&quot;</span>)
+<span class="kw">biocLite</span>(<span class="st">&quot;EBImage&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;EBImage&quot;</span>)
+img &lt;-<span class="st"> </span><span class="kw">readImage</span>(<span class="st">&quot;data/missing.jpg&quot;</span>)
+<span class="kw">display</span>(img, <span class="dt">method =</span> <span class="st">&quot;raster&quot;</span>)
+
+<span class="kw">library</span>(ripa)
+r &lt;-<span class="st"> </span><span class="kw">imagematrix</span>(img, <span class="dt">type =</span> <span class="st">&quot;grey&quot;</span>)
+<span class="kw">display</span>(r, <span class="dt">method =</span> <span class="st">&quot;raster&quot;</span>)</code></pre></div>
+<p>Using the grey image (r), reconstruct the image with 1 to 100 dimensions and export the reconstructed images in a folder with the names “missing_ncp_1” to “missing_ncp_100”. You could use the packages “jpeg” and “png” to export the image with functions ‘writePNG’ for instance. Comment.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="principal-components-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="handling-missing-values.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-Homework3PCA.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
