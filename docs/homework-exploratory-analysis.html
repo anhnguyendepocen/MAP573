@@ -25,7 +25,7 @@
 <meta name="author" content="Julie Josse">
 
 
-<meta name="date" content="2017-09-30">
+<meta name="date" content="2017-10-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -115,12 +115,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2.2" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-2---dealing-with-missing-data"><i class="fa fa-check"></i><b>6.2.2</b> Question 2 - dealing with missing data</a></li>
 <li class="chapter" data-level="6.2.3" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-3---exploration-of-the-data"><i class="fa fa-check"></i><b>6.2.3</b> Question 3 - exploration of the data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#prediction-of-chicago-criminality"><i class="fa fa-check"></i><b>6.3</b> Prediction of Chicago criminality</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-1---load-the-dataset"><i class="fa fa-check"></i><b>6.3.1</b> Question 1 - load the dataset</a></li>
-<li class="chapter" data-level="6.3.2" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-2---descriptive-statistics"><i class="fa fa-check"></i><b>6.3.2</b> Question 2 - descriptive statistics</a></li>
-<li class="chapter" data-level="6.3.3" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-3---first-maps"><i class="fa fa-check"></i><b>6.3.3</b> Question 3 - first maps</a></li>
-<li class="chapter" data-level="6.3.4" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-4---density-plots"><i class="fa fa-check"></i><b>6.3.4</b> Question 4 - density plots</a></li>
-</ul></li>
+<li class="chapter" data-level="6.3" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#map-of-chicago---prediction-of-chicago-criminality"><i class="fa fa-check"></i><b>6.3</b> Map of Chicago - Prediction of Chicago criminality</a></li>
+<li class="chapter" data-level="6.4" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#installing-ggmap"><i class="fa fa-check"></i><b>6.4</b> Installing ggmap</a></li>
+<li class="chapter" data-level="6.5" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#load-the-data"><i class="fa fa-check"></i><b>6.5</b> Load the data</a></li>
+<li class="chapter" data-level="6.6" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-1---first-map"><i class="fa fa-check"></i><b>6.6</b> Question 1 - First map</a></li>
+<li class="chapter" data-level="6.7" data-path="homework-exploratory-analysis.html"><a href="homework-exploratory-analysis.html#question-2---density-plots"><i class="fa fa-check"></i><b>6.7</b> Question 2 - Density plots</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>7</b> Tests</a></li>
 <li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
@@ -218,14 +217,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 </div>
-<div id="prediction-of-chicago-criminality" class="section level2">
-<h2><span class="header-section-number">6.3</span> Prediction of Chicago criminality</h2>
-<p>This dataset reflects reported incidents of crime (with the exception of murders) that occurred in the City of Chicago from 2001 to present. Data is extracted from the Chicago Police Department’s CLEAR (Citizen Law Enforcement Analysis and Reporting) system. The goal is to use the data to predict new crimes and optimize the schedule and route of police patrols. The purpose of this case study is to practice R tools to produce maps.</p>
-<div id="question-1---load-the-dataset" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> Question 1 - load the dataset</h3>
-<p>You should first of all import the dataset crimes_HWK1_reduced.csv and the <strong>ggmap</strong> library.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;ggmap&quot;)</span></code></pre></div>
-<pre><code>## Loading required package: ggplot2</code></pre>
+<div id="map-of-chicago---prediction-of-chicago-criminality" class="section level2">
+<h2><span class="header-section-number">6.3</span> Map of Chicago - Prediction of Chicago criminality</h2>
+<p>The dataset “crimes_HWK1_reduced.csv” reflects reported incidents of crime (with the exception of murders) that occurred in the City of Chicago from 2001 to present. Data is extracted from the Chicago Police Department’s CLEAR (Citizen Law Enforcement Analysis and Reporting) system. The goal was to use the data to predict new crimes and optimize the schedule and route of police patrols.</p>
+<p>In this case study, we will learn how to use R tools to produce maps containing information about data.</p>
+</div>
+<div id="installing-ggmap" class="section level2">
+<h2><span class="header-section-number">6.4</span> Installing ggmap</h2>
+<p>You have to install the ggmap library. Because of recent updates in <em>ggplot2</em> and <em>ggmap</em> which lead to incompatibilities between the two packages, you have to follow the following procedure.</p>
+<p>We will do this only for this homework. After you are done with the exercise you should re-install the more recent version of <em>ggplot2</em> with</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)
+<span class="kw">library</span>(ggplot2)</code></pre></div>
+<p>Otherwise you will have errors in future exercises.</p>
+<ol style="list-style-type: decimal">
+<li>Install the <em>ggmap</em> and <em>ggplot2</em> packages from Github</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;dkahle/ggmap&quot;</span>)
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;hadley/ggplot2@v2.2.0&quot;</span>)</code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Close R</p></li>
+<li><p>Restart R and load the libraries</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggmap)
+<span class="kw">library</span>(ggplot2)</code></pre></div>
+<p>Because of this problem you might not be able to “knit” your .Rmd document. This is not a problem, you can execute the chunks by pressing Cmd+Enter or Ctrl+Enter. Just submit your .Rmd on the moodle.</p>
+</div>
+<div id="load-the-data" class="section level2">
+<h2><span class="header-section-number">6.5</span> Load the data</h2>
 <p>Every criminal case is referenced by 18 variables that include</p>
 <ul>
 <li>Case.Number: the reference number of the criminal case.</li>
@@ -236,33 +254,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Latitude, Longitude and Location (Location=(Latitude, Longitude)).</li>
 </ul>
 </div>
-<div id="question-2---descriptive-statistics" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> Question 2 - descriptive statistics</h3>
-<ul>
-<li><p>Represent graphically the relationship between arrests and crime type, for crimes of burglary, narcotics, prostitution and kidnapping. Comment.</p></li>
-<li><p>Which is the most frequent type of crime according to this data set ?</p></li>
-</ul>
-</div>
-<div id="question-3---first-maps" class="section level3">
-<h3><span class="header-section-number">6.3.3</span> Question 3 - first maps</h3>
-<p>You can use the <strong>ggmap</strong> library to represent locations on a map. The coordinates must be stored in a data frame.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hdf &lt;-<span class="st"> </span><span class="kw">get_map</span>(<span class="st">&quot;chicago, illinois&quot;</span>)
+<div id="question-1---first-map" class="section level2">
+<h2><span class="header-section-number">6.6</span> Question 1 - First map</h2>
+<p>The ggmap library enables you to represent locations on a map. The coordinates must be stored in a data frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Load the map of Chicago
+hdf &lt;-<span class="st"> </span><span class="kw">get_map</span>(<span class="st">&quot;chicago, illinois&quot;</span>)
+
+## Code to answer the questions of the homework
 lon &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="fl">87.9</span>, -<span class="fl">87.6</span>)
-lat &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">41.9</span>,<span class="fl">41.65</span>)      
+lat &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">41.9</span>,<span class="fl">41.65</span>)
 chkpts &lt;-<span class="st"> </span><span class="kw">data.frame</span>(lon,lat)
 <span class="kw">names</span>(chkpts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>)
 <span class="kw">ggmap</span>(hdf, <span class="dt">extent =</span> <span class="st">&quot;normal&quot;</span>) +
 <span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>), <span class="dt">data =</span> chkpts, <span class="dt">alpha =</span> <span class="dv">1</span>)</code></pre></div>
-<p>Extract the extremal locations in terms of latitude and longitude and plot them together on the map of Chicago. First you must convert the values of <strong>Longitude</strong> and <strong>Latitude</strong> to numerics.</p>
+<p>Extract the extremal locations of in terms of latitude and longitude and plot them together on the map of Chicago. First you must convert the values of Longitude and Latitude to numerics with the code given below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data[,<span class="st">&quot;Longitude&quot;</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;.&quot;</span>, data[,<span class="st">&quot;Longitude&quot;</span>])) 
+data[,<span class="st">&quot;Latitude&quot;</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;.&quot;</span>, data[,<span class="st">&quot;Latitude&quot;</span>]))
+lat_min &lt;-<span class="st"> </span>data[<span class="kw">which.min</span>(data$Latitude),<span class="kw">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)] 
+lat_max &lt;-<span class="st"> </span>data[<span class="kw">which.max</span>(data$Latitude),<span class="kw">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)] 
+lon_min &lt;-<span class="st"> </span>data[<span class="kw">which.min</span>(data$Longitude),<span class="kw">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)] 
+lon_max &lt;-<span class="st"> </span>data[<span class="kw">which.max</span>(data$Longitude),<span class="kw">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)]
+chkpts &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rbind</span>(lat_min, lat_max, lon_min, lon_max))
+<span class="kw">names</span>(chkpts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>)
+<span class="kw">ggmap</span>(hdf, <span class="dt">extent =</span> <span class="st">&quot;normal&quot;</span>) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>), <span class="dt">data =</span> chkpts, <span class="dt">alpha =</span> <span class="dv">1</span>)</code></pre></div>
 </div>
-<div id="question-4---density-plots" class="section level3">
-<h3><span class="header-section-number">6.3.4</span> Question 4 - density plots</h3>
-<p>Extract the crimes that took place on May 3. 2003 (05/03/2003) and represent them on the map with a density plot. Hint: check the <strong>grepl</strong> and <strong>stat_density2d</strong> functions</p>
-<p>Represent the crime density for burglaries, narcotics, prostitution and kidnapping. Comment</p>
+<div id="question-2---density-plots" class="section level2">
+<h2><span class="header-section-number">6.7</span> Question 2 - Density plots</h2>
+<p>Extract the crimes that took place on May 3. 2003 (05/03/2003) and represent them on the map with a density plot. Hint: check the <em>grepl</em> and <em>stat_density_2d functions</em>. Represent the crime density for burglaries, narcotics, prostitution and kidnapping. Comment Extract the crimes that occurred in 2002. Represent the crime density for every month of the year. Plot the density of all crimes per value of Arrest. Comment.</p>
 <p>Extract the crimes that occurred in 2002. Represent the crime density for every month of the year.</p>
 <p>Plot the density of all crimes per value of Arrest. Comment.</p>
 
-</div>
 </div>
 </div>
             </section>

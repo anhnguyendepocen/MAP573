@@ -25,7 +25,7 @@
 <meta name="author" content="Julie Josse">
 
 
-<meta name="date" content="2017-09-30">
+<meta name="date" content="2017-10-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -113,9 +113,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8" data-path="homework-tests.html"><a href="homework-tests.html"><i class="fa fa-check"></i><b>8</b> Homework: tests</a></li>
 <li class="chapter" data-level="9" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html"><i class="fa fa-check"></i><b>9</b> Principal components analysis</a><ul>
 <li class="chapter" data-level="9.1" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#lecture"><i class="fa fa-check"></i><b>9.1</b> Lecture</a></li>
-<li class="chapter" data-level="9.2" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#lab"><i class="fa fa-check"></i><b>9.2</b> Lab</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#lecture-questions"><i class="fa fa-check"></i><b>9.2.1</b> Lecture questions</a></li>
-<li class="chapter" data-level="9.2.2" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#analysis-of-decathlon-data"><i class="fa fa-check"></i><b>9.2.2</b> Analysis of decathlon data</a></li>
+<li class="chapter" data-level="9.2" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#detailed-derivation-of-principal-component-analysis"><i class="fa fa-check"></i><b>9.2</b> Detailed derivation of Principal Component Analysis</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#maximizing-the-variance"><i class="fa fa-check"></i><b>9.2.1</b> Maximizing the variance</a></li>
+<li class="chapter" data-level="9.2.2" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#minimizing-the-reconstruction-error"><i class="fa fa-check"></i><b>9.2.2</b> Minimizing the reconstruction error</a></li>
+<li class="chapter" data-level="9.2.3" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#relationship-with-svd"><i class="fa fa-check"></i><b>9.2.3</b> Relationship with SVD</a></li>
+<li class="chapter" data-level="9.2.4" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#explained-variance-and-correlation"><i class="fa fa-check"></i><b>9.2.4</b> Explained variance and correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#lab"><i class="fa fa-check"></i><b>9.3</b> Lab</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#lecture-questions"><i class="fa fa-check"></i><b>9.3.1</b> Lecture questions</a></li>
+<li class="chapter" data-level="9.3.2" data-path="principal-components-analysis.html"><a href="principal-components-analysis.html#analysis-of-decathlon-data"><i class="fa fa-check"></i><b>9.3.2</b> Analysis of decathlon data</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="homework-pca.html"><a href="homework-pca.html"><i class="fa fa-check"></i><b>10</b> Homework: PCA</a></li>
@@ -150,8 +156,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Principal component analysis (PCA) summarizes a data table where the observations are described by (continuous) quantitative variables. PCA is used to study the similarities between individuals from the point of view of all of the variables and identifies individuals profiles. It is also used to study the linear relationships between variables (based on correlation coefficients). The two studies are linked, which means that the individuals or groups can be characterized by the variables and the links between variables illustrated from typical individuals. More details are in the lecture slides.</p>
 <p>To perform PCA, we use the PCA function from the FactoMineR package. A <a href="http://factominer.free.fr">website</a> is dedicated to this package. The code associated to the lecture slides is the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FactoMineR)
-Expert &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://factominer.free.fr/docs/Expert_wine.csv&quot;</span>,
-<span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)
+<span class="co">#Expert &lt;- read.table(&quot;http://factominer.free.fr/docs/Expert_wine.csv&quot;,</span>
+<span class="co">#header = TRUE, sep = &quot;;&quot;, row.names = 1)</span>
+Expert &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/Expert_wine.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)
 res.pca &lt;-<span class="st"> </span><span class="kw">PCA</span>(Expert, <span class="dt">scale =</span> T, <span class="dt">quanti.sup =</span> <span class="dv">29</span>:<span class="dv">30</span>, <span class="dt">quali.sup =</span> <span class="dv">1</span>)
 <span class="kw">summary</span>(res.pca)
 <span class="kw">barplot</span>(res.pca$eig[,<span class="dv">1</span>], <span class="dt">main =</span> <span class="st">&quot;Eigenvalues&quot;</span>, <span class="dt">names.arg =</span> <span class="dv">1</span>:<span class="kw">nrow</span>(res.pca$eig))
@@ -175,10 +182,73 @@ res.pca$ind$coord; res.pca$ind$cos2; res.pca$ind$contrib
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(factoextra)</code></pre></div>
 <p>References on principal component methods and on the FactoMineR package: Exploratory Multivariate Analysis by Example using R, Husson, Lê, Pagès (2017), Chapman &amp; Hall Multiple Factor Analysis by Example using R, Pagès (2015), CRC Press.</p>
 </div>
+<div id="detailed-derivation-of-principal-component-analysis" class="section level2">
+<h2><span class="header-section-number">9.2</span> Detailed derivation of Principal Component Analysis</h2>
+<p>Let <span class="math inline">\((X_i)_{1\le i \le I}\)</span> be the <span class="math inline">\(I\)</span> observations in <span class="math inline">\(\mathbb{R}^K\)</span> and <span class="math inline">\(X\)</span> the <span class="math inline">\(\mathbb{R}^{I\times K}\)</span> matrix such that the <span class="math inline">\(i\)</span>-th line of <span class="math inline">\(X\)</span> is <span class="math inline">\(X_i\)</span>. Principal Component Analysis aims at finding a subspace of <span class="math inline">\(\mathbb{R}^K\)</span> such that the observations <span class="math inline">\((X_{i})_{1\le i \le I}\)</span> are simultaneously close to their projections in this subspace or equivalently a subspace that maximizes the variance of the projected points. In the following, we assume that the data are centered i.e. <span class="math inline">\(I^{-1}\sum_{i=1}^I X_{i} = 0\)</span>.</p>
+<div id="maximizing-the-variance" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Maximizing the variance</h3>
+<p>The first direction <span class="math inline">\(u_1\in \mathbb{R}^K\)</span> is the vector which maximizes the empirical variance of the one dimensional vector <span class="math inline">\((a’X_1,\ldots,a’X_I)\)</span> for <span class="math inline">\(a\in\mathbb{R}^K\)</span> such that <span class="math inline">\(\|a\|^2=a&#39;a=1\)</span>: <span class="math display">\[
+u_1 \in \underset{\|a\|=1}{\mathrm{Argmax}}\left\{\, I^{-1}\sum_{i=1}^I \langle X_{i},a \rangle^2\,\right\}.
+\]</span> Then, for all <span class="math inline">\(k\ge 2\)</span>, <span class="math inline">\(u_k\)</span> is the vector which maximizes the empirical variance of the one dimensional vector <span class="math inline">\((a’X_1,\ldots,a’X_I)\)</span> on the set <span class="math inline">\(\{a\in\mathbb{R}^K\,;\, \|a\| =1\,,\, a\perp u_1,\ldots,u_{k-1}\}\)</span>: <span class="math display">\[
+u_k \in \underset{\|a\|=1\,,\, a\perp u_1,\ldots,u_{k-1}}{\mathrm{Argmax}} \left\{I^{-1}\sum_{i=1}^I \langle X_{i},a \rangle^2\,\right\}.
+\]</span></p>
+</div>
+<div id="minimizing-the-reconstruction-error" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Minimizing the reconstruction error</h3>
+<p>For any dimension <span class="math inline">\(Q\le K\)</span>, PCA computes the linear span <span class="math inline">\(u\)</span> defined by: <span class="math display">\[
+u \in \underset{\mathrm{dim}(u)\le Q}{\mathrm{Argmin}} \left\{\sum_{i=1}^I \left\|X_{i} - \pi_u(X_{i})\right\|^2\right\}\,,
+\]</span> where <span class="math inline">\(\pi_u\)</span> is the orthogonal projection onto <span class="math inline">\(u\)</span>.</p>
+</div>
+<div id="relationship-with-svd" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> Relationship with SVD</h3>
+<p>PCA relies on the singular value decomposition of the matrix <span class="math inline">\(X\)</span>. Let <span class="math inline">\(r\)</span> be the rank of the matrix <span class="math inline">\(X\)</span> and <span class="math inline">\(\lambda_1 \ge \ldots\ge \lambda_r&gt;0\)</span> be the nonzero eigenvalues of the empirical variance: <span class="math display">\[
+I^{-1}X’X = I^{-1}\sum_{i=1}^I X_i(X_i)&#39;\,.
+\]</span> There exist two orthonormal families <span class="math inline">\((v_j)_{1\le j \le r}\)</span> in <span class="math inline">\(\mathbb{R}^I\)</span> and <span class="math inline">\((u_j)_{1\le j \le r}\)</span> in <span class="math inline">\(\mathbb{R}^K\)</span> such that: <span class="math display">\[
+I^{-1}XX’v_j = \lambda_jv_j\quad\mbox{and}\quad I^{-1}X’Xu_j = \lambda_ju_j\,.
+\]</span> <span class="math inline">\((\lambda_j)_{1\le j \le r}\)</span> are referred to as the singular values, <span class="math inline">\((v_j)_{1\le j \le r}\)</span> as the left-singular vectors and <span class="math inline">\((u_j)_{1\le j \le r}\)</span> the right-singular vectors.</p>
+<p>For all <span class="math inline">\(Q\le r\)</span>, let <span class="math inline">\(H_Q\)</span> be the linear space spanned by <span class="math inline">\(\{u_1,\ldots,u_Q\}\)</span>. We first show that <span class="math inline">\(H_Q\)</span> is solution to the problem of Section 9.2.1. Let <span class="math inline">\(a\in\mathbb{R}^K\)</span> with <span class="math inline">\(\|a\|^2 =a&#39;a=1\)</span>. Then, <span class="math display">\[
+I^{-1}\sum_{i=1}^I \langle X_{i},a \rangle^2 = I^{-1}\sum_{i=1}^I  a&#39;X_{i}(X_i)&#39;a = a&#39;\left(I^{-1}X&#39;X\right)a = \sum_{j=1}^r \lambda_j(a&#39;u_j)(u_j&#39;a)\,.
+\]</span> Note that <span class="math display">\[
+\sum_{j=1}^r \lambda_j(a&#39;u_j)(u_j&#39;a)\le \lambda_1\sum_{j=1}^r (a&#39;u_j)(u_j&#39;a)\le \lambda_1\,.
+\]</span> On the other hand, if we choose <span class="math inline">\(a=u_1\)</span>, as <span class="math inline">\(u_1&#39;u_j = 0\)</span> for <span class="math inline">\(u\le j \le r\)</span> and <span class="math inline">\(\|u_1\|^2=u_1&#39;u_1=1\)</span>: <span class="math display">\[
+\sum_{j=1}^r \lambda_j(a&#39;u_j)(u_j&#39;a) = \lambda_1\,.
+\]</span> This yields: <span class="math display">\[
+u_1 \in \underset{\|a\|=1}{\mathrm{Argmax}} \sum_{i=1}^I \langle X_{i},a \rangle^2\,.
+\]</span> Then, for <span class="math inline">\(k\ge 2\)</span>, let <span class="math inline">\(a\in\mathbb{R}^K\)</span> such that <span class="math inline">\(a\perp u_1,\ldots,u_{k-1}\)</span>. <span class="math display">\[
+\sum_{j=1}^r \lambda_j(a&#39;u_j)(u_j&#39;a)\le \lambda_k\sum_{j=k}^r (a&#39;u_j)(u_j&#39;a)\le \lambda_k\,.
+\]</span> If we choose <span class="math inline">\(a=u_k\)</span>, as <span class="math inline">\(a&#39;u_j = 0\)</span> for <span class="math inline">\(1\le j \le k-1\)</span> <span class="math inline">\(\|a\|^2=a&#39;a=1\)</span> and: <span class="math display">\[
+\sum_{j=1}^r \lambda_j(a&#39;u_j)(u_j&#39;a) = \lambda_k\,,
+\]</span> which proves that: <span class="math display">\[
+u_k \in \underset{\|a\|=1\,,\, a\perp u_1,\ldots,u_{k-1}}{\mathrm{Argmax}} \sum_{i=1}^I \langle X_{i},a \rangle^2\,.
+\]</span></p>
+<p>The space <span class="math inline">\(H_Q\)</span> is also solution to the problem of Section 9.2.2. As for all <span class="math inline">\(1 \le i \le I\)</span>, <span class="math inline">\(\pi_{H_Q}(X_i) = \sum_{j=1}^Q (X’_iu_j)u_j\)</span>, for all linear span <span class="math inline">\(u\)</span> in <span class="math inline">\(\mathbb{R}^K\)</span> such that <span class="math inline">\(\mathrm{dim}(u)\le Q\)</span>, <span class="math display">\[
+\sum_{i=1}^I \left\|X_i - \pi_{H_Q}(X_i)\right\|^2 = \sum_{j=Q+1}^r\lambda_j\le \sum_{i=1}^I \left\|X_i - \pi_{u}(X_i)\right\|^2\,,
+\]</span> which proves that: <span class="math display">\[
+H_Q \in \underset{\mathrm{dim}(u)\le Q}{\mathrm{Argmin}} \left\{\sum_{i=1}^I \left\|X_{i} - \pi_u(X_{i})\right\|^2\right\}\,,
+\]</span></p>
+<p>The vectors <span class="math inline">\((F_j = X u_j)_{1\le j \le Q}\)</span> are the principal components. Note that for all <span class="math inline">\(1 \le i \le I\)</span>, <span class="math display">\[
+\pi_{H_Q}(X_i) = \sum_{j=1}^Q (F_j)_iu_j\,.
+\]</span> The vectors <span class="math inline">\((F_j = X u_j)_{1\le j \le Q}\)</span> are orthogonal eigenvectors of <span class="math inline">\(I^{-1}XX’\)</span>.</p>
+</div>
+<div id="explained-variance-and-correlation" class="section level3">
+<h3><span class="header-section-number">9.2.4</span> Explained variance and correlation</h3>
+<ul>
+<li><p>The percentage of variance explained by the first <span class="math inline">\(Q\)</span> dimensions is: <span class="math display">\[
+\alpha_Q = \frac{\sum_{i=1}^I\|\pi_{H_Q}(X_{i})\|^2}{\sum_{i=1}^I\|X_{i}\|^2} = \frac{\sum_{i=1}^Q\lambda_i}{\sum_{i=1}^K\lambda_i}\,.
+\]</span> With each observation is associated the vector: <span class="math display">\[
+\rho_i(j) = \frac{\langle X^{(i)}, F_j\rangle}{\|X^{(i)}\|\|F_j\|}\,,
+\]</span> where <span class="math inline">\(X^{(i)}\)</span> is the <span class="math inline">\(i\)</span>-th column of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Quality of the projection - cos2</p></li>
+</ul>
+<p>Let <span class="math inline">\(W_Q = \mathrm{span}\{F_1,\ldots,F_Q\}\)</span>. Note that for all <span class="math inline">\(1 \le i \le K\)</span>, <span class="math display">\[
+\|\rho_i\|^2 = \frac{\|\pi_{W_Q}(X^{(i)})\|^2}{\|X^{(i)}\|^2}\le 1\,.
+\]</span> <span class="math inline">\(\|\rho_i\|\)</span> measures the quality of the projection of <span class="math inline">\(X_i\)</span> on the first <span class="math inline">\(Q\)</span> principal components.</p>
+</div>
+</div>
 <div id="lab" class="section level2">
-<h2><span class="header-section-number">9.2</span> Lab</h2>
+<h2><span class="header-section-number">9.3</span> Lab</h2>
 <div id="lecture-questions" class="section level3">
-<h3><span class="header-section-number">9.2.1</span> Lecture questions</h3>
+<h3><span class="header-section-number">9.3.1</span> Lecture questions</h3>
 <ul>
 <li>When do we need to scale the variables? Simulate and comment:</li>
 </ul>
@@ -202,7 +272,7 @@ res.pcascaled &lt;-<span class="st"> </span><span class="kw">PCA</span>(don, <sp
 <p><img src="pic/AnaDo_ACP_exo_Graphe_var2.jpg" width="50%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="analysis-of-decathlon-data" class="section level3">
-<h3><span class="header-section-number">9.2.2</span> Analysis of decathlon data</h3>
+<h3><span class="header-section-number">9.3.2</span> Analysis of decathlon data</h3>
 <p>This dataset contains the results of decathlon events during two athletic meetings which took place one month apart in 2004: the Olympic Games in Athens (23 and 24 August), and the Decastar 2004 (25 and 26 September). For both competitions, the following information is available for each athlete: performance for each of the 10 events, total number of points (for each event, an athlete earns points based on performance; here the sum of points scored) and final ranking. The events took place in the following order: 100 metres, long jump, shot put, high jump, 400 metres (first day) and 110 metre hurdles, discus, pole vault, javelin, 1500 metres (second day). Nine athletes participated to both competions. We would like to obtain a typology of the performance profiles.</p>
 <p>The aim of conducting PCA on this dataset is to determine profiles for similar performances: are there any athletes who are better at endurance events or those requiring short bursts of energy, etc? And are some of the events similar? If an athlete performs well in one event, will he necessarily perform well in another?</p>
 <p>The data can be found with:</p>
@@ -359,6 +429,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
